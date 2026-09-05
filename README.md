@@ -1,4 +1,4 @@
-# qsvt-regularized-psse
+# Selected Output QSVT for Regularized Power System State Estimation
 
 Reproducible implementation and benchmark evaluation of QSVT-compatible
 regularized spectral filtering for power-system state estimation.
