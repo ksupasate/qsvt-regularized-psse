@@ -1,0 +1,9 @@
+name: qsvt-se
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.11
+  - pip
+  - pip:
+      - -r requirements.txt
+      - -e .

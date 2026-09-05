@@ -1,0 +1,34 @@
+{
+  "basis_gates": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "cases": [
+    "ieee14",
+    "ieee30"
+  ],
+  "implementation_scope": "small research-derived submatrix circuit scaling",
+  "is_dense_unitary_only": false,
+  "max_cx_count": 475.0,
+  "max_depth_after_transpile": 1899.0,
+  "max_error_vs_classical": 1.11091293608645e-06,
+  "max_simulated_size": 8,
+  "mean_error_vs_classical": 6.818037884618836e-08,
+  "n_completed": 6,
+  "n_failed": 0,
+  "n_infeasible": 2,
+  "n_phase_angles": 6,
+  "n_rows": 8,
+  "polynomial_degree": 5,
+  "qsvt_construction_type": "explicit_block_encoding_qsvt_scaling",
+  "run_id": "qsvt_circuit_scaling",
+  "scope_note": "Scaling rows use deterministic IEEE weighted-Jacobian submatrices. Rows above max_simulated_size are recorded as infeasible instead of being silently skipped.",
+  "sizes": [
+    2,
+    4,
+    8,
+    16
+  ]
+}

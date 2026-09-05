@@ -1,0 +1,28 @@
+{
+  "study_id": "reviewer_blocking_strong_baselines_v1",
+  "declared_before_selector_evaluation": true,
+  "matrix_seed": 123,
+  "y_floor": 1e-6,
+  "failure_threshold": 0.1,
+  "functionals": ["coordinate_e0", "signed_difference_e0_minus_e1", "aggregate_e0_to_e3"],
+  "training_seed_ids": [1000, 1001, 1002, 1003, 1004],
+  "held_out_seed_ids": [2000, 2001, 2002, 2003, 2004],
+  "beam_width": 6,
+  "beam_max_steps": 40,
+  "oracle_max_candidates": 3000000,
+  "random_seed_base": 314159,
+  "blocks": [
+    {
+      "dimension": 4,
+      "include_exhaustive_oracle": true,
+      "support_budgets": [4, 6],
+      "slot_budgets": [2, 3]
+    },
+    {
+      "dimension": 8,
+      "include_exhaustive_oracle": false,
+      "support_budgets": [16],
+      "slot_budgets": [3]
+    }
+  ]
+}

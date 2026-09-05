@@ -1,0 +1,90 @@
+{
+  "accounting": {
+    "alternating_sequence_length": 63,
+    "circuit_qubits": 9,
+    "projector_phase_operations_per_attempt": 32,
+    "signal_unitary_calls_per_attempt": 31
+  },
+  "aer_smoke_backend": "aer_integrated_circuit_shot_sampling",
+  "aer_smoke_counts": {
+    "00": 563,
+    "01": 39,
+    "10": 358,
+    "11": 40
+  },
+  "aer_smoke_estimate": {
+    "acceptance_frequency": 0.921,
+    "accepted_shots": 921.0,
+    "ci95_high": 0.005730591762582468,
+    "ci95_low": 0.0031993251544663822,
+    "conditional_signed_mean": 0.22258414766558088,
+    "estimated_postselection_probability": 0.8420000000000001,
+    "postselection_standard_error": 0.017059777255286773,
+    "selected_output_estimate": 0.004464958458524425,
+    "selected_output_standard_error": 0.000645731277580634,
+    "signed_overlap_estimate": 0.205,
+    "signed_overlap_standard_error": 0.02964751254321347,
+    "total_shots": 1000.0
+  },
+  "alpha": 522731.33058420924,
+  "beta": 2772.5846154387755,
+  "circuit_depth": 68,
+  "circuit_operations": {
+    "h": 2,
+    "measure": 2,
+    "unitary": 65
+  },
+  "circuit_qubits": 9,
+  "distribution_max_abs_error": 4.440892098500626e-15,
+  "exact_distribution": {
+    "00": 0.5625392407215883,
+    "01": 0.03790959934619072,
+    "10": 0.36164156058602115,
+    "11": 0.03790959934619072
+  },
+  "formula_distribution": {
+    "00": 0.5625392407215928,
+    "01": 0.03790959934619115,
+    "10": 0.3616415605860249,
+    "11": 0.03790959934619115
+  },
+  "lambda": 0.068,
+  "output_predeclared": true,
+  "physical_scale": 0.02178028516353378,
+  "qsvt": {
+    "alpha": 522731.33058420924,
+    "alternating_sequence_length": 63,
+    "beta": 2772.5846154387755,
+    "block_encoding_top_left_error": 0.0,
+    "block_encoding_unitarity_error": 8.435397332246789e-10,
+    "bound_C": 2.0132830903158605,
+    "bounded_max_abs": 0.9525635199623015,
+    "circuit_seconds": 0.10424049996072426,
+    "circuit_vs_matvec_error": 2.830764849224963e-16,
+    "degree": 31,
+    "kappa": 34.0313434513747,
+    "lambda_alpha_over_beta2": 0.068,
+    "m_measurements": 82,
+    "margin": 1.05,
+    "matvec_seconds": 0.001211084017995745,
+    "matvec_vs_exact_svt_update_error": 6.74367410871679e-11,
+    "n_states": 27,
+    "padded_dimension": 128,
+    "padding_tail_norm": 0.0,
+    "phase_count": 32,
+    "physical_recovery_factor_C_over_beta": 0.0007261394581449946,
+    "postselection_probability": 0.8483616026152354,
+    "projector_phase_operations": 32,
+    "qubits": 8,
+    "residual_dimension_prepared": 82,
+    "residual_norm": 29.994631085293154,
+    "sigma_max": 2772.5846154387755,
+    "sigma_min": 81.47150051247174,
+    "signal_unitary_calls": 31,
+    "status": "executed_pass",
+    "target_fit_error": 0.0015879949505929192,
+    "unitary_dimension": 256,
+    "update_max_abs_error_vs_full_ridge": 6.805506920709321e-06,
+    "update_relative_error_vs_full_ridge": 0.0007094866264181033
+  }
+}

@@ -1,0 +1,2 @@
+backend_execution_status,configuration_sha256,distribution_monte_carlo_used,evidence_label,executed_backend_shots,failure_reason
+blocked_statevector_failed,f2911a84b20204d4b87ce646239365be1aca0d9c44ff8d7d8d6ac13f643c57e3,False,EXCLUDED,False,backend-shot stage was not run because production full statevector validation failed

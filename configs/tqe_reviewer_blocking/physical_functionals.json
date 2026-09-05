@@ -1,0 +1,12 @@
+{
+  "study_id": "reviewer_blocking_physical_functionals_v1",
+  "declared_before_any_output_evaluation": true,
+  "matrix_seed": 123,
+  "block_row_count": 8,
+  "block_col_count": 8,
+  "case_name": "ieee14",
+  "case_source": "pypower",
+  "selection_inputs": "topology_and_state_index_metadata_only",
+  "families": ["coordinate", "branch_angle_difference", "area_aggregate", "legacy_predetermined"],
+  "notes": "Physical functionals derived from IEEE-14 network/state metadata on the frozen 8x8 block; outcome-independent."
+}

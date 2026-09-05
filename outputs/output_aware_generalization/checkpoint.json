@@ -1,0 +1,286 @@
+{
+  "last_completed_stage": "audit",
+  "last_update": "2026-07-19T08:44:28Z",
+  "stages": {
+    "audit": {
+      "completed_at": "2026-07-19T08:44:28Z",
+      "elapsed_seconds": 10.246870500035584,
+      "outputs": [
+        "implementation_audit.md",
+        "protected_path_snapshot.json"
+      ],
+      "result": {
+        "audit_exists": true,
+        "protected_files_snapshotted": 41278,
+        "working_tree_status_lines": 796
+      },
+      "status": "completed"
+    },
+    "certificates": {
+      "completed_at": "2026-07-11T01:55:29Z",
+      "elapsed_seconds": 13.348047249950469,
+      "outputs": [
+        "certificate_results.csv",
+        "certificate_case_summary.csv"
+      ],
+      "result": {
+        "coverage": 1.0,
+        "median_tightness": 295.75558307072635,
+        "rows": 810000,
+        "violations": 0,
+        "worst_tightness": 1475596488.1898606
+      },
+      "status": "completed"
+    },
+    "finite-shot": {
+      "completed_at": "2026-07-11T03:15:05Z",
+      "elapsed_seconds": 0.013573250034824014,
+      "outputs": [
+        "finite_shot_status.md",
+        "finite_shot_results.csv"
+      ],
+      "result": {
+        "attempted_shot_ceiling": 3000000,
+        "executed_counts": false,
+        "gate_application_ceiling": 100000000000,
+        "projected_attempted_shots": 3000000,
+        "projected_gate_applications": 345746000000,
+        "status": "skipped_under_predeclared_cost_ceiling"
+      },
+      "status": "completed"
+    },
+    "freeze": {
+      "completed_at": "2026-07-10T21:39:58Z",
+      "elapsed_seconds": 0.026487625087611377,
+      "outputs": [
+        "frozen_selector_configuration.json",
+        "study_configuration.json"
+      ],
+      "result": {
+        "configuration_fingerprint": "9e758ccb98bbe64675239c7f99c9e39058c974785d24905454e74c3d7deb8882",
+        "development_matrix_fingerprint": "b158d34b86b778f0c290519ca98985345107012e225798a4cfc7fbf9178df7f9"
+      },
+      "status": "completed"
+    },
+    "functionals": {
+      "completed_at": "2026-07-10T21:40:11Z",
+      "elapsed_seconds": 0.010890958015806973,
+      "outputs": [
+        "functional_registry.csv"
+      ],
+      "result": {
+        "functional_rows": 45,
+        "metadata_grounded": 45,
+        "nonsemantic": 0
+      },
+      "status": "completed"
+    },
+    "heldout": {
+      "completed_at": "2026-07-11T01:17:05Z",
+      "elapsed_seconds": 138.96429420798086,
+      "outputs": [
+        "heldout_results.csv",
+        "heldout_instance_summary.csv",
+        "heldout_case_summary.csv",
+        "heldout_functional_summary.csv"
+      ],
+      "result": {
+        "certificate_violations": 0,
+        "completed_rows": 810000,
+        "failed_support_rows": 0,
+        "heldout_rows": 810000,
+        "resumed_instance_parts": 0,
+        "support_summaries": 13500
+      },
+      "status": "completed"
+    },
+    "instances": {
+      "completed_at": "2026-07-10T21:40:06Z",
+      "elapsed_seconds": 1.7053827079944313,
+      "outputs": [
+        "instance_registry.csv",
+        "instance_exclusion_registry.csv"
+      ],
+      "result": {
+        "candidates": 15,
+        "cases": [
+          "ieee14",
+          "ieee30",
+          "ieee57"
+        ],
+        "excluded": 0,
+        "included": 15
+      },
+      "status": "completed"
+    },
+    "pareto": {
+      "completed_at": "2026-07-11T03:13:53Z",
+      "elapsed_seconds": 8.473616415983997,
+      "outputs": [
+        "pareto_candidates_error_nnz.csv",
+        "pareto_frontier_error_nnz.csv",
+        "pareto_candidates_error_slots.csv",
+        "pareto_frontier_error_slots.csv",
+        "pareto_candidates_error_gates.csv",
+        "pareto_frontier_error_gates.csv"
+      ],
+      "result": {
+        "accuracy_uses_signed_error": false,
+        "error_gates_candidates": 13500,
+        "error_gates_frontier": 515,
+        "error_nnz_candidates": 13500,
+        "error_nnz_frontier": 140,
+        "error_slots_candidates": 13500,
+        "error_slots_frontier": 130
+      },
+      "status": "completed"
+    },
+    "primary-test": {
+      "completed_at": "2026-07-11T01:54:31Z",
+      "elapsed_seconds": 0.19205837498884648,
+      "outputs": [
+        "generalization_primary_test.json",
+        "generalization_bootstrap.csv"
+      ],
+      "result": {
+        "bootstrap_ci_high": -0.127918925273331,
+        "bootstrap_ci_low": -0.3156277947922177,
+        "instances": 15,
+        "median_paired_difference": -0.2659696180787886,
+        "primary_loss": 2,
+        "primary_tie": 0,
+        "primary_win": 13
+      },
+      "status": "completed"
+    },
+    "qsvt": {
+      "completed_at": "2026-07-11T03:14:57Z",
+      "elapsed_seconds": 57.29246433300432,
+      "outputs": [
+        "qsvt_instance_designs.json",
+        "qsvt_validation_results.csv"
+      ],
+      "result": {
+        "cases": [
+          "ieee14",
+          "ieee30",
+          "ieee57"
+        ],
+        "failures": 0,
+        "instances": 6,
+        "maximum_qsvt_action_error": 8.602780763852398e-09,
+        "maximum_selected_output_qsvt_error": 2.303550805159019e-06,
+        "resumed_instance_parts": 0,
+        "rows": 72,
+        "supports": 24
+      },
+      "status": "completed"
+    },
+    "residuals": {
+      "completed_at": "2026-07-10T21:41:18Z",
+      "elapsed_seconds": 59.65279608301353,
+      "outputs": [
+        "residual_registry.csv"
+      ],
+      "result": {
+        "completed": 600,
+        "failed": 0,
+        "held_out": 300,
+        "records": 600,
+        "training": 300
+      },
+      "status": "completed"
+    },
+    "resources": {
+      "completed_at": "2026-07-11T03:13:36Z",
+      "elapsed_seconds": 320.81406974990387,
+      "outputs": [
+        "resource_registry.csv",
+        "resource_case_summary.csv"
+      ],
+      "result": {
+        "deterministic_failures_retained": 1,
+        "deterministic_records": 2250,
+        "resource_records": 2265,
+        "resumed_instance_parts": 14,
+        "unique_measured_wrappers": 1000
+      },
+      "status": "completed"
+    },
+    "stability": {
+      "completed_at": "2026-07-11T01:54:50Z",
+      "elapsed_seconds": 11.481579583021812,
+      "outputs": [
+        "support_stability.csv",
+        "support_stability_summary.csv"
+      ],
+      "result": {
+        "instances": 15,
+        "minimum_jaccard": 0.3333333333333333,
+        "rows": 180,
+        "selectors": [
+          "balanced_magnitude",
+          "sensitivity_initial_mean",
+          "sensitivity_refined_mean"
+        ]
+      },
+      "status": "completed"
+    },
+    "summary": {
+      "completed_at": "2026-07-11T03:15:18Z",
+      "elapsed_seconds": 6.82275066699367,
+      "outputs": [
+        "selector_generalization_summary.csv",
+        "summary.md"
+      ],
+      "result": {
+        "selector_summary_rows": 28,
+        "verdict": "Output-aware sparse selection generalized across multiple PSSE-derived workloads"
+      },
+      "status": "completed"
+    },
+    "supports": {
+      "completed_at": "2026-07-10T21:48:03Z",
+      "elapsed_seconds": 187.90156725002453,
+      "outputs": [
+        "support_registry.csv",
+        "support_selection_results.csv",
+        "refinement_traces.csv",
+        "entry_scores.csv",
+        "training_instance_summary.csv"
+      ],
+      "result": {
+        "completed": 13500,
+        "deterministic": 2250,
+        "failed_or_infeasible": 0,
+        "random_objective": 11250,
+        "refinement_trace_rows": 3456,
+        "resumed_instance_parts": 0,
+        "support_records": 13500
+      },
+      "status": "completed"
+    },
+    "verify": {
+      "completed_at": "2026-07-11T03:20:16Z",
+      "elapsed_seconds": 9.207029624958523,
+      "outputs": [
+        "verification_report.md",
+        "internal_verification.json"
+      ],
+      "result": {
+        "all_internal_checks_pass": true,
+        "certificate_rows": 810000,
+        "functionals": 45,
+        "heldout_rows": 810000,
+        "instances": 15,
+        "protected_paths_unchanged": true,
+        "qsvt_rows": 72,
+        "residuals": 600,
+        "resource_rows": 2265,
+        "support_records": 13500
+      },
+      "status": "completed"
+    }
+  },
+  "study_id": "output_aware_generalization_v1"
+}

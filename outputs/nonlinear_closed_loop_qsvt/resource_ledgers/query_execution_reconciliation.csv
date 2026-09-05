@@ -1,0 +1,13 @@
+quantity,verified_value,definition
+finite_shot_runs,9,executed finite-shot scenario x seed runs
+executed_iterations,72,sum of executed nonlinear iterations over finite-shot runs
+coordinates_per_iteration,4,selected block coordinates reconstructed each iteration
+functional_queries,288,one signed coordinate readout request that drives the update
+unique_functional_circuits,160,distinct matrix/residual/phase/coordinate readout parameterizations across the evidence; repeated executions are deduplicated by SHA-256
+physical_circuit_executions,576,executed readout plus direct-postselection circuit branches
+sampling_calls,576,Aer run invocations; one per physical execution
+shots_per_sampling_call,100000,attempted shots in each Aer sampling call
+shots_per_functional_query,200000,two sampling branches per functional query
+total_attempted_shots,57600000,sampling calls x shots per call
+postselection_accepted_shots,12569439,accepted shots in the diagnostic direct-postselection branch
+interference_accepted_shots,20693526,accepted shots in the readout/interference branch

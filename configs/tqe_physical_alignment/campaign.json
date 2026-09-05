@@ -1,0 +1,343 @@
+{
+  "configuration_id": "tqe_physical_alignment_and_generalization_v1",
+  "protocol_id": "tqe_physical_alignment_and_generalization_v1",
+  "declared_before_evaluation": true,
+  "claim_boundary": "Controlled IEEE/PYPOWER generated-measurement benchmark and classical/statevector simulator evidence for QSVT as an implementation pathway for the matched Ridge/Tikhonov filter. No field-data validation, quantum speedup, quantum advantage, full IEEE-scale hardware execution, or QSVT-over-Ridge numerical-superiority claim.",
+  "output_root": "outputs/tqe_physical_alignment_and_generalization",
+  "source_structural_root": "outputs/output_aware_structural_generalization",
+  "protected_baseline_path": "outputs/tqe_physical_alignment_and_generalization/protected_hash_baseline.json",
+  "cases": [
+    "ieee14",
+    "ieee30",
+    "ieee57"
+  ],
+  "structure_design": {
+    "registry": "structural_group_registry.csv",
+    "candidate_registry": "candidate_registry.csv",
+    "candidate_exclusions": "candidate_exclusion_registry.csv",
+    "instance_registry": "instance_registry.csv",
+    "instance_exclusions": "instance_exclusion_registry.csv",
+    "instances_directory": "instances",
+    "residual_splits_directory": "residual_splits",
+    "groups_per_case": 4,
+    "realizations_per_group": 2,
+    "matrix_shape": [
+      8,
+      8
+    ],
+    "selection_must_be_outcome_independent": true,
+    "training_seed_count_per_instance": 20,
+    "held_out_seed_count_per_instance": 20,
+    "seed_source": "reuse exact frozen residual split files; no new seed ranges",
+    "numerical_realizations_are_not_independent_structures": true
+  },
+  "physical_audit": {
+    "functional_selection": {
+      "score_classification": "physical",
+      "evaluate_classifications": [
+        "physical",
+        "legacy_diagnostic"
+      ],
+      "unit_norm_tolerance": 1e-12,
+      "include_connected_component_aggregates": true,
+      "unavailable_policy": "retain_with_reason_never_substitute"
+    },
+    "support_budgets": [
+      12,
+      16,
+      24
+    ],
+    "slot_budgets": [
+      3
+    ],
+    "primary_support_budget": 16,
+    "primary_slot_budget": 3,
+    "coverage_enabled": true,
+    "selectors": [
+      "full_support",
+      "global_magnitude",
+      "balanced_magnitude",
+      "ridge_leverage",
+      "random_objective_feasible_support",
+      "sensitivity_initial_mean",
+      "sensitivity_refined_mean",
+      "sensitivity_initial_worst_case",
+      "sensitivity_refined_worst_case",
+      "adjoint_unnormalized_mean",
+      "exact_single_entry_removal_mean",
+      "near_oracle_support_fidelity_diagnostic",
+      "noise_propagation_risk_mean_initial",
+      "noise_propagation_risk_mean_refined",
+      "noise_propagation_risk_worst_initial",
+      "noise_propagation_risk_worst_refined",
+      "posterior_variance_reference_mean_initial",
+      "posterior_variance_reference_mean_refined",
+      "posterior_variance_reference_worst_initial",
+      "posterior_variance_reference_worst_refined"
+    ],
+    "deployable_selectors": [
+      "global_magnitude",
+      "balanced_magnitude",
+      "ridge_leverage",
+      "random_objective_feasible_support",
+      "sensitivity_initial_mean",
+      "sensitivity_refined_mean",
+      "sensitivity_initial_worst_case",
+      "sensitivity_refined_worst_case",
+      "adjoint_unnormalized_mean",
+      "exact_single_entry_removal_mean",
+      "noise_propagation_risk_mean_initial",
+      "noise_propagation_risk_mean_refined",
+      "noise_propagation_risk_worst_initial",
+      "noise_propagation_risk_worst_refined",
+      "posterior_variance_reference_mean_initial",
+      "posterior_variance_reference_mean_refined",
+      "posterior_variance_reference_worst_initial",
+      "posterior_variance_reference_worst_refined"
+    ],
+    "diagnostic_selectors": [
+      "near_oracle_support_fidelity_diagnostic",
+      "full_support"
+    ],
+    "regularization_regimes": [
+      {
+        "regime_id": "frozen_structural_reference",
+        "source": "per-instance regularization_alpha from the frozen structural registry",
+        "deployable": true,
+        "oracle": false
+      }
+    ],
+    "physical_error_floor": 1e-6,
+    "support_error_floor": 1e-6,
+    "normalization_floor_sensitivity": [
+      0.0001,
+      1e-6,
+      1e-8
+    ],
+    "near_zero_threshold": 1e-6,
+    "score_normalization_epsilon": 1e-15,
+    "milp": {
+      "solver": "scipy.optimize.milp_highs",
+      "time_limit_seconds": 30.0,
+      "relative_mip_gap": 0.0,
+      "deterministic_tie_epsilon_relative": 1e-12,
+      "fallback": "deterministic_feasibility_aware_greedy_not_globally_optimal"
+    },
+    "random_objective": {
+      "base_seed": 271828,
+      "seed_formula": "base + instance_ordinal*10000 + support_budget*10 + slot_budget"
+    },
+    "support_fidelity_refinement": {
+      "max_iterations": 8,
+      "strict_improvement_tolerance": 1e-12,
+      "candidate_order": "row_major_removal_then_row_major_addition",
+      "tie_breaking": "objective_then_removed_flat_index_then_added_flat_index"
+    },
+    "risk_refinement": {
+      "max_iterations": 4,
+      "strict_improvement_tolerance": 1e-12,
+      "candidate_order": "row_major_removal_then_row_major_addition",
+      "tie_breaking": "objective_then_removed_flat_index_then_added_flat_index"
+    },
+    "near_oracle": {
+      "beam_width": 4,
+      "beam_max_steps": 16,
+      "multistart_max_iterations": 4,
+      "maximum_estimated_loss_evaluations": 20000,
+      "objective": "training_support_fidelity_mean",
+      "uses_physical_truth": false,
+      "global_optimality_proven": false
+    }
+  },
+  "statistics": {
+    "primary_metric": "E_physical",
+    "absolute_metric": "A_physical",
+    "support_metric": "E_support",
+    "primary_cell": {
+      "regularization_regime": "frozen_structural_reference",
+      "support_budget": 16,
+      "slot_budget": 3,
+      "functional_classification": "physical"
+    },
+    "frozen_structure_aggregation": "median over held-out seed-functional rows within each realization, then arithmetic mean over the two realization medians",
+    "primary_independent_unit": "structural_group_id",
+    "case_stratum": "ieee_case",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260715,
+    "case_stratified_bootstrap_seed": 20260716,
+    "confidence_level": 0.95,
+    "effect_sign": "baseline_error_minus_candidate_error; positive favors candidate",
+    "predeclared_primary_new_selector": "noise_propagation_risk_mean_refined",
+    "required_pairwise": [
+      [
+        "sensitivity_refined_mean",
+        "global_magnitude"
+      ],
+      [
+        "noise_propagation_risk_mean_refined",
+        "global_magnitude"
+      ],
+      [
+        "noise_propagation_risk_mean_refined",
+        "sensitivity_refined_mean"
+      ],
+      [
+        "posterior_variance_reference_mean_refined",
+        "global_magnitude"
+      ],
+      [
+        "posterior_variance_reference_mean_refined",
+        "sensitivity_refined_mean"
+      ]
+    ],
+    "leave_one_case_out": true,
+    "per_case_descriptive": true
+  },
+  "nonlinear_ac": {
+    "case_name": "ieee14",
+    "case_source": "pypower",
+    "seeds": [
+      101,
+      202,
+      303,
+      404,
+      505,
+      606,
+      707,
+      808,
+      909,
+      1001,
+      10101,
+      10202,
+      10303,
+      10404,
+      10505,
+      10606,
+      10707,
+      10808,
+      10909,
+      11001
+    ],
+    "seed_note": "first ten reuse the established IEEE-14 sweep; the second ten are the same IDs plus 10000 and do not overlap",
+    "measurement": {
+      "include_voltage_magnitudes": true,
+      "include_p_injections": true,
+      "include_q_injections": true,
+      "include_p_branch_flows": true,
+      "include_q_branch_flows": true,
+      "voltage_std": 0.01,
+      "injection_p_std": 0.03,
+      "injection_q_std": 0.03,
+      "flow_p_std": 0.02,
+      "flow_q_std": 0.02,
+      "weak_area_buses": [
+        12,
+        13,
+        14
+      ],
+      "weak_area_std_multiplier": 10.0
+    },
+    "linearization": {
+      "angle_perturbation_std": 0.005,
+      "voltage_perturbation_std": 0.005,
+      "min_voltage_magnitude": 0.5
+    },
+    "iteration": {
+      "max_iterations": 8,
+      "update_tolerance": 1e-7,
+      "residual_tolerance": 1e-7,
+      "damping": 1.0,
+      "max_update_norm": 1000.0,
+      "residual_growth_limit": 10000.0
+    },
+    "scenarios": [
+      {
+        "scenario_id": "gaussian_noise_baseline",
+        "noise_std": 0.002,
+        "missing_ratio": 0.0,
+        "bad_data": {
+          "enabled": false,
+          "ratio": 0.0,
+          "magnitude": 5.0,
+          "target": "weak_area"
+        }
+      },
+      {
+        "scenario_id": "random_missing_measurement_stress",
+        "noise_std": 0.002,
+        "missing_ratio": 0.1,
+        "bad_data": {
+          "enabled": false,
+          "ratio": 0.0,
+          "magnitude": 5.0,
+          "target": "weak_area"
+        }
+      },
+      {
+        "scenario_id": "sparse_signed_bad_data_stress",
+        "noise_std": 0.002,
+        "missing_ratio": 0.0,
+        "bad_data": {
+          "enabled": true,
+          "ratio": 0.05,
+          "magnitude": 5.0,
+          "target": "weak_area"
+        }
+      }
+    ],
+    "solvers": [
+      "pseudoinverse",
+      "ridge_fixed_alpha",
+      "ridge_gcv_selected_alpha",
+      "truncated_svd",
+      "huber_irls",
+      "qsvt_target_exact_fixed_alpha",
+      "ridge_degree_feasible_alpha",
+      "qsvt_target_exact_degree_feasible_alpha"
+    ],
+    "fixed_alpha": 0.0001,
+    "degree_feasible_normalized_lambda": 0.068,
+    "gcv_alpha_grid": [
+      1e-6,
+      1e-5,
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ],
+    "tsvd_tau": 1e-5,
+    "huber": {
+      "delta": 1.5,
+      "max_iterations": 10,
+      "tolerance": 1e-7
+    },
+    "selected_output_floor": 1e-6,
+    "qsvt_ridge_update_relative_tolerance": 1e-12,
+    "statevector_boundary": {
+      "execute_scenario_ids": [
+        "gaussian_noise_baseline"
+      ],
+      "execute_seed_ids": [
+        101
+      ],
+      "iteration_ids": [
+        0
+      ],
+      "block_rows": 8,
+      "block_columns": 8,
+      "normalized_lambda": 0.068,
+      "degree_candidates": [
+        31,
+        39,
+        45
+      ],
+      "margin_candidates": [
+        1.05,
+        1.25
+      ],
+      "run_compiled_statevector_circuit": true,
+      "pass_relative_tolerance": 0.05
+    }
+  }
+}

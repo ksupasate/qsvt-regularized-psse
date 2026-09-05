@@ -1,0 +1,76 @@
+{
+  "basis_gates": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "block_encoding_type": "canonical_square_contraction",
+  "block_unitary_dimension": 4,
+  "case_name": "ieee14",
+  "circuit_depth": 11,
+  "condition_number": 1.0164176446283506,
+  "cx_count_after_transpile": 10,
+  "depth_after_transpile": 55,
+  "depth_before_transpile": 11,
+  "full_or_submatrix": "submatrix",
+  "gate_count_total": 11,
+  "gate_count_total_after_transpile": 68,
+  "gate_counts_after_transpile": {
+    "cx": 10,
+    "rz": 30,
+    "sx": 24,
+    "x": 4
+  },
+  "gate_counts_before_transpile": {
+    "rz": 6,
+    "unitary": 5
+  },
+  "implementation_scope": "explicit small-matrix block-encoding QSVT prototype",
+  "is_dense_unitary_only": false,
+  "matrix_scope": "submatrix",
+  "matrix_shape": [
+    2,
+    2
+  ],
+  "matrix_source": "weighted_jacobian",
+  "max_abs_error": 2.4077985050219297e-08,
+  "max_error_vs_classical": 2.4077985050219297e-08,
+  "mean_abs_error": 1.3037489657308221e-08,
+  "mean_error_vs_classical": 1.3037489657308221e-08,
+  "n_phase_angles": 6,
+  "normalization_factor": 1400.335307899185,
+  "phase_cache_hit": false,
+  "phase_synthesis_angle_solver": "iterative",
+  "phase_synthesis_method": "pennylane_poly_to_angles",
+  "polynomial_degree": 5,
+  "qsvt_construction_type": "explicit_block_encoding_qsvt_sequence",
+  "qsvt_method": "qiskit_structured_block_encoding_qsvt",
+  "qsvt_phase_count": 6,
+  "qsvt_polynomial_degree": 5,
+  "qubits": 2,
+  "qubits_before_transpile": 2,
+  "run_id": "qsvt_hardware_ieee14_2x2",
+  "scope_note": "The block encoding is a dense canonical unitary for a small research-derived matrix. The QSVT circuit itself is a structured sequence of block-encoding calls and explicit projector phase rotations.",
+  "selected_columns": [
+    2,
+    16
+  ],
+  "selected_rows": [
+    17,
+    31
+  ],
+  "simulation_backend": "qiskit.quantum_info.Statevector",
+  "simulation_seconds": 0.0003994590078946203,
+  "simulation_success": true,
+  "source_case": "ieee14",
+  "top_left_block_error": 0.0,
+  "top_left_block_valid": true,
+  "transpile_message": "transpile completed",
+  "transpile_seconds": 0.018333041996811517,
+  "transpile_success": true,
+  "unitarity_error": 2.220446049250313e-16,
+  "unitarity_valid": true,
+  "uses_dense_block_encoding_gate": true,
+  "validation_tolerance": 1e-08
+}

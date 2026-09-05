@@ -1,0 +1,13 @@
+{
+  "protocol_id": "reviewer_blocking_tqe_evidence_v1",
+  "study": "structure_aware_statistics",
+  "proposed_selector": "sensitivity_refined_mean",
+  "baseline_selector": "global_magnitude",
+  "alpha_regime": "fixed_benchmark",
+  "k_budget": 16,
+  "normalization_floor_primary": 1e-6,
+  "normalization_floor_sensitivity": [1e-4, 1e-8],
+  "tie_tolerance_sensitivity": [0.0, 1e-6, 1e-3],
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20240714
+}

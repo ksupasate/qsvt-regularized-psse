@@ -1,0 +1,6 @@
+demo:
+  run_id: qsvt_qiskit_demo
+  output_dir: outputs/qsvt_qiskit_demo
+  alpha: 1.0
+  singular_values: [0.2, 0.6]
+  polynomial_degree: 1

@@ -1,0 +1,15 @@
+{
+  "study_id": "reviewer_blocking_resource_pareto_v1",
+  "declared_before_outcome_evaluation": true,
+  "matrix_seed": 123,
+  "degree": 31,
+  "modeled_shots": 100000,
+  "basis_gates": ["u3", "cx"],
+  "optimization_level": 1,
+  "error_thresholds": [0.5, 0.75, 1.0],
+  "selectors": ["global_magnitude", "sensitivity_refined_mean"],
+  "support_budgets": [12, 16, 24],
+  "slot_budgets": [3],
+  "training_seed_ids": [1000, 1001, 1002],
+  "held_out_seed_ids": [2000, 2001, 2002]
+}

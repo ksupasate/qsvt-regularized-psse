@@ -1,0 +1,34 @@
+{
+  "study_id": "reviewer_blocking_strong_baselines_v1",
+  "declared_before_selector_evaluation": true,
+  "matrix_seed": 123,
+  "y_floor": 1e-6,
+  "failure_threshold": 0.1,
+  "functionals": ["coordinate_e0", "signed_difference_e0_minus_e1", "aggregate_e0_to_e3"],
+  "training_seed_ids": [
+    1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009,
+    1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019
+  ],
+  "held_out_seed_ids": [
+    2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+    2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
+  ],
+  "beam_width": 8,
+  "beam_max_steps": 40,
+  "oracle_max_candidates": 3000000,
+  "random_seed_base": 314159,
+  "blocks": [
+    {
+      "dimension": 4,
+      "include_exhaustive_oracle": true,
+      "support_budgets": [4, 6, 8],
+      "slot_budgets": [2, 3, 4]
+    },
+    {
+      "dimension": 8,
+      "include_exhaustive_oracle": false,
+      "support_budgets": [8, 12, 16, 24, 32],
+      "slot_budgets": [2, 3, 4, 6, 8]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+run:
+  run_id: qsvt_full_matrix_ieee14
+  output_dir: outputs/qsvt_full_matrix_ieee14
+  run_pennylane: true
+  run_qiskit: true
+  max_pennylane_full_qubits: 8
+  max_qiskit_dense_full_qubits: 8
+  submatrix_size: 4
+
+demo:
+  alpha: 0.05
+  polynomial_degree: 5
+  grid_size: 512
+  angle_solver: iterative
+  block_encoding: embedding
+  transpile_qubit_limit: 4
+
+matrix:
+  case_name: ieee14
+  case_source: pypower
+  mode: ac_weighted_jacobian
+  seed: 123
+  selection_strategy: high_leverage
+

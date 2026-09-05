@@ -1,0 +1,51 @@
+{
+  "functionals": [
+    {
+      "functional_id": "coordinate_e0",
+      "kind": "coordinate",
+      "norm": 1.0,
+      "vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "functional_id": "signed_difference_e0_minus_e1",
+      "kind": "signed_difference",
+      "norm": 0.9999999999999999,
+      "vector": [
+        0.7071067811865475,
+        -0.7071067811865475,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "functional_id": "aggregate_e0_to_e3",
+      "kind": "normalized_aggregate",
+      "norm": 1.0,
+      "vector": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "physical_semantics": "deterministic linear functionals; no fabricated bus semantics",
+  "selection_timing": "fixed in implementation_audit.md before solving"
+}

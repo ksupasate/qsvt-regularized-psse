@@ -1,0 +1,35 @@
+# Workstream C - measurement-row-level sparsification vs arbitrary entry selection.
+# Frozen before evaluation. Reuses the frozen 12-structural-group / 24-instance design and the frozen
+# training/held-out residual seeds from outputs/output_aware_structural_generalization.
+study_id: tqe_measurement_row_sparsification_v1
+source_structural_root: outputs/output_aware_structural_generalization
+cases: [ieee14, ieee30, ieee57]
+
+# Subsets of the 20 frozen training / 20 held-out seeds per instance (scores from training only).
+training_seed_count: 12
+heldout_seed_count: 12
+functional_classification: physical   # exclude the 3 legacy diagnostic functionals
+
+support_floor: 1.0e-6
+physical_floor: 1.0e-6
+random_seed: 20260721
+row_swap_refinement: true
+
+# Fair budget protocols (task 7.3). The frozen 8x8 measurement blocks carry only 12-34 nonzeros
+# (a measurement row involves 1-6 states), so the nonzero budgets sit below the typical total to
+# force genuine sparsification; a budget exceeding a structure's total simply retains all of it.
+budgets:
+  protocol_a_row_counts: [2, 3, 4, 5, 6]        # whole-row-count budget (of ~8 rows)
+  protocol_b_nnz: [4, 6, 8, 10, 12, 14]         # nonzero / access-cost budget
+
+# Engineering coverage constraints (task 7.5); infeasible configurations are retained with reasons.
+coverage_constraints:
+  min_rows: 2
+  require_type_coverage: false
+  require_bus_coverage: false
+
+# Predeclared paired contrasts (structural group = unit).
+contrasts:
+  - {name: best_row_vs_best_entry, row: __best_row__, entry: __best_entry__}
+  - {name: row_sensitivity_mean_vs_entry_sensitivity_mean, row: row_sensitivity_mean, entry: entry_sensitivity_mean}
+  - {name: row_magnitude_vs_entry_magnitude, row: row_magnitude, entry: entry_global_magnitude}

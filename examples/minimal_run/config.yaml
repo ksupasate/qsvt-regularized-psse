@@ -1,0 +1,37 @@
+run_name: minimal_reproducibility_example
+seed: 123
+
+system:
+  case_name: controlled_example
+  mode: synthetic_linearized
+  n_states: 6
+  n_measurements: 18
+  condition_number: 1000.0
+  truth_scale: 1.0
+
+scenario:
+  name: minimal_controlled_noise
+  noise_std: 0.01
+  missing_ratio: 0.0
+
+estimators:
+  - name: pseudoinverse
+    rcond: 1.0e-12
+  - name: ridge
+    alpha: 1.0e-3
+  - name: truncated_svd
+    tau: 1.0e-4
+  - name: qsvt_regularized
+    alpha: 1.0e-3
+
+qsvt_resource:
+  enabled: true
+  degrees: [4, 8, 16]
+  grid_size: 256
+  target_error: 1.0e-3
+
+output:
+  root: outputs/examples
+  run_id: minimal_run
+  save_plots: true
+  overwrite: true

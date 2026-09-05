@@ -1,0 +1,27 @@
+{
+  "protocol_id": "reviewer_blocking_tqe_evidence_v1",
+  "study": "task_aware_baselines",
+  "declared_before_held_out_evaluation": true,
+  "structures": ["ieee14_8x8", "ieee30_8x8", "ieee14_16x16"],
+  "selectors": [
+    "global_magnitude",
+    "balanced_magnitude",
+    "ridge_leverage",
+    "sensitivity_initial_mean",
+    "sensitivity_refined_mean",
+    "adjoint_unnormalized_mean",
+    "exact_single_removal_mean",
+    "near_oracle_mean"
+  ],
+  "support_budgets": [8, 12, 16, 24, 32],
+  "slot_budgets": [3],
+  "training_seed_ids": [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009,
+                        1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019],
+  "held_out_seed_ids": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+                        2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+  "y_floor": 1e-6,
+  "beam_width": 8,
+  "beam_max_steps": 40,
+  "include_near_oracle": true,
+  "tie_tolerance": 1e-9
+}

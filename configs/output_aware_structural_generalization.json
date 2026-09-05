@@ -1,0 +1,231 @@
+{
+  "study_id": "output_aware_structural_generalization_v1",
+  "declared_before_benchmark_evaluation": true,
+  "claim_boundary": "Controlled generated 8x8 PSSE-derived PYPOWER benchmark blocks and classical/statevector simulator evidence only; no field-data, iterative-PSSE, IEEE-scale circuit, hardware, speedup, advantage, or practical-competitiveness claim.",
+  "required_cases": ["ieee14", "ieee30", "ieee57"],
+  "development_matrix_fingerprint": "b158d34b86b778f0c290519ca98985345107012e225798a4cfc7fbf9178df7f9",
+  "previous_study_dir": "outputs/output_aware_generalization",
+  "development_study_dir": "outputs/output_aware_sparse_selection",
+  "protected_paths": [
+    "manuscript",
+    "submission_package_tqe_final",
+    "outputs/output_aware_sparse_selection",
+    "outputs/output_aware_generalization",
+    "outputs/sparse_integrated_chain",
+    "outputs/sparse_error_precision_study"
+  ],
+  "candidate_pool": {
+    "outcome_independent": true,
+    "target_shape": [8, 8],
+    "minimum_candidate_nonzeros": 8,
+    "policies": [
+      "topology_local",
+      "measurement_balanced",
+      "angle_dominant",
+      "voltage_dominant",
+      "mixed_state",
+      "injection_heavy",
+      "branch_flow_heavy",
+      "voltage_measurement_heavy",
+      "seeded_random",
+      "lexicographic_metadata"
+    ],
+    "variants_per_policy": 4,
+    "candidate_linearization_seeds": {
+      "ieee14": 14201,
+      "ieee30": 30201,
+      "ieee57": 57201
+    },
+    "seeded_random_base": 424242,
+    "seeded_random_case_multipliers": {
+      "ieee14": 14000000,
+      "ieee30": 30000000,
+      "ieee57": 57000000
+    },
+    "seeded_random_max_attempts": 200,
+    "require_primary_and_secondary_budget_feasibility": true,
+    "exclusion_rules": [
+      "duplicate_candidate_block",
+      "previous_block_row_column_identity",
+      "previous_block_matrix_fingerprint",
+      "inactive_row_or_column",
+      "insufficient_nonzeros",
+      "support_budget_infeasible",
+      "invalid_regularization_or_ridge_solve"
+    ]
+  },
+  "structural_selection": {
+    "distance_weights": {
+      "rows": 0.25,
+      "columns": 0.25,
+      "support": 0.2,
+      "measurement": 0.15,
+      "state": 0.15
+    },
+    "set_distance": "jaccard",
+    "histogram_distance": "total_variation",
+    "preferred_groups_per_case": 4,
+    "minimum_groups_per_case": 3,
+    "minimum_pairwise_distance": 0.3,
+    "seed_rule": "maximum_composite_distance_from_previous_evaluation_block",
+    "iteration_rule": "farthest_point_maximin",
+    "tie_breaking": "lexicographic_candidate_id",
+    "threshold_fixed_before_selector_evaluation": true
+  },
+  "realizations": {
+    "per_group": 2,
+    "rows_columns_fixed_within_group": true,
+    "linearization_seeds": {
+      "ieee14": [14201, 14202],
+      "ieee30": [30201, 30202],
+      "ieee57": [57201, 57202]
+    }
+  },
+  "regularization": {
+    "lambda_ref": 0.06947163416534002,
+    "policy": "frozen_lambda_ref_times_full_candidate_reference_beta_squared",
+    "reference_beta_policy": "reference_slot_count_times_reference_mu",
+    "reference_mu_policy": "max_abs_full_candidate_block",
+    "reference_slot_count": 3
+  },
+  "functional_policy": {
+    "coordinate": "first_selected_metadata_state_in_local_column_order",
+    "difference": "first_two_selected_states_with_compatible_state_type_in_local_column_order",
+    "aggregate": "first_four_selected_states_in_local_column_order_normalized_by_sqrt_count",
+    "metadata_fallback": "nonsemantic_deterministic_probe",
+    "outcome_independent": true
+  },
+  "residuals": {
+    "pathway": "build_engineering_system_controlled_ac_weighted_jacobian_then_selected_measurement_rows",
+    "case_seed_bases": {
+      "ieee14": 14500000,
+      "ieee30": 30500000,
+      "ieee57": 57500000
+    },
+    "instance_stride": 10000,
+    "training_offset": 1000,
+    "held_out_offset": 2000,
+    "training_count_per_instance": 20,
+    "held_out_count_per_instance": 20,
+    "failed_seed_policy": "record_without_replacement"
+  },
+  "sensitivity_score_definition": "absolute_matrix_entry_times_exact_ridge_selected_output_gradient_entry",
+  "task_score_normalization": "divide_each_task_score_by_sum_over_candidate_entries_plus_epsilon",
+  "score_normalization_epsilon": 1e-15,
+  "normalized_error_floor": 1e-06,
+  "near_zero_output_threshold": 1e-06,
+  "normalized_error_failure_threshold": 0.1,
+  "mean_objective": "mean_normalized_error_over_training_residual_functional_tasks",
+  "worst_case_objective": "maximum_normalized_error_over_training_residual_functional_tasks",
+  "support_coverage_policy": "all_originally_active_rows_and_columns_at_least_once",
+  "support_budgets": [8, 12, 16, 24, 32],
+  "slot_budgets": [2, 3, 4, 6, 8],
+  "milp_solver_options": {
+    "deterministic_tie_epsilon_relative": 1e-12,
+    "fallback": "deterministic_feasibility_aware_greedy_not_globally_optimal",
+    "relative_mip_gap": 0.0,
+    "solver": "scipy.optimize.milp_highs",
+    "time_limit_seconds": 30.0
+  },
+  "refinement": {
+    "candidate_order": "row_major_removal_then_row_major_addition",
+    "max_iterations": 8,
+    "strict_improvement_tolerance": 1e-12,
+    "tie_breaking": "objective_then_removed_flat_index_then_added_flat_index"
+  },
+  "random_objective": {
+    "base_seed": 314159,
+    "replicate_seed_offsets": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+    "sampling_semantics": "fixed_seed_random_objective_feasible_supports_not_uniform_support_sampling",
+    "seed_formula": "base_plus_instance_ordinal_times_1000000_plus_budget_pair_index_times_10000_plus_replicate",
+    "support_count_per_budget": 30
+  },
+  "certificate": {
+    "absolute_validation_tolerance": 1e-12,
+    "formula_version": "ridge_selected_output_operator_perturbation_forward_reverse_min_v1",
+    "relative_validation_tolerance": 1e-10,
+    "violation_policy": "blocking_failure"
+  },
+  "primary_comparison": {
+    "candidate_selector": "sensitivity_initial_mean",
+    "baseline_selector": "balanced_magnitude",
+    "k_budget": 16,
+    "slot_budget": 3,
+    "metric": "structural_group_median_heldout_normalized_error",
+    "realization_combination": "mean_of_realization_medians",
+    "tie_relative_tolerance": 0.01,
+    "tie_epsilon": 1e-15,
+    "bootstrap_unit": "structural_group",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 8675309,
+    "case_stratified_bootstrap_seed": 8675310
+  },
+  "secondary_comparison": {
+    "candidate_selector": "sensitivity_refined_mean",
+    "baseline_selector": "balanced_magnitude",
+    "k_budget": 24,
+    "slot_budget": 3,
+    "metric": "structural_group_median_heldout_normalized_error",
+    "realization_combination": "mean_of_realization_medians"
+  },
+  "stability": {
+    "k_budget": 16,
+    "slot_budget": 3,
+    "selectors": [
+      "balanced_magnitude",
+      "sensitivity_initial_mean",
+      "sensitivity_refined_mean"
+    ],
+    "training_subset_schedules": {
+      "first_half": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "second_half": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "even_positions": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18],
+      "odd_positions": [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+    }
+  },
+  "resources": {
+    "basis_gates": ["u3", "cx"],
+    "optimization_level": 1,
+    "value_policy": "exact_selected_original_values_no_quantization",
+    "wrapper_reconstruction_tolerance": 1e-09,
+    "subset_rule": "all_deterministic_selector_supports_at_all_budgets_plus_random_replicate_zero_at_primary_budget",
+    "group_cost_combination": "max_over_realizations"
+  },
+  "qsvt": {
+    "subset_rule": "first_two_structural_groups_per_case_in_selection_order_first_realization_only",
+    "groups_per_case": 2,
+    "realization_rule": "first_linearization_seed",
+    "selectors": [
+      "balanced_magnitude",
+      "sensitivity_initial_mean",
+      "sensitivity_refined_mean"
+    ],
+    "random_selector": "random_objective_feasible",
+    "random_replicate": 0,
+    "k_budget": 16,
+    "slot_budget": 3,
+    "candidate_degrees": [31, 63, 127, 255],
+    "uniform_approximation_tolerance": 0.002,
+    "bound_tolerance": 0.002,
+    "domain_min": 1e-06,
+    "domain_max": 1.0,
+    "target_margin": 1.05,
+    "phase_solver": "iterative",
+    "phase_refit_policy": "one_common_fit_and_phase_sequence_per_instance_no_per_support_refitting",
+    "common_mu_policy": "max_abs_full_candidate_matrix",
+    "common_slot_policy": "declared_slot_budget_with_zero_padding",
+    "qsvt_action_relative_tolerance": 1e-06,
+    "validation_residual_policy": "first_training_residual_for_instance"
+  },
+  "finite_shot": {
+    "execute_by_default": false,
+    "policy": "skip_unless_predeclared_cost_ceilings_hold_and_execution_explicitly_enabled",
+    "attempted_shot_ceiling": 3000000,
+    "projected_gate_application_ceiling": 100000000000,
+    "attempted_shots_per_seed": 100000,
+    "seed_count": 5,
+    "groups_per_case": 1,
+    "supports_per_group": 2,
+    "skip_rationale": "complete_integrated_sparse_readout_already_validated_in_frozen_prior_studies"
+  }
+}

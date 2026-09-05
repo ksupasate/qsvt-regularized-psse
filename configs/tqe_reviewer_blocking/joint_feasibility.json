@@ -1,0 +1,21 @@
+{
+  "study_id": "reviewer_blocking_joint_feasibility_v1",
+  "declared_before_outcome_evaluation": true,
+  "matrix_seed": 123,
+  "y_floor": 1e-6,
+  "useful_rmse_ratio_threshold": 1.5,
+  "sparsification_error_threshold": 0.1,
+  "uniform_approximation_tolerance": 0.002,
+  "bound_tolerance": 0.002,
+  "target_margin": 1.05,
+  "action_error_tolerance": 1e-6,
+  "alpha_grid_lo_factor": 1e-3,
+  "alpha_grid_hi_factor": 1e1,
+  "alpha_grid_points": 13,
+  "degrees": [31, 63],
+  "selectors": ["sensitivity_refined_mean", "sensitivity_initial_mean", "global_magnitude"],
+  "support_budgets": [12, 16, 24],
+  "slot_budgets": [3, 4],
+  "training_seed_ids": [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009],
+  "execute_statevector": true
+}

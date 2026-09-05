@@ -1,0 +1,245 @@
+{
+  "candidate_id": "ieee57_voltage_measurement_heavy_v02",
+  "candidate_nonzeros": 12,
+  "candidate_policy": "voltage_measurement_heavy",
+  "condition_number": 1443.906514768674,
+  "development_or_evaluation": "structural_evaluation",
+  "extraction_policy": {
+    "candidate_id": "ieee57_voltage_measurement_heavy_v02",
+    "outcome_independent": true,
+    "rows_columns_fixed_within_group": true,
+    "strategy": "fixed_preselected_structural_group_rows_columns"
+  },
+  "ieee_case": "ieee57",
+  "inclusion_reasons": [],
+  "inclusion_status": "included",
+  "instance_id": "ieee57_structural_group_04_realization_02_seed_57202_8x8",
+  "lambda_ref": 0.06947163416534002,
+  "matrix": [
+    [
+      100.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      100.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      315.13011838413547,
+      -313.11868473773467,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      584.8691919475816,
+      -571.0345254394348
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1033.2644044578253,
+      -1031.8088034112482,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      905.1424599226559,
+      -927.6211422493226
+    ]
+  ],
+  "matrix_fingerprint": "9b805022e23e3e796f6c9fb3d9297f2f4f308745bc9c94ef85789132ee7cd493",
+  "matrix_selection_seed": 57202,
+  "matrix_shape": [
+    8,
+    8
+  ],
+  "measurement_metadata": [
+    {
+      "full_measurement_index": 6,
+      "local_index": 0,
+      "measurement_label": "V_7",
+      "measurement_type": "voltage_magnitude"
+    },
+    {
+      "full_measurement_index": 7,
+      "local_index": 1,
+      "measurement_label": "V_8",
+      "measurement_type": "voltage_magnitude"
+    },
+    {
+      "full_measurement_index": 8,
+      "local_index": 2,
+      "measurement_label": "V_9",
+      "measurement_type": "voltage_magnitude"
+    },
+    {
+      "full_measurement_index": 9,
+      "local_index": 3,
+      "measurement_label": "V_10",
+      "measurement_type": "voltage_magnitude"
+    },
+    {
+      "full_measurement_index": 183,
+      "local_index": 4,
+      "measurement_label": "P_13_14",
+      "measurement_type": "p_branch_flow"
+    },
+    {
+      "full_measurement_index": 221,
+      "local_index": 5,
+      "measurement_label": "P_37_39",
+      "measurement_type": "p_branch_flow"
+    },
+    {
+      "full_measurement_index": 263,
+      "local_index": 6,
+      "measurement_label": "Q_13_14",
+      "measurement_type": "q_branch_flow"
+    },
+    {
+      "full_measurement_index": 301,
+      "local_index": 7,
+      "measurement_label": "Q_37_39",
+      "measurement_type": "q_branch_flow"
+    }
+  ],
+  "primary_structural_feasibility": "completed",
+  "realization_order": 2,
+  "reference_beta": 3099.7932133734757,
+  "reference_mu": 1033.2644044578253,
+  "regularization_alpha": 667533.3393093913,
+  "regularization_policy": "frozen_lambda_ref_times_full_candidate_reference_beta_squared",
+  "secondary_structural_feasibility": "completed",
+  "selected_columns": [
+    62,
+    63,
+    64,
+    65,
+    68,
+    69,
+    92,
+    94
+  ],
+  "selected_rows": [
+    6,
+    7,
+    8,
+    9,
+    183,
+    221,
+    263,
+    301
+  ],
+  "selector_outcomes_used_for_inclusion": false,
+  "spectral_norm": 1532.1995899502028,
+  "state_metadata": [
+    {
+      "bus_id": 7,
+      "full_state_index": 62,
+      "label": "V_7",
+      "local_index": 0,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 8,
+      "full_state_index": 63,
+      "label": "V_8",
+      "local_index": 1,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 9,
+      "full_state_index": 64,
+      "label": "V_9",
+      "local_index": 2,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 10,
+      "full_state_index": 65,
+      "label": "V_10",
+      "local_index": 3,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 13,
+      "full_state_index": 68,
+      "label": "V_13",
+      "local_index": 4,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 14,
+      "full_state_index": 69,
+      "label": "V_14",
+      "local_index": 5,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 37,
+      "full_state_index": 92,
+      "label": "V_37",
+      "local_index": 6,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 39,
+      "full_state_index": 94,
+      "label": "V_39",
+      "local_index": 7,
+      "state_type": "voltage"
+    }
+  ],
+  "structural_group_id": "ieee57_structural_group_04",
+  "structural_group_selection_order": 4
+}

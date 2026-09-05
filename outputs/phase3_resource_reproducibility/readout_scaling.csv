@@ -1,0 +1,12 @@
+workload_id,kind,shots,mean_relative_error,basis,source_artifact
+ieee14_4x4_primary_anchor,measured_grid_pooled_signed,1000.0,0.1588770328734363,"30 seeds x 3 signed functionals, Hadamard test",outputs/tqe_revision_experiments/readout_statistics/readout_shot_scaling_summary.csv
+ieee14_4x4_primary_anchor,measured_grid_pooled_signed,10000.0,0.0494784186132105,"30 seeds x 3 signed functionals, Hadamard test",outputs/tqe_revision_experiments/readout_statistics/readout_shot_scaling_summary.csv
+ieee14_4x4_primary_anchor,measured_grid_pooled_signed,100000.0,0.015123880510458,"30 seeds x 3 signed functionals, Hadamard test",outputs/tqe_revision_experiments/readout_statistics/readout_shot_scaling_summary.csv
+ieee14_4x4_primary_anchor,measured_grid_pooled_signed,1000000.0,0.0044437064028647,"30 seeds x 3 signed functionals, Hadamard test",outputs/tqe_revision_experiments/readout_statistics/readout_shot_scaling_summary.csv
+ieee14_4x4_primary_anchor,measured_representative_row,100000.0,0.0185380841444603,mean over signed functionals at the recorded budget,outputs/phase2_qsvt_boundary/representative_rows.csv
+ieee14_4x4_primary_anchor,modeled_nhalf_extrapolation_to_0.01,343660.5637470904,0.01,N^{-1/2}-only scaling estimate; excludes state preparation and postselection overhead; not a measured result,outputs/phase3_resource_reproducibility/phase3_resource_ledger.csv
+ieee14_8x8_lambda_matched_anchor,measured_representative_row,100000.0,0.0124772089423538,mean over signed functionals at the recorded budget,outputs/phase2_qsvt_boundary/representative_rows.csv
+ieee14_8x8_lambda_matched_anchor,modeled_nhalf_extrapolation_to_0.01,155680.74299115362,0.01,N^{-1/2}-only scaling estimate; excludes state preparation and postselection overhead; not a measured result,outputs/phase3_resource_reproducibility/phase3_resource_ledger.csv
+ieee14_8x8_condition_controlled_k1e4,measured_representative_row,100000.0,0.15443979213774237,mean over signed functionals at the recorded budget,outputs/phase2_qsvt_boundary/representative_rows.csv
+ieee14_8x8_condition_controlled_k1e4,modeled_nhalf_extrapolation_to_0.01,23851649.39554907,0.01,N^{-1/2}-only scaling estimate; excludes state preparation and postselection overhead; not a measured result,outputs/phase3_resource_reproducibility/phase3_resource_ledger.csv
+ieee30_16x16_raw,not_measured,,,isolated finite-shot signed-overlap experiment not run for this row; budget-modeled only,outputs/phase2_qsvt_boundary/representative_rows.csv

@@ -1,0 +1,141 @@
+estimators:
+- name: pseudoinverse
+  rcond: 1.0e-10
+- alpha: 0.0001
+  name: ridge
+- name: truncated_svd
+  tau: 1.0e-05
+- alpha: 0.0001
+  name: qsvt_regularized
+- delta: 1.5
+  max_iterations: 10
+  name: huber_irls
+  tolerance: 1.0e-07
+output:
+  overwrite: true
+  root: outputs
+  run_id: real_ieee57_seed10
+  save_plots: true
+qsvt_resource:
+  degrees:
+  - 4
+  - 8
+  - 16
+  - 32
+  enabled: true
+  grid_size: 512
+  target_error: 0.001
+run_name: real_ieee57_seed10
+runtime:
+  implementation_scope: Synthetic, DC, AC-linearized, nonlinear AC, and QSVT resource
+    benchmarks
+  package_version: 0.1.0
+  python_version: 3.12.11
+scenario:
+  bad_data:
+    enabled: true
+    magnitude: 5.0
+    ratio: 0.05
+    target: weak_area
+  missing_ratio: 0.1
+  name: real_ieee57_ac_linearized
+  noise_std: 0.002
+seed: 101
+sweeps:
+- name: real_noise_sweep
+  parameter: scenario.noise_std
+  seeds:
+  - 101
+  - 202
+  - 303
+  - 404
+  - 505
+  - 606
+  - 707
+  - 808
+  - 909
+  - 1001
+  values:
+  - 0.0
+  - 0.002
+  - 0.01
+- name: real_missing_sweep
+  parameter: scenario.missing_ratio
+  seeds:
+  - 101
+  - 202
+  - 303
+  - 404
+  - 505
+  - 606
+  - 707
+  - 808
+  - 909
+  - 1001
+  values:
+  - 0.0
+  - 0.1
+  - 0.2
+- name: real_bad_data_ratio_sweep
+  parameter: scenario.bad_data.ratio
+  seeds:
+  - 101
+  - 202
+  - 303
+  - 404
+  - 505
+  - 606
+  - 707
+  - 808
+  - 909
+  - 1001
+  values:
+  - 0.0
+  - 0.05
+  - 0.1
+system:
+  angle_scale: 0.05
+  case_name: ieee57
+  case_source: pypower
+  condition_number: 1000000.0
+  iteration:
+    damping: 1.0
+    max_iterations: 10
+    residual_tolerance: 1.0e-08
+    update_tolerance: 1.0e-08
+  linearization:
+    angle_perturbation_std: 0.005
+    min_voltage_magnitude: 0.5
+    voltage_perturbation_std: 0.005
+  measurement:
+    angle_buses:
+    - 2
+    - 6
+    - 9
+    - 14
+    angle_std: 0.005
+    flow_p_std: 0.02
+    flow_q_std: 0.02
+    flow_std: 0.02
+    include_branch_flows: true
+    include_bus_injections: true
+    include_p_branch_flows: true
+    include_p_injections: true
+    include_q_branch_flows: false
+    include_q_injections: false
+    include_voltage_magnitudes: true
+    injection_p_std: 0.03
+    injection_q_std: 0.03
+    injection_std: 0.03
+    voltage_std: 0.01
+    weak_area_buses:
+    - 53
+    - 54
+    - 55
+    - 56
+    - 57
+    weak_area_std_multiplier: 10.0
+  mode: ac_power_flow_linearized
+  n_measurements: 60
+  n_states: 20
+  truth_scale: 1.0

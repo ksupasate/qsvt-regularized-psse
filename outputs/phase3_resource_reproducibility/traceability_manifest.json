@@ -1,0 +1,206 @@
+{
+  "amplitude_estimation_status": "modeled_only_not_executed",
+  "claim_boundary": "Access-matched selected-submatrix resource and reproducibility audit for the same matched-alpha Ridge/Tikhonov spectral filter. Quantum totals are repetition and signal-unitary-call counts with modeled T_U unless compiled; classical timings are wall-clock seconds; the units are different and never merged. The accounting does not support quantum competitiveness for these fixed selected-block workloads and makes no speedup, numerical-superiority, IEEE-scale-execution, full-vector, field-data, or nonlinear-loop claim.",
+  "config": "configs/qsvt_phase3_resource_reproducibility.yaml",
+  "environment": {
+    "machine": "arm64",
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.11",
+    "scipy": "1.17.1"
+  },
+  "file_checksums_sha256": {
+    "configs/qsvt_phase2_boundary.yaml": "9fdea5010bef1f8d3a155696e8fca870497519160f2ae70503b53f634bb19e22",
+    "configs/qsvt_phase3_resource_reproducibility.yaml": "7b5972d4d8f580ebd3f672cb06114d2f8427e62b6dcc77b3d57da5e89e6c7bc3",
+    "manuscript/main.tex": "9bf7755efeea190bf0fbff62142a7dbc0d5b1c9cb6855d14d76a7e0ca3b59726",
+    "manuscript/tables/phase2_qsvt_boundary_evidence.tex": "6355cdcdcc32977bb089e3ce623a4dbefec86cc07d75c2cae6a8cf92040de242",
+    "manuscript/tables/phase3_access_matched_resource.tex": "21b9ab69c7a8280fe245bc5ce67853706573ca6334b95ab6637c87325533a49e",
+    "manuscript/tables/phase3_reproducibility_trace.tex": "522b88f0499c264bbb59feb9a9a175c56f2c5d5b9590f1ec935107290c5862bd",
+    "manuscript/tables/phase3_residual_loading_models.tex": "c60856fc0a97cb486fae8667fde56756fbe8490640a2b3244854cac2b7f8ffb7",
+    "manuscript/tables/residual_loading_ledger.tex": "333d290871d8f11e9de5764dcc805b8647491c3f96824b6e498c6804861f8d99",
+    "outputs/classical_selected_observable_baseline/baseline_summary.csv": "a91c1a4d4cbaaa60c4964647f0cc5deff51b9e659ee4dce22d1188773a3f54df",
+    "outputs/hardware_aware_oracle_cost_model/oracle_cost_by_case.csv": "8d716b3aba5c184e5086da3ac9a67feb6ce1658bf55a2c4199cd2674e274eccc",
+    "outputs/ieee_qsvt_pipeline_boundary/block_encoding_report.csv": "306f1a1aed0a6a625abbe566108becb2ceb34c5af350520062394125115ad58a",
+    "outputs/ieee_qsvt_pipeline_boundary/state_preparation_report.csv": "3965bb95eacb64790f766efec0ab275537452f4b049e58aa3bd315b66a7bc84b",
+    "outputs/phase2_qsvt_boundary/all_attempts.csv": "9cda656c843ec53cbe1342c8514cebd9c8b5932dcef850a7edf205bee75cb791",
+    "outputs/phase2_qsvt_boundary/phase2_summary.json": "c354dbad4257eb57211a138f4ebe4cb0535ca7658296d5c7030651e23187f7cb",
+    "outputs/phase2_qsvt_boundary/representative_rows.csv": "9f4712f1310a718ed7972ed0e4a5cc1b1f56781e71db308bde27f5ed0cab3578",
+    "outputs/phase2_qsvt_boundary/selected_block_metadata.json": "5b170ae1f8f97298927ef4e8222ecd81939be3bd325fb242ff3e8ba3da7a0f1c",
+    "outputs/phase3_resource_reproducibility/README.md": "ae68274f068c1d6080228c5eff8cb915a93fdd334f9cbe8bc9a72557cac6edf1",
+    "outputs/phase3_resource_reproducibility/access_status.csv": "2088157edf4eb6ef4743fca954d8234fa229e4add5e8306305ab85b3e3c3006c",
+    "outputs/phase3_resource_reproducibility/classical_selected_output_timings.csv": "493b857457876e1ca15f7914b079ffe9be489a2ea3ad930351ebf821e811532c",
+    "outputs/phase3_resource_reproducibility/phase3_resource_ledger.csv": "a6b354e9146e4a195784a04f172d2d84aa0e0b942e29cfa5f23dd35851407b17",
+    "outputs/phase3_resource_reproducibility/phase3_resource_ledger.json": "a8f31a929f6ace3775ac275a55f8152bd54ca3a6fbb9176623f3f9773ab156db",
+    "outputs/phase3_resource_reproducibility/readout_scaling.csv": "1d0efc7d8d77af57683441f7d30893a3a91cce979d2e34678c85081f6658d9b0",
+    "outputs/phase3_resource_reproducibility/residual_loading_models.csv": "d0f403842538c90117b1f63a36f238341ca9fef6d6ea9c2b5f25b97da67db899",
+    "outputs/qsvt_selected_workload_extension/selected_workload_results.csv": "691608c6624786171cc17bd78aa824ccd37df360780aefa1f34feaa073d67c5b",
+    "outputs/sparse_block_encoding_wrapper_demo/wrapper_demo_results.csv": "34233e69fe61258dff048ce76e08914b1c527d1a08a76585c91957796e59d5ab",
+    "outputs/tqe_revision_experiments/end_to_end_resource_case/classical_adjoint_baseline.csv": "99d0b62f9511ee3185abe445c58632fc2c71f743f6db2f91d1862cf8ab9d3569",
+    "outputs/tqe_revision_experiments/end_to_end_resource_case/fixed_case_resource_ledger.csv": "d41c3134bf45f37d4ac279d9055343822ca89086fa9d484488fecda2196af416",
+    "outputs/tqe_revision_experiments/readout_statistics/readout_shot_scaling_summary.csv": "18a7ceafab35870ca6eb792971914a690d421996e48844b83afeeaf80b337814",
+    "outputs/tqe_revision_experiments/sparse_block_encoding_demo/compiled_circuit_summary.json": "c81907838e3cb9d61e04cde75351fcd149027f0f1a6d12564ed8eaf5d6367f07",
+    "scripts/run_classical_selected_observable_baseline.py": "e499a5ad16009f7086d5057d8ad4b47c13be2f7e68b71d3400338840562a1a5b",
+    "scripts/run_phase2_qsvt_boundary.py": "975a66d42d9b05c4c8e65ac6f226a46eddb9821baaf51f2c30180bd7fef4b7ad",
+    "scripts/run_phase3_resource_reproducibility.py": "5dfe705f1efcc88cb4e4c9953639b528c94aab55dd16c2f884cc97c9621bfda8",
+    "scripts/run_selected_workload_extension.py": "7179bc31a946ddfda0eec74aec85745b0a810fc41a726ce0ad4a206974dedc23",
+    "scripts/run_tqe_revision_readout_statistics.py": "eaa9d4db51266a7bcc6a6cc56f074cf90c5005d093d3dbf00cf021db3802b7da",
+    "scripts/run_tqe_revision_resource_ledger.py": "815cf65b6812167b5984c1949dc40b9e45a9ea6ea8c8f9fc70732f06c05d6340",
+    "src/robust_qsvt_se/paper/phase2_qsvt_boundary.py": "bc6df91f33937a3fe1078d974b05b9db5135b8c594551dc9a401ab448a22bf3a",
+    "src/robust_qsvt_se/paper/phase3_resource_reproducibility.py": "a95a84dc025f1e1a5b3371009a7bcc90d37bf69dcfba42e26d2de7447d9b4453"
+  },
+  "generated_by": "scripts/run_phase3_resource_reproducibility.py",
+  "manuscript_tables": [
+    {
+      "config": "configs/qsvt_phase3_resource_reproducibility.yaml",
+      "inputs": [
+        "outputs/phase2_qsvt_boundary/representative_rows.csv",
+        "outputs/phase2_qsvt_boundary/selected_block_metadata.json"
+      ],
+      "label": "tab:phase3_access_matched_resource",
+      "manuscript_table": "manuscript/tables/phase3_access_matched_resource.tex",
+      "primary_artifact": "outputs/phase3_resource_reproducibility/phase3_resource_ledger.csv",
+      "script": "scripts/run_phase3_resource_reproducibility.py",
+      "settings": {
+        "adjoint_timing": {
+          "timing_repeats": 30,
+          "value_agreement_rtol": 1e-09,
+          "warmup_repeats": 3
+        },
+        "functional_count_q": 1,
+        "reference_shot_budget": 100000.0,
+        "seed": 123,
+        "target_relative_error": 0.01
+      }
+    },
+    {
+      "config": "configs/qsvt_phase3_resource_reproducibility.yaml",
+      "inputs": [
+        "outputs/ieee_qsvt_pipeline_boundary/state_preparation_report.csv",
+        "manuscript/tables/residual_loading_ledger.tex"
+      ],
+      "label": "tab:phase3_residual_loading_models",
+      "manuscript_table": "manuscript/tables/phase3_residual_loading_models.tex",
+      "primary_artifact": "outputs/phase3_resource_reproducibility/residual_loading_models.csv",
+      "script": "scripts/run_phase3_resource_reproducibility.py",
+      "settings": {
+        "kind": "status audit; no new experiment"
+      }
+    },
+    {
+      "config": "configs/qsvt_phase3_resource_reproducibility.yaml",
+      "inputs": [
+        "configs/qsvt_phase2_boundary.yaml",
+        "configs/qsvt_phase3_resource_reproducibility.yaml",
+        "manuscript/main.tex",
+        "manuscript/tables/phase2_qsvt_boundary_evidence.tex",
+        "manuscript/tables/phase3_access_matched_resource.tex",
+        "manuscript/tables/phase3_reproducibility_trace.tex",
+        "manuscript/tables/phase3_residual_loading_models.tex",
+        "manuscript/tables/residual_loading_ledger.tex",
+        "outputs/classical_selected_observable_baseline/baseline_summary.csv",
+        "outputs/hardware_aware_oracle_cost_model/oracle_cost_by_case.csv",
+        "outputs/ieee_qsvt_pipeline_boundary/block_encoding_report.csv",
+        "outputs/ieee_qsvt_pipeline_boundary/state_preparation_report.csv",
+        "outputs/phase2_qsvt_boundary/all_attempts.csv",
+        "outputs/phase2_qsvt_boundary/phase2_summary.json",
+        "outputs/phase2_qsvt_boundary/representative_rows.csv",
+        "outputs/phase2_qsvt_boundary/selected_block_metadata.json",
+        "outputs/phase3_resource_reproducibility/README.md",
+        "outputs/phase3_resource_reproducibility/access_status.csv",
+        "outputs/phase3_resource_reproducibility/classical_selected_output_timings.csv",
+        "outputs/phase3_resource_reproducibility/phase3_resource_ledger.csv",
+        "outputs/phase3_resource_reproducibility/phase3_resource_ledger.json",
+        "outputs/phase3_resource_reproducibility/readout_scaling.csv",
+        "outputs/phase3_resource_reproducibility/residual_loading_models.csv",
+        "outputs/qsvt_selected_workload_extension/selected_workload_results.csv",
+        "outputs/sparse_block_encoding_wrapper_demo/wrapper_demo_results.csv",
+        "outputs/tqe_revision_experiments/end_to_end_resource_case/classical_adjoint_baseline.csv",
+        "outputs/tqe_revision_experiments/end_to_end_resource_case/fixed_case_resource_ledger.csv",
+        "outputs/tqe_revision_experiments/readout_statistics/readout_shot_scaling_summary.csv",
+        "outputs/tqe_revision_experiments/sparse_block_encoding_demo/compiled_circuit_summary.json",
+        "scripts/run_classical_selected_observable_baseline.py",
+        "scripts/run_phase2_qsvt_boundary.py",
+        "scripts/run_phase3_resource_reproducibility.py",
+        "scripts/run_selected_workload_extension.py",
+        "scripts/run_tqe_revision_readout_statistics.py",
+        "scripts/run_tqe_revision_resource_ledger.py",
+        "src/robust_qsvt_se/paper/phase2_qsvt_boundary.py",
+        "src/robust_qsvt_se/paper/phase3_resource_reproducibility.py"
+      ],
+      "label": "tab:phase3_reproducibility_trace",
+      "manuscript_table": "manuscript/tables/phase3_reproducibility_trace.tex",
+      "primary_artifact": "outputs/phase3_resource_reproducibility/traceability_manifest.json",
+      "script": "scripts/run_phase3_resource_reproducibility.py",
+      "settings": {
+        "kind": "checksummed mapping of results to artifacts"
+      }
+    },
+    {
+      "config": "configs/qsvt_phase2_boundary.yaml",
+      "inputs": [
+        "outputs/phase2_qsvt_boundary/representative_rows.csv"
+      ],
+      "label": "tab:phase2_qsvt_boundary",
+      "manuscript_table": "manuscript/tables/phase2_qsvt_boundary_evidence.tex",
+      "primary_artifact": "outputs/phase2_qsvt_boundary/all_attempts.csv",
+      "script": "scripts/run_phase2_qsvt_boundary.py",
+      "settings": {
+        "note": "Phase 2 evidence; unchanged by this audit",
+        "seed": 123
+      }
+    }
+  ],
+  "traceability_refresh": {
+    "mode": "metadata_only",
+    "reason": "intentional evidence-locked manuscript revision",
+    "scientific_rows_recomputed": false
+  },
+  "units_note": "quantum side: repetition and signal-unitary-call counts with T_U modeled unless compiled; classical side: wall-clock seconds; different units, never merged",
+  "workloads": [
+    {
+      "block_checksum_rebuilt": "cdb5eaf8f1cb8a61d25e0a6246bc80a0",
+      "block_checksum_recorded": "cdb5eaf8f1cb8a61d25e0a6246bc80a0",
+      "block_kind": "raw_ieee_derived_selected_block",
+      "classical_adjoint_value_rel_diff": 6.109589409020647e-16,
+      "representative_run_id": "anchor_4x4_benchmark_alpha_d31",
+      "residual_checksum_rebuilt": "5f38fd75295a6b168411a7db6f6f4e2c",
+      "residual_checksum_recorded": "not_recorded",
+      "seed": 123,
+      "workload_id": "ieee14_4x4_primary_anchor"
+    },
+    {
+      "block_checksum_rebuilt": "c5027daaefc0c0c2eb6117a0e1bd1194",
+      "block_checksum_recorded": "c5027daaefc0c0c2eb6117a0e1bd1194",
+      "block_kind": "raw_ieee_derived_selected_block",
+      "classical_adjoint_value_rel_diff": 1.299639024005006e-14,
+      "representative_run_id": "8x8_codesigned_lambda_matched_d31",
+      "residual_checksum_rebuilt": "9de39f6071024f5c884183271791e2c5",
+      "residual_checksum_recorded": "9de39f6071024f5c884183271791e2c5",
+      "seed": 123,
+      "workload_id": "ieee14_8x8_lambda_matched_anchor"
+    },
+    {
+      "block_checksum_rebuilt": "00e8e0416d519959bf382fa3e8cd33a3",
+      "block_checksum_recorded": "00e8e0416d519959bf382fa3e8cd33a3",
+      "block_kind": "ieee_derived_condition_controlled_stress_block",
+      "classical_adjoint_value_rel_diff": 0.0,
+      "representative_run_id": "phase2_ieee14_8x8_condition_controlled_k1e4_lambda0.069_dmax45",
+      "residual_checksum_rebuilt": "9de39f6071024f5c884183271791e2c5",
+      "residual_checksum_recorded": "9de39f6071024f5c884183271791e2c5",
+      "seed": 123,
+      "workload_id": "ieee14_8x8_condition_controlled_k1e4"
+    },
+    {
+      "block_checksum_rebuilt": "07a4ffdc507fe0711e91c87bfe497135",
+      "block_checksum_recorded": "07a4ffdc507fe0711e91c87bfe497135",
+      "block_kind": "raw_ieee_derived_selected_block",
+      "classical_adjoint_value_rel_diff": 0.0,
+      "representative_run_id": "phase2_ieee30_16x16_raw_lambda0.069_dmax45",
+      "residual_checksum_rebuilt": "55aadb52987463e7aaa88165721655dc",
+      "residual_checksum_recorded": "55aadb52987463e7aaa88165721655dc",
+      "seed": 123,
+      "workload_id": "ieee30_16x16_raw"
+    }
+  ]
+}

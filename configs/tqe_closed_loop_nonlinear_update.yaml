@@ -1,0 +1,105 @@
+# Closed-loop nonlinear sparse-QSVT state-update experiment.
+# Frozen before evaluation.  Reuses the Workstream B nonlinear AC measurement / linearization /
+# iteration settings and the three declared scenarios, but *closes the loop*: the selected arm's
+# update advances the next nonlinear iteration (block-based arms move only the selected block
+# state coordinates).  All parameters below are fixed prior to inspecting any final outcome.
+study_id: tqe_closed_loop_nonlinear_update_v1
+
+# 3 scenarios x 3 seeds.  All seven arms run on every (scenario, seed), yielding nine matched
+# statevector/finite-shot trajectories.  `finite_shot_seed` is retained only as the seed selected
+# for the stagewise decomposition panels; it no longer limits the closed-loop finite-shot arm.
+seeds: [101, 202, 303]
+finite_shot_seed: 101
+
+nonlinear_settings:
+  case_name: ieee14
+  case_source: pypower
+  fixed_alpha: 1.0e-4       # full-system exact-Ridge reference alpha (Arm A)
+  measurement:
+    include_voltage_magnitudes: true
+    include_p_injections: true
+    include_q_injections: true
+    include_p_branch_flows: true
+    include_q_branch_flows: true
+    voltage_std: 0.01
+    injection_p_std: 0.03
+    injection_q_std: 0.03
+    flow_p_std: 0.02
+    flow_q_std: 0.02
+    weak_area_buses: [12, 13, 14]
+    weak_area_std_multiplier: 10.0
+  linearization:
+    angle_perturbation_std: 0.005
+    voltage_perturbation_std: 0.005
+    min_voltage_magnitude: 0.5
+  iteration:
+    max_iterations: 8
+    update_tolerance: 1.0e-7
+    residual_tolerance: 1.0e-7
+    damping: 1.0
+    max_update_norm: 1000.0
+    residual_growth_limit: 10000.0
+
+scenarios:
+  - {scenario_id: gaussian_noise_baseline, noise_std: 0.002, missing_ratio: 0.0,
+     bad_data: {enabled: false, ratio: 0.0, magnitude: 5.0, target: weak_area}}
+  - {scenario_id: random_missing_measurement_stress, noise_std: 0.002, missing_ratio: 0.1,
+     bad_data: {enabled: false, ratio: 0.0, magnitude: 5.0, target: weak_area}}
+  - {scenario_id: sparse_signed_bad_data_stress, noise_std: 0.002, missing_ratio: 0.0,
+     bad_data: {enabled: true, ratio: 0.05, magnitude: 5.0, target: weak_area}}
+
+# Small-block matched sparse-QSVT operating point (rebuilt every iteration).
+block_qsvt:
+  case_name: ieee14
+  case_source: pypower
+  block_size: 4
+  magnitude_bits: 6              # circuit value quantization (sign + 6 magnitude bits)
+  lambda_target: 1.0e-1         # QSVT-feasible normalized regularization; alpha_k = lambda * beta^2
+  degree: 31
+  margin: 1.05
+  bound_tolerance: 2.0e-3
+  domain_min_floor: 1.0e-4
+  phase_synthesis_timeout_seconds: 90.0
+  finite_shot_budget: 100000    # attempted shots per signed coordinate query
+  finite_shot_sampler_seed: 20260722
+
+closed_loop:
+  arms:
+    - full_system_exact_ridge
+    - block_full_support_ridge
+    - sparse_exact_ridge
+    - sparse_quantized_ridge
+    - sparse_exact_polynomial
+    - sparse_qsvt_statevector_closed_loop
+    - sparse_qsvt_finite_shot_closed_loop
+  # Audit correction (Issue D): the finite-shot arm now runs on every (scenario, seed) so it is
+  # matched one-to-one with the statevector arm (nine matched finite-shot runs).  The prior
+  # seed-only design produced three byte-identical runs because a 4x4 block advances only four
+  # coordinates and, at seed 101, no scenario difference touched the selected block.
+  finite_shot_arm_seed_only: false
+  finite_shot_evidence_level: nine_run_matched_finite_shot_evidence
+  finite_shot_budget: 100000
+  finite_shot_sampler_seed: 20260722
+  max_total_shots_per_run: 100000000   # finite-shot cost ceiling (retained failure if exceeded)
+  accurate_state_rmse_threshold: 2.0e-3  # descriptive accurate/inaccurate boundary
+  stalled_update_norm: 1.0e-6
+
+# Extended-horizon convergence diagnostic (Issue C).  Clearly separated from the primary
+# eight-iteration protocol above; used ONLY to classify whether the block arms plateau or keep
+# improving.  The plateau rule below is predeclared before inspecting the extended trajectories.
+extended_horizon:
+  enabled: true
+  max_iterations: 30
+  # Inexpensive arms only (the finite-shot arm G is intentionally excluded from the full horizon).
+  arms:
+    - full_system_exact_ridge
+    - block_full_support_ridge
+    - sparse_exact_ridge
+    - sparse_quantized_ridge
+    - sparse_exact_polynomial
+    - sparse_qsvt_statevector_closed_loop
+  plateau_window: 5              # trailing iterations examined for the plateau test
+  plateau_rmse_rel_tol: 1.0e-2   # max relative RMSE change over the window to count as flat
+  plateau_step_norm: 1.0e-4      # update norm below which the trajectory is treated as settled
+  still_improving_rel_tol: 1.0e-2  # RMSE reduction over the window above which it is improving
+  oscillation_rel_tol: 5.0e-2    # relative RMSE swing above which the tail is oscillatory

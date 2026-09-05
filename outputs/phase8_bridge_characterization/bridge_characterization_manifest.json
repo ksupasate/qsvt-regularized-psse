@@ -1,0 +1,82 @@
+{
+  "anchor_lambda": 0.06901796281445464,
+  "block_sizes": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "cases": [
+    "ieee14",
+    "ieee30",
+    "ieee57",
+    "ieee118"
+  ],
+  "changes_estimator_behavior": false,
+  "checksums": {
+    "bridge_characterization_by_case_size_rule_csv": "64ac1c38d197b46efb458ec62e3354ed784f3e0af488aed1c90331cef408def7",
+    "bridge_characterization_full_csv": "e0b17ad46ee027efc6fa2017da714db79bfb8227243201a049af6539b3509412",
+    "bridge_characterization_summary_csv": "373eb38daf59f4c285d8689da6809006597eda5ba254a56719044d717c049fb1",
+    "checksums_sha256": "326692213e93e8fa55c030d6cb57638c0e319656fbe38242c55e701ec8d577a7",
+    "manuscript_table_tex": "038b304138d4706093c64cdc78faac2a372445e11abbd836ecaf881b2243b95a",
+    "readme_md": "c82fd57b9dca8ecdc9157fa14daca650d8d0c90e7e8e300b51cbbbec2dae991e"
+  },
+  "claim_boundary": "Controlled IEEE/PYPOWER benchmark and QSVT feasibility-boundary study for regularized spectral filtering in ill-conditioned power-system state estimation. IEEE/PYPOWER cases provide benchmark network models; measurement rows are generated from the network equations by code, not from field PMU/SCADA data. The QSVT-target filter is a QSVT-compatible implementation pathway for the same Ridge/Tikhonov regularized spectral filter and is numerically equivalent to Ridge at the same alpha in the classical simulator. This study quantifies a feasibility boundary. It does not demonstrate a quantum speed-up, does not demonstrate a quantum-computational advantage, does not show the QSVT-target filter beating Ridge/Tikhonov numerically, does not implement full-vector quantum readout, does not perform full IEEE-scale execution on quantum devices, and is not validated against real PMU/SCADA field measurements.",
+  "command": "scripts/run_phase8_bridge_characterization.py ",
+  "description": "Classical characterization of the selected-submatrix / full-system Ridge bridge discrepancy across IEEE cases, block sizes 4-64, and three numerical selection rules at the executed anchor lambda, with deleted-coupling diagnostics and the three original bridge rows reproduced verbatim.",
+  "diagnostic_spearman_correlations": {
+    "block_frobenius_fraction": -0.6128401105144172,
+    "functional_column_leakage": 0.6988593709066929,
+    "kappa_effective": -0.0884432724832739,
+    "out_of_block_coupling_fraction": 0.6619247042668469,
+    "residual_energy_fraction": -0.4229063014953599,
+    "selected_cols_out_of_block_energy_fraction": 0.6439406829650695,
+    "selected_rows_out_of_block_energy_fraction": 0.6553151921644843
+  },
+  "experiment_id": "phase8_bridge_characterization",
+  "fabricates_results": false,
+  "failures": [],
+  "git_commit_hash": null,
+  "inputs_used": [
+    "build_engineering_system:ieee118:weighted_jacobian",
+    "build_engineering_system:ieee14:weighted_jacobian",
+    "build_engineering_system:ieee30:weighted_jacobian",
+    "build_engineering_system:ieee57:weighted_jacobian"
+  ],
+  "interpretation_boundary": "A classical audit of the surrogate boundary: it quantifies when the selected-block first-coordinate functional tracks the full-system Ridge functional and when it does not. It does not make the executed circuits full-system selected-output evaluations and claims no quantum execution beyond the existing selected-submatrix workloads.",
+  "key_package_versions": {
+    "matplotlib": "3.10.9",
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "pennylane": "0.45.0",
+    "qiskit": "2.4.1",
+    "qiskit-aer": "0.17.2",
+    "scipy": "1.17.1"
+  },
+  "manifest_name": "bridge_characterization_manifest.json",
+  "outputs_generated": {
+    "bridge_characterization_by_case_size_rule_csv": "outputs/phase8_bridge_characterization/bridge_characterization_by_case_size_rule.csv",
+    "bridge_characterization_full_csv": "outputs/phase8_bridge_characterization/bridge_characterization_full.csv",
+    "bridge_characterization_summary_csv": "outputs/phase8_bridge_characterization/bridge_characterization_summary.csv",
+    "checksums_sha256": "outputs/phase8_bridge_characterization/checksums.sha256",
+    "manifest": "outputs/phase8_bridge_characterization/bridge_characterization_manifest.json",
+    "manuscript_table_tex": "manuscript/tables/phase8_bridge_characterization.tex",
+    "readme_md": "outputs/phase8_bridge_characterization/README.md"
+  },
+  "overwrites_existing_outputs": false,
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python_version": "3.12.11",
+  "random_seeds": {
+    "random_rule_seed_sequence": "[seed, case_index, block_size]",
+    "system_seed": 123
+  },
+  "script_name": "scripts/run_phase8_bridge_characterization.py",
+  "selection_rules": [
+    "largest_row_col_norms",
+    "column_leverage",
+    "seeded_random"
+  ],
+  "timestamp": "2026-07-04T17:25:01Z",
+  "warnings": []
+}

@@ -1,0 +1,32 @@
+{
+  "attempt_row_count": 64,
+  "best_harder_success_run_id": "phase2_ieee14_8x8_condition_controlled_k1e4_lambda0.069_dmax45",
+  "block_count": 4,
+  "claim_boundary": "Selected-submatrix implementation-boundary evidence for the matched Ridge/Tikhonov filter; no quantum speedup, numerical superiority, full IEEE-scale execution, scalable residual loading, full sparse block encoding, or nonlinear-loop QSVT.",
+  "degree_ceilings": [
+    45,
+    71,
+    101,
+    201
+  ],
+  "failed_row_count": 32,
+  "finite_shot_readout_workload_count": 1,
+  "harder_success_exists": true,
+  "lambda_values": [
+    0.1,
+    0.069,
+    0.01,
+    0.001
+  ],
+  "negative_boundary_statement": "For the tested raw and explicitly condition-controlled IEEE-derived selected blocks with kappa >= 1e2 and lambda <= 1e-2, no row was both accurate and phase-synthesizable within the tested polynomial and phase-synthesis limits.",
+  "phase": 2,
+  "phase_synthesis_max_degree": 45,
+  "status_counts": {
+    "degree-limited": 4,
+    "feasible": 32,
+    "tolerance-missing": 28
+  },
+  "success_at_kappa_ge_1e2_lambda_le_1e2": false,
+  "successful_row_count": 32,
+  "target_error_tolerance": 0.01
+}

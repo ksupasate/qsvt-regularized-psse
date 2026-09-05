@@ -1,0 +1,59 @@
+{
+  "alpha": 366448.36483477196,
+  "beta": 2304.227343618158,
+  "block_shape": "4x4",
+  "bound_C": 1.9983807394390158,
+  "case": "ieee14",
+  "classical_adjoint_reference": {
+    "iqr_high_seconds": 5.770489224232733e-06,
+    "iqr_low_seconds": 5.499990948010236e-06,
+    "median_runtime_seconds": 5.62501372769475e-06,
+    "num_timing_repeats": 30,
+    "timing_note": "Python wall-clock; diagnostic and environment-specific",
+    "value": -0.004259018143057701
+  },
+  "degree": 31,
+  "matrix_source": "ieee14_pypower_ac_weighted_jacobian",
+  "observables": {
+    "area_aggregate_first_half": {
+      "exact_signed_overlap_z": -0.10994290413181776,
+      "isolated_readout_mean_relative_error_vs_ridge_by_shots": {
+        "1000": 0.2588352945932129,
+        "10000": 0.0816869435496991,
+        "100000": 0.0241096109918006,
+        "1000000": 0.0075689167048103
+      },
+      "physical_recovery_scale": 0.024566159500150963,
+      "ridge_functional": -0.0027013706722182366,
+      "statevector_qsvt_functional": -0.0027008749188120415
+    },
+    "state_correction_0": {
+      "exact_signed_overlap_z": -0.2450702077564308,
+      "isolated_readout_mean_relative_error_vs_ridge_by_shots": {
+        "1000": 0.1073283738337778,
+        "10000": 0.0327699299700238,
+        "100000": 0.0103697597482092,
+        "1000000": 0.0027923234370849
+      },
+      "physical_recovery_scale": 0.01737089797026707,
+      "ridge_functional": -0.004259018143057706,
+      "statevector_qsvt_functional": -0.004257089574489113
+    },
+    "state_difference_0_1": {
+      "exact_signed_overlap_z": -0.23663870741091872,
+      "isolated_readout_mean_relative_error_vs_ridge_by_shots": {
+        "1000": 0.1104674301933181,
+        "10000": 0.0339783823199088,
+        "100000": 0.0108922707913641,
+        "1000000": 0.002969879066699
+      },
+      "physical_recovery_scale": 0.024566159500150963,
+      "ridge_functional": -0.005816665613897176,
+      "statevector_qsvt_functional": -0.005813304230166185
+    }
+  },
+  "physical_recovery_factor_C_over_beta": 0.0008672671752523803,
+  "recovery_convention": "y_hat = (C/beta)*||r_B||*||l|| * f_hat * Xbar_acc; f_hat is the measured acceptance frequency of the flag qubit, Xbar_acc the mean readout-ancilla sign among accepted shots; measured postselection probability p_hat = 2*f_hat - 1",
+  "residual_norm": 20.02946550492013,
+  "statevector_postselection_probability": 0.9903957148614685
+}

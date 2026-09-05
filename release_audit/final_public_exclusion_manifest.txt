@@ -1,0 +1,129 @@
+# Final public exclusion manifest
+# Prepared: 2026-09-05
+#
+# These rules apply to the clean filesystem export. They do not delete or
+# rewrite protected scientific material in the development workspace.
+
+[history and local tooling]
+.git/**
+.agents/**
+.codex/**
+.claude/**
+.claude_workflows/**
+.venv/**
+AGENTS.md
+**/AGENTS.md
+
+[manuscript and submission surfaces]
+manuscript/**
+submission_package_tqe_final/**
+supplementary_material/**
+final_manuscript_correction/**
+reviewer/**
+**/*.tex
+**/*.pdf
+**/*.aux
+**/*.bbl
+**/*.blg
+**/*.fdb_latexmk
+**/*.fls
+**/*.synctex.gz
+**/*.toc
+
+[private, historical, backup, and temporary material]
+_archive_not_for_github/**
+archive/**
+backup/**
+draft/**
+tmp/**
+.tmp/**
+output/**
+**/*.zip
+**/*.tar
+**/*.tar.gz
+**/*.tgz
+**/*.bak
+**/*.orig
+**/*.log
+**/.DS_Store
+**/__pycache__/**
+**/*.pyc
+**/.pytest_cache/**
+**/.ruff_cache/**
+**/.cache/**
+**/.ipynb_checkpoints/**
+**/_runtime_cache/**
+
+[historical release-audit records]
+release_audit/initial_repository_inventory.md
+release_audit/manuscript_removal_report.md
+release_audit/final_release_report.md
+
+[manuscript-only configurations]
+configs/manuscript_report*.yaml
+
+[manuscript/submission-only Python package utilities]
+src/robust_qsvt_se/paper/final_manuscript_package.py
+src/robust_qsvt_se/paper/latex_asset_export.py
+src/robust_qsvt_se/paper/manuscript_claim_lint_status.py
+src/robust_qsvt_se/paper/manuscript_evidence_audit.py
+src/robust_qsvt_se/paper/pre_manuscript_final_gate.py
+src/robust_qsvt_se/paper/pre_manuscript_usability_audit.py
+src/robust_qsvt_se/paper/tqe_manuscript_readiness.py
+src/robust_qsvt_se/paper/tqe_revision_manuscript_assets.py
+src/robust_qsvt_se/paper/tqe_revision_manuscript_tables.py
+src/robust_qsvt_se/paper/tqe_submission_package.py
+
+[manuscript/submission/reviewer delivery scripts]
+scripts/build_main_paper_tables.py
+scripts/build_paper_level_experiment_summary.py
+scripts/build_paper_measurement_inventory.py
+scripts/build_paper_ready_qsvt_tables.py
+scripts/build_paper_ready_tables.py
+scripts/build_qsvt_cross_case_solver_prototype_package.py
+scripts/build_qsvt_final_optional_evidence_package.py
+scripts/build_qsvt_selected_solver_prototype_package.py
+scripts/build_reviewer_blocking_manifest.py
+scripts/build_tqe_freeze_gate.py
+scripts/build_tqe_main_paper_results.py
+scripts/build_tqe_reviewer_blocking_extension_reports.py
+scripts/check_paper_numbers.py
+scripts/reviewer_evidence_hash_snapshot.py
+scripts/run_generalized_assemble_package.py
+scripts/run_reproducibility_package_audit.py
+scripts/run_reviewer_evidence_all.py
+scripts/run_reviewer_evidence_physical.py
+scripts/run_tqe_reviewer_revision_audit.py
+# Added 2026-09-05 during final verification: this script's only purpose is
+# exporting LaTeX figures/tables/captions/macros for the manuscript, and it
+# imported src/robust_qsvt_se/paper/latex_asset_export.py, which is excluded
+# above. It raised ModuleNotFoundError in the public tree.
+scripts/export_latex_assets.py
+
+[large and non-public output roots]
+results/**
+outputs/**
+
+# Revised 2026-09-05 during final verification.
+#
+# The 41 output roots enumerated in the outputs/ section of .gitignore are
+# explicit exceptions to the outputs/** exclusion, together with their
+# **/phase_cache/ subdirectories, outputs/examples/smoke_test/, and the two
+# output-policy README files. That set is exactly what the public test suite and
+# scripts/validate_reproduction.py read.
+#
+# Reason for the revision: with only the original six roots included, a fresh
+# clone failed 181 tests with 97 errors (77 test files) and 19 validator checks,
+# because the tests read evidence that .gitignore excluded. The exclusion was
+# narrowed so the published artifact verifies itself offline.
+#
+# Six raw scientific datasets remain too large for ordinary Git. They are
+# represented by data_manifest.json and docs/data_access.md under the reserved
+# Zenodo DOI 10.5281/zenodo.22326883, and are NOT required to run the suite.
+
+[public test-suite exclusions]
+# Exact test paths or individual node IDs are recorded in
+# release_audit/public_test_scope_report.md. Exclusions are limited to tests of
+# removed manuscript/submission/report-packaging surfaces or unavailable
+# external evidence. Scientific solver, estimator, measurement, configuration,
+# and numerical-regression tests remain in scope.

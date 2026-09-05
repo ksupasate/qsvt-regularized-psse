@@ -1,0 +1,13 @@
+source,tier,value,note
+1_application_regularization_bias,application,0.00022591410848344466,||dx_ridge - dx_true|| (Ridge estimator bias)
+2_polynomial_approximation,deterministic,0.0001644017748263621,max|C*P_enc(sigma) - sigma/(sigma^2+lam)| / norm (Chebyshev fit)
+3_contraction_repair,deterministic,4e-06,"gamma-1 = 1.00000399449949-1 (minimal contraction, from frozen headline)"
+4_convention_conversion,deterministic,1.5581836336167246e-14,"block vs exact-SVD of encoded poly (phi+pi/2, signed-imag)"
+5_phase_reconstruction,deterministic,0.0001644017748263621,pyqsp sym_qsp reconstruction (bundled with poly approx here)
+6_rectangular_action,deterministic,1.5581836336167246e-14,PCPhase block action vs reference (= convention conversion)
+7_block_encoding,deterministic,1e-14,Julia dilation PSD-sqrt float64 error (measured order)
+8_state_preparation,deterministic,1e-16,residual normalization float64 error
+9_selected_output_readout,deterministic,0.00029373246381722123,|y_qsvt - y_ridge|/|y_ridge| for theta_2 (postselection + rescaling)
+10_finite_shot_sampling,statistical,,filled from WP-J high-precision shot runs (see ieee14_high_precision_backend_summary.csv)
+11_structured_access_approximation,not_applied,,structured access NOT executed (WP-L: MODELED/NOT_IMPLEMENTED)
+12_mitigation_error,not_applied,,no mitigation applied in the unamplified validated path

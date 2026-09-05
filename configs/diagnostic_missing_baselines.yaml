@@ -1,0 +1,54 @@
+run_name: diagnostic_missing_baselines
+seed: 123
+
+system:
+  case_name: ieee14
+  mode: synthetic_linearized
+  n_states: 12
+  n_measurements: 36
+  condition_number: 100000000.0
+  truth_scale: 1.0
+
+scenario:
+  name: synthetic_high_condition_missing_baselines
+  noise_std: 0.0001
+  missing_ratio: 0.0
+  bad_data:
+    enabled: false
+    ratio: 0.0
+    magnitude: 10.0
+    target: random
+
+sweeps:
+  - name: diagnostic_condition_sweep
+    parameter: system.condition_number
+    values: [10000.0, 100000000.0, 1000000000000.0]
+    seeds: [101, 202, 303]
+
+estimators:
+  - name: pseudoinverse
+    rcond: 0.0
+  - name: normal_equation_wls
+    max_gain_condition_number: 1.0e18
+  - name: ridge
+    alpha: 1.0e-3
+  - name: truncated_svd
+    tau: 1.0e-6
+  - name: qsvt_regularized
+    alpha: 1.0e-3
+  - name: qsvt_unregularized_inverse
+    cutoff: 1.0e-8
+  - name: hhl_style_inverse_proxy
+    cutoff: 1.0e-8
+    precision: 1.0e-3
+    instability_condition_threshold: 1.0e8
+    fail_on_instability: false
+
+qsvt_resource:
+  enabled: false
+
+output:
+  root: outputs
+  run_id: diagnostic_missing_baselines
+  save_plots: true
+  overwrite: true

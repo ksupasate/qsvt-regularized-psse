@@ -1,0 +1,282 @@
+[
+  {
+    "beta": 2710.8811047794657,
+    "block_checksum": "c5027daaefc0c0c2eb6117a0e1bd1194",
+    "block_id": "ieee14_8x8_raw",
+    "block_kind": "raw_ieee_derived_selected_block",
+    "block_size": 8,
+    "case_name": "ieee14",
+    "controlled_target_kappa": null,
+    "kappa": 132.83928362164585,
+    "lambda_alpha_pairs": [
+      {
+        "alpha": 734887.6364250337,
+        "lambda": 0.1
+      },
+      {
+        "alpha": 507072.46913327323,
+        "lambda": 0.069
+      },
+      {
+        "alpha": 73488.76364250336,
+        "lambda": 0.01
+      },
+      {
+        "alpha": 7348.876364250336,
+        "lambda": 0.001
+      }
+    ],
+    "matrix_source": "ieee14_pypower_ac_weighted_jacobian",
+    "measurement_state_provenance": "Generated IEEE14 PYPOWER weighted Jacobian, seed 123; largest_row_col_norms (deterministic, pre-solve); generated benchmark measurements, not field records",
+    "residual_checksum": "9de39f6071024f5c884183271791e2c5",
+    "selected_column_indices": [
+      0,
+      2,
+      3,
+      7,
+      13,
+      14,
+      16,
+      17
+    ],
+    "selected_row_indices": [
+      15,
+      17,
+      18,
+      29,
+      31,
+      32,
+      48,
+      68
+    ],
+    "selection_rule": "largest_row_col_norms (deterministic, pre-solve)",
+    "sigma_max": 2710.8811047794657,
+    "sigma_min": 20.40722466179977,
+    "singular_values": [
+      2710.8811047794657,
+      2652.753933783414,
+      1327.18724551342,
+      1255.8131012020995,
+      514.0895150287839,
+      449.8928353034634,
+      69.23845647044405,
+      20.40722466179977
+    ]
+  },
+  {
+    "beta": 4625.672497849328,
+    "block_checksum": "07a4ffdc507fe0711e91c87bfe497135",
+    "block_id": "ieee30_16x16_raw",
+    "block_kind": "raw_ieee_derived_selected_block",
+    "block_size": 16,
+    "case_name": "ieee30",
+    "controlled_target_kappa": null,
+    "kappa": 87.89749014434929,
+    "lambda_alpha_pairs": [
+      {
+        "alpha": 2139684.6057359637,
+        "lambda": 0.1
+      },
+      {
+        "alpha": 1476382.377957815,
+        "lambda": 0.069
+      },
+      {
+        "alpha": 213968.46057359636,
+        "lambda": 0.01
+      },
+      {
+        "alpha": 21396.846057359635,
+        "lambda": 0.001
+      }
+    ],
+    "matrix_source": "ieee30_pypower_ac_weighted_jacobian",
+    "measurement_state_provenance": "Generated IEEE30 PYPOWER weighted Jacobian, seed 123; largest_row_col_norms (deterministic, pre-solve); generated benchmark measurements, not field records",
+    "residual_checksum": "55aadb52987463e7aaa88165721655dc",
+    "selected_column_indices": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      8,
+      19,
+      20,
+      30,
+      31,
+      32,
+      34,
+      36,
+      38,
+      49,
+      50
+    ],
+    "selected_row_indices": [
+      33,
+      35,
+      50,
+      51,
+      63,
+      65,
+      80,
+      81,
+      93,
+      96,
+      99,
+      118,
+      134,
+      137,
+      140,
+      159
+    ],
+    "selection_rule": "largest_row_col_norms (deterministic, pre-solve)",
+    "sigma_max": 4625.672497849328,
+    "sigma_min": 52.625763150379335,
+    "singular_values": [
+      4625.672497849328,
+      4599.545436127544,
+      4113.530250698685,
+      4091.67741645083,
+      2412.4140358059385,
+      2402.2873620506994,
+      971.5938581355674,
+      961.9034445048605,
+      611.3179201805052,
+      606.1980221418414,
+      430.0928895123592,
+      427.7317070778273,
+      82.29332681474621,
+      81.63100914759112,
+      53.223519105330894,
+      52.625763150379335
+    ]
+  },
+  {
+    "beta": 2710.881104779469,
+    "block_checksum": "5789650c04476427cb5a839eead9f459",
+    "block_id": "ieee14_8x8_condition_controlled_k1e3",
+    "block_kind": "ieee_derived_condition_controlled_stress_block",
+    "block_size": 8,
+    "case_name": "ieee14",
+    "controlled_target_kappa": 1000.0,
+    "kappa": 999.9999999999987,
+    "lambda_alpha_pairs": [
+      {
+        "alpha": 734887.6364250354,
+        "lambda": 0.1
+      },
+      {
+        "alpha": 507072.46913327446,
+        "lambda": 0.069
+      },
+      {
+        "alpha": 73488.76364250353,
+        "lambda": 0.01
+      },
+      {
+        "alpha": 7348.876364250354,
+        "lambda": 0.001
+      }
+    ],
+    "matrix_source": "ieee14_pypower_ac_weighted_jacobian",
+    "measurement_state_provenance": "Derived from ieee14_8x8_raw; same selected rows, columns, singular vectors, sigma_max, and residual; log-spaced singular values impose kappa=1000; controlled stress block, not a raw IEEE block",
+    "residual_checksum": "9de39f6071024f5c884183271791e2c5",
+    "selected_column_indices": [
+      0,
+      2,
+      3,
+      7,
+      13,
+      14,
+      16,
+      17
+    ],
+    "selected_row_indices": [
+      15,
+      17,
+      18,
+      29,
+      31,
+      32,
+      48,
+      68
+    ],
+    "selection_rule": "largest_row_col_norms (deterministic, pre-solve)",
+    "sigma_max": 2710.881104779469,
+    "sigma_min": 2.7108811047794723,
+    "singular_values": [
+      2710.881104779469,
+      1010.5063382696385,
+      376.6757080872339,
+      140.40940040611574,
+      52.338919922702324,
+      19.509822923193166,
+      7.272469341295111,
+      2.7108811047794723
+    ]
+  },
+  {
+    "beta": 2710.88110477947,
+    "block_checksum": "00e8e0416d519959bf382fa3e8cd33a3",
+    "block_id": "ieee14_8x8_condition_controlled_k1e4",
+    "block_kind": "ieee_derived_condition_controlled_stress_block",
+    "block_size": 8,
+    "case_name": "ieee14",
+    "controlled_target_kappa": 10000.0,
+    "kappa": 10000.00000000009,
+    "lambda_alpha_pairs": [
+      {
+        "alpha": 734887.6364250361,
+        "lambda": 0.1
+      },
+      {
+        "alpha": 507072.469133275,
+        "lambda": 0.069
+      },
+      {
+        "alpha": 73488.76364250362,
+        "lambda": 0.01
+      },
+      {
+        "alpha": 7348.876364250361,
+        "lambda": 0.001
+      }
+    ],
+    "matrix_source": "ieee14_pypower_ac_weighted_jacobian",
+    "measurement_state_provenance": "Derived from ieee14_8x8_raw; same selected rows, columns, singular vectors, sigma_max, and residual; log-spaced singular values impose kappa=10000; controlled stress block, not a raw IEEE block",
+    "residual_checksum": "9de39f6071024f5c884183271791e2c5",
+    "selected_column_indices": [
+      0,
+      2,
+      3,
+      7,
+      13,
+      14,
+      16,
+      17
+    ],
+    "selected_row_indices": [
+      15,
+      17,
+      18,
+      29,
+      31,
+      32,
+      48,
+      68
+    ],
+    "selection_rule": "largest_row_col_norms (deterministic, pre-solve)",
+    "sigma_max": 2710.88110477947,
+    "sigma_min": 0.2710881104779446,
+    "singular_values": [
+      2710.88110477947,
+      727.2469341295138,
+      195.09822923193158,
+      52.3389199227023,
+      14.040940040611527,
+      3.7667570808724777,
+      1.0105063382696027,
+      0.2710881104779446
+    ]
+  }
+]

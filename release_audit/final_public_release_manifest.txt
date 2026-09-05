@@ -1,0 +1,68 @@
+# Final public release manifest
+# Prepared: 2026-09-05
+# Source branch: research/generalized-rectangular-qsvt
+# Source commit: 8895442eb2e80e4270c9ab39ca4ec54e6e7fa32b
+#
+# Rules are evaluated against the curated working tree, not HEAD and not the
+# old Git index. Every copied file is enumerated with a SHA-256 digest in
+# public_export_mapping.csv.
+
+[root files]
+.gitignore
+README.md
+LICENSE
+CITATION.cff
+CHANGELOG.md
+RELEASE.md
+VERSION
+environment.yml
+requirements.txt
+pyproject.toml
+MANIFEST.md
+REPRODUCIBILITY.md
+RESULTS_INDEX.md
+data_manifest.json                         # generated in clean candidate
+
+[directory include rules]
+src/robust_qsvt_se/**                      # scientific/runtime Python package
+configs/**                                 # experiment configurations and index
+scripts/**                                 # scientific/reproducibility entry points
+tests/**                                   # public scientific suite after documented exclusions
+docs/**                                    # public documentation
+examples/**                                # lightweight examples and contracts
+outputs/<41 roots>/**                      # see the outputs/ section of .gitignore
+                                           # 25 evidence roots asserted by the
+                                           # test suite + 16 registered benchmark
+                                           # and resource outputs read by the
+                                           # validator and cost accounting, so
+                                           # a bare clone passes pytest and
+                                           # scripts/validate_reproduction.py with
+                                           # no download. Enumerated in
+                                           # RESULTS_INDEX.md.
+outputs/**/phase_cache/**                  # QSP phase angles inside those roots
+outputs/examples/smoke_test/**             # registered validator snapshots
+outputs/examples/README.md                 # generated-output policy
+outputs/generated/README.md                # generated-output policy
+release_audit/final_public_release_manifest.txt
+release_audit/final_public_exclusion_manifest.txt
+release_audit/public_export_mapping.csv
+release_audit/public_scientific_hash_verification.json
+release_audit/public_scientific_preservation_report.md
+release_audit/metadata_completion_checklist.md
+release_audit/public_test_scope_report.md
+release_audit/final_privacy_scan.md
+release_audit/final_large_file_report.md
+release_audit/final_clean_repository_validation.md
+release_audit/pre_commit_release_inventory.md
+release_audit/github_public_release_final.md
+release_audit/takeover_state.md
+release_audit/doi_metadata_alignment.md
+release_audit/final_public_pytest_report.md
+release_audit/final_scientific_preservation_report.md
+release_audit/ridge_qsvt_equivalence_check.md
+release_audit/test_logs/final_public_pytest.xml
+
+[rule precedence]
+The exact exclusions in final_public_exclusion_manifest.txt take precedence.
+The final mapping CSV is the authoritative path-by-path inventory of the
+filesystem export. Candidate-only generated metadata are marked accordingly.

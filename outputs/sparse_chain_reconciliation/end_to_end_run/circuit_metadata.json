@@ -1,0 +1,225 @@
+{
+  "architecture": "branch-Hadamard residual preparation -> controlled sparse wrapper QSVT -> aggregate sparse-work postselection flag -> signed selected-output measurement",
+  "claim_boundary": "Executed 8x8 sparse-access selected-output chain on a classical simulator using the repository's enumerated slot/value wrapper. This is not an IEEE-scale sparse oracle, not a scalable state loader, not a hardware run, and not a speedup or practical-competitiveness claim.",
+  "configuration_id": "ieee14_sparse_quantized_8x8_d31_selected_v1",
+  "exact_integrated_circuit_checks": {
+    "aggregate_e0_to_e3": {
+      "acceptance_validation_error": 2.8778091021308683e-12,
+      "joint_probabilities_c1c0": {
+        "00": 0.41354786351362316,
+        "01": 0.09773946102686527,
+        "10": 0.39097321442850275,
+        "11": 0.09773946102678266
+      },
+      "signed_overlap_validation_error": 1.821792716683035e-12
+    },
+    "coordinate_e0": {
+      "acceptance_validation_error": 2.8776980798284058e-12,
+      "joint_probabilities_c1c0": {
+        "00": 0.5037907178114593,
+        "01": 0.09773946102686995,
+        "10": 0.3007303601306667,
+        "11": 0.09773946102677798
+      },
+      "signed_overlap_validation_error": 2.88935542158697e-14
+    },
+    "signed_difference_e0_minus_e1": {
+      "acceptance_validation_error": 2.8778091021308683e-12,
+      "joint_probabilities_c1c0": {
+        "00": 0.6110924600247345,
+        "01": 0.09773946102685878,
+        "10": 0.19342861791739147,
+        "11": 0.09773946102678915
+      },
+      "signed_overlap_validation_error": 1.1385892229043293e-12
+    }
+  },
+  "guard_test": "assert_no_direct_output_initializer",
+  "operation_counts": {
+    "alternating_sequence_length": 63,
+    "forward_sparse_lookup_calls_per_attempt": 16,
+    "functional_preparations_per_attempt": 1,
+    "inverse_lookup_calls_per_attempt": 15,
+    "postselection_measurements_per_attempt": 1,
+    "projector_phase_operations_per_attempt": 32,
+    "readout_measurements_per_attempt": 1,
+    "residual_preparations_per_attempt": 1,
+    "signal_unitary_calls_per_attempt": 31,
+    "sparse_lookup_calls_per_attempt": 31,
+    "value_rotation_gates_per_sparse_lookup": 24,
+    "value_rotations_per_attempt": 744
+  },
+  "output_state_used_for_preparation": false,
+  "postselection": {
+    "direct_p_post_is_separate_from_interference_acceptance": true,
+    "event": "aggregate flag 0 iff slot=00 and rotation ancilla=0"
+  },
+  "preparation_records": [
+    {
+      "fingerprint": "b18d93141a197ecfbe7289e8f925e83d410f406442b94401fa0e470e424e329e",
+      "role": "residual_input"
+    },
+    {
+      "fingerprint": "193102fb2674025fa8eb7c45c183b77a90d87d59b612b7b8962d863abdd86668",
+      "role": "selected_functional_reference"
+    }
+  ],
+  "qsvt": {
+    "degree": 31,
+    "phase_convention": "pennylane_qsvt_pcphase_u_udagger_real_top_left",
+    "phase_count": 32,
+    "signal_extraction": "real encoded top-left quadrature"
+  },
+  "readout": {
+    "bit_order": "c1c0: left=readout sign, right=aggregate postselection flag",
+    "branch_probability": 0.5,
+    "event": "readout ancilla after closing Hadamard",
+    "quadrature": "real",
+    "recovery": "(C/beta)*||r||*||ell||*(N_00-N_10)/shots"
+  },
+  "register_layout": {
+    "classical_postselection_bit": 0,
+    "classical_readout_bit": 1,
+    "encoded_subspace": "slot=00 and rotation_ancilla=0; index unrestricted",
+    "index_qubits": [
+      0,
+      1,
+      2
+    ],
+    "postselection_flag_qubit": 6,
+    "readout_qubit": 7,
+    "rotation_ancilla_qubit": 5,
+    "slot_qubits": [
+      3,
+      4
+    ],
+    "sparse_work_qubits": [
+      3,
+      4,
+      5
+    ]
+  },
+  "transpilation": {
+    "dense_opaque_instruction_diagnostic": {
+      "depth": 68,
+      "gate_count": 69,
+      "operation_counts": {
+        "h": 2,
+        "measure": 2,
+        "unitary": 65
+      },
+      "reporting_status": "not a full gate-level resource count; dense UnitaryGate instructions remain",
+      "toffoli_count": 0
+    },
+    "one_sparse_signal": {
+      "depth": 2662,
+      "gate_count": 3985,
+      "operation_counts": {
+        "cx": 1674,
+        "u3": 2311
+      }
+    },
+    "sparse": {
+      "depth": 180380,
+      "gate_count": 186191,
+      "operation_counts": {
+        "ccx": 51898,
+        "crz": 14694,
+        "cu": 27287,
+        "cx": 12276,
+        "h": 15626,
+        "mcphase": 32768,
+        "mcx": 1,
+        "measure": 2,
+        "p": 64,
+        "s": 7812,
+        "sdg": 7812,
+        "t": 7812,
+        "tdg": 7812,
+        "x": 327
+      },
+      "toffoli_count": 51898
+    }
+  },
+  "wrapper": {
+    "normalization_factor": 4041.1277722772575,
+    "raw_depth": 29,
+    "raw_gate_count": 29,
+    "separate_value_register": false,
+    "slot_assignment": {
+      "algorithm": "regularize to a slots-regular bipartite multigraph, then peel perfect matchings with Kuhn augmenting paths under an explicit visit budget",
+      "augmenting_visits": 47,
+      "max_degree": 3,
+      "n": 8,
+      "permutations": [
+        [
+          0,
+          1,
+          3,
+          4,
+          7,
+          6,
+          2,
+          5
+        ],
+        [
+          0,
+          2,
+          1,
+          5,
+          3,
+          7,
+          4,
+          6
+        ],
+        [
+          5,
+          0,
+          2,
+          3,
+          6,
+          4,
+          1,
+          7
+        ]
+      ],
+      "real_edge_mask": [
+        [
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false
+        ],
+        [
+          false,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ],
+        [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          true
+        ]
+      ],
+      "slots": 3,
+      "visit_budget": 896
+    },
+    "slots": 3,
+    "sparse_lookup_realization": "multiplexed stored-value rotations plus slot-controlled in-place matching permutations and inverse slot diffusion",
+    "top_left_reconstruction_error_max_abs": 3.287925487427401e-13
+  }
+}

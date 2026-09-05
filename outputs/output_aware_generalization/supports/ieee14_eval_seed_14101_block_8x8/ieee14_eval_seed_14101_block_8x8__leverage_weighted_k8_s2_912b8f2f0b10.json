@@ -1,0 +1,169 @@
+{
+  "instance_id": "ieee14_eval_seed_14101_block_8x8",
+  "selected_entries": [
+    {
+      "column": 0,
+      "row": 0,
+      "value": -576.892563357665
+    },
+    {
+      "column": 1,
+      "row": 1,
+      "value": -173.04751006639248
+    },
+    {
+      "column": 2,
+      "row": 2,
+      "value": 1342.142784299504
+    },
+    {
+      "column": 3,
+      "row": 3,
+      "value": 1238.0403794604208
+    },
+    {
+      "column": 4,
+      "row": 4,
+      "value": 688.4309592266865
+    },
+    {
+      "column": 5,
+      "row": 5,
+      "value": 1051.7187633052015
+    },
+    {
+      "column": 6,
+      "row": 6,
+      "value": 1311.4646153604624
+    },
+    {
+      "column": 7,
+      "row": 7,
+      "value": 1220.4506162506823
+    }
+  ],
+  "selection_record": {
+    "actual_column_degree": 1,
+    "actual_max_column_degree": 1,
+    "actual_max_row_degree": 1,
+    "actual_nonzeros": 8,
+    "actual_row_degree": 1,
+    "failure_reason": "",
+    "fallback_used": false,
+    "ieee_case": "ieee14",
+    "instance_id": "ieee14_eval_seed_14101_block_8x8",
+    "k_budget": 8,
+    "last_completed_checkpoint": "supports",
+    "random_replicate": null,
+    "random_seed": null,
+    "refinement_initial_support_id": "",
+    "refinement_iterations": 0,
+    "refinement_objective": "",
+    "selection_data_split": "matrix_only",
+    "selection_objective_value": 3506.6756350871374,
+    "selection_runtime": 0.005453833029605448,
+    "selector": "leverage_weighted",
+    "slot_budget": 2,
+    "slot_count": 1,
+    "solver_gap": 0.0,
+    "solver_status": "optimal",
+    "solver_used": "scipy.optimize.milp_highs",
+    "sparse_matrix_fingerprint": "7715acb496901e0a787076ae6192a9dbc52f2d0c0d66c025a1c12b8b3f656cfb",
+    "stage": "supports",
+    "status": "completed",
+    "support_file": "",
+    "support_fingerprint": "912b8f2f0b10b7b22a7248a1909345aa185013716ca8cdd5490076f5788de980",
+    "support_id": "ieee14_eval_seed_14101_block_8x8__leverage_weighted_k8_s2_912b8f2f0b10",
+    "training_mean_normalized_error": null,
+    "training_median_absolute_error": null,
+    "training_objective": null,
+    "training_objective_name": "",
+    "training_worst_normalized_error": null
+  },
+  "selector": "leverage_weighted",
+  "sparse_matrix_fingerprint": "7715acb496901e0a787076ae6192a9dbc52f2d0c0d66c025a1c12b8b3f656cfb",
+  "support": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "support_fingerprint": "912b8f2f0b10b7b22a7248a1909345aa185013716ca8cdd5490076f5788de980",
+  "support_id": "ieee14_eval_seed_14101_block_8x8__leverage_weighted_k8_s2_912b8f2f0b10"
+}

@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this software or its associated research artifacts, please cite this repository and the associated publication."
+title: "qsvt-regularized-psse: Reproducibility Artifact for Selected Output QSVT for Regularized Power System State Estimation"
+type: software
+
+authors:
+  - family-names: "Vorathammathorn"
+    given-names: "Supasate"
+    orcid: "https://orcid.org/0009-0009-2751-1023"
+
+  - family-names: "Phassadawongse"
+    given-names: "Dhana"
+
+  - family-names: "Turner"
+    given-names: "Stephen John"
+
+repository-code: "https://github.com/ksupasate/qsvt-regularized-psse"
+url: "https://github.com/ksupasate/qsvt-regularized-psse"
+
+doi: "10.5281/zenodo.22326883"
+
+license: MIT
+version: "1.0.0"
+
+keywords:
+  - quantum singular value transformation
+  - quantum signal processing
+  - power system state estimation
+  - Tikhonov regularization
+  - spectral filtering
+  - reproducible research
+
+abstract: >-
+  Reproducible implementation and benchmark evaluation of QSVT-compatible
+  regularized spectral filtering for power-system state estimation. IEEE and
+  PYPOWER cases provide benchmark network models; measurement rows are generated
+  by repository code and are not PMU or SCADA field data. QSVT is evaluated as a
+  possible implementation pathway for the regularized spectral filter, without a
+  quantum-speedup claim. For identical inputs and regularization parameter, the
+  exact classical QSVT target and Ridge/Tikhonov are numerically equivalent.

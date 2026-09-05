@@ -1,0 +1,37 @@
+run_name: ieee14_spectral_smoke
+seed: 123
+
+system:
+  case_name: ieee14
+  mode: synthetic_linearized
+  n_states: 20
+  n_measurements: 60
+  condition_number: 1000000.0
+  truth_scale: 1.0
+
+scenario:
+  name: controlled_ill_conditioning
+  noise_std: 0.01
+  missing_ratio: 0.1
+
+estimators:
+  - name: pseudoinverse
+    rcond: 1.0e-12
+  - name: ridge
+    alpha: 1.0e-3
+  - name: truncated_svd
+    tau: 1.0e-4
+  - name: qsvt_regularized
+    alpha: 1.0e-3
+
+qsvt_resource:
+  enabled: true
+  degrees: [4, 8, 16, 32]
+  grid_size: 512
+  target_error: 1.0e-3
+
+output:
+  root: outputs
+  run_id: ieee14_spectral_smoke_seed123
+  save_plots: true
+  overwrite: true

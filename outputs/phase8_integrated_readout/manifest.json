@@ -1,0 +1,99 @@
+{
+  "changes_estimator_behavior": false,
+  "checksums": {
+    "checksums_sha256": "004a2efdeb28bfe92b0dd0de30ab218f1634bb070ce34a9c5ff107215871a078",
+    "integrated_readout_circuit_metadata_json": "6cf38c8b992f1236cfed890aafbf57383730ca88f55b9470271685b5f6bc8cde",
+    "integrated_readout_counts_summary_json": "123c574159ee977911f8f08ec292204f3fc4181135abe7ef2457b3daa5133dea",
+    "integrated_readout_per_seed_csv": "6d6005924f719b2a84d845b55b57511c9fc9d0d02ff7a4a01df9dba9eecd9203",
+    "integrated_readout_reference_values_json": "674b20ef6dcc8fac59e81f13d0c49175c413ea3433124e8b54ae161b77089e47",
+    "integrated_readout_summary_csv": "740d2ec18db4936db1a61633f73f7cacfdbade01c8bd1a5186b2e9d7643f4dab",
+    "readme_md": "a7405d9fe72a3f0147d9646fce8d0606731fe21d5ae436af9d68c74215763730"
+  },
+  "claim_boundary": "Controlled IEEE/PYPOWER benchmark and QSVT feasibility-boundary study for regularized spectral filtering in ill-conditioned power-system state estimation. IEEE/PYPOWER cases provide benchmark network models; measurement rows are generated from the network equations by code, not from field PMU/SCADA data. The QSVT-target filter is a QSVT-compatible implementation pathway for the same Ridge/Tikhonov regularized spectral filter and is numerically equivalent to Ridge at the same alpha in the classical simulator. This study quantifies a feasibility boundary. It does not demonstrate a quantum speed-up, does not demonstrate a quantum-computational advantage, does not show the QSVT-target filter beating Ridge/Tikhonov numerically, does not implement full-vector quantum readout, does not perform full IEEE-scale execution on quantum devices, and is not validated against real PMU/SCADA field measurements.",
+  "command": "scripts/run_phase8_integrated_readout.py ",
+  "description": "Integrated 4x4 finite-shot selected-submatrix chain: dense residual initialization, the synthesized degree-31 QSVT sequence, measured ancilla postselection, and Hadamard-type signed-functional readout composed in one shot-executed circuit. The classically computed postselected output state is used only as a validation reference and is never prepared by the sampled circuit.",
+  "experiment_id": "phase8_integrated_readout",
+  "fabricates_results": false,
+  "failures": [],
+  "git_commit_hash": null,
+  "inputs_used": [
+    "build_engineering_system:ieee14:weighted_jacobian",
+    "outputs/tqe_revision_experiments/readout_statistics/readout_shot_scaling_summary.csv"
+  ],
+  "integrated_readout_model": "integrated_interference_chain_residual_prep_qsvt_measured_postselection_signed_readout",
+  "interpretation_boundary": "One integrated 4x4 finite-shot selected-submatrix chain on a statevector-based shot simulator with dense controlled-unitary gates. It does not imply scalable residual loading, IEEE-scale sparse block encoding, full selected-output PSSE execution, or quantum competitiveness; larger blocks and IEEE-scale composition remain modeled.",
+  "key_package_versions": {
+    "matplotlib": "3.10.9",
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "pennylane": "0.45.0",
+    "qiskit": "2.4.1",
+    "qiskit-aer": "0.17.2",
+    "scipy": "1.17.1"
+  },
+  "num_shot_seeds": 30,
+  "output_state_used_for_preparation": false,
+  "outputs_generated": {
+    "checksums_sha256": "outputs/phase8_integrated_readout/checksums.sha256",
+    "integrated_readout_circuit_metadata_json": "outputs/phase8_integrated_readout/integrated_readout_circuit_metadata.json",
+    "integrated_readout_counts_summary_json": "outputs/phase8_integrated_readout/integrated_readout_counts_summary.json",
+    "integrated_readout_per_seed_csv": "outputs/phase8_integrated_readout/integrated_readout_per_seed.csv",
+    "integrated_readout_reference_values_json": "outputs/phase8_integrated_readout/integrated_readout_reference_values.json",
+    "integrated_readout_summary_csv": "outputs/phase8_integrated_readout/integrated_readout_summary.csv",
+    "manifest": "outputs/phase8_integrated_readout/manifest.json",
+    "readme_md": "outputs/phase8_integrated_readout/README.md"
+  },
+  "overwrites_existing_outputs": false,
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python_version": "3.12.11",
+  "random_seeds": {
+    "demo_system_seed": 123,
+    "shot_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ]
+  },
+  "recovery_convention": "y_hat = (C/beta)*||r_B||*||l|| * f_hat * Xbar_acc; f_hat is the measured acceptance frequency of the flag qubit, Xbar_acc the mean readout-ancilla sign among accepted shots; measured postselection probability p_hat = 2*f_hat - 1",
+  "script_name": "scripts/run_phase8_integrated_readout.py",
+  "shots_grid": [
+    1000,
+    10000,
+    100000,
+    1000000
+  ],
+  "signed_observables": [
+    "state_correction_0",
+    "state_difference_0_1",
+    "area_aggregate_first_half"
+  ],
+  "timestamp": "2026-07-04T17:04:31Z",
+  "warnings": []
+}

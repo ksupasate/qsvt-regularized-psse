@@ -1,0 +1,2 @@
+ci_half_width_1e6,configuration_sha256,evidence_label,expectation,relative_ci_half_width_1e6,scale,variance_per_shot
+0.000907698444359016,1f75be90ec59123d22e44f36157bccf8f48a4d33fabfe15e3da6261be15cbffb,DIAGNOSTIC_ONLY,0.010659556333536685,0.18386212163935198,0.4631377642295659,0.21447221623588547

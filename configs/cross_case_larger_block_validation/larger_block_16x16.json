@@ -1,0 +1,31 @@
+{
+  "study_id": "larger_block_validation_v1",
+  "declared_before_outcome_evaluation": true,
+  "case_name": "ieee14",
+  "case_source": "pypower",
+  "matrix_seed": 123,
+  "dimension": 16,
+  "y_floor": 1e-06,
+  "failure_threshold": 0.1,
+  "support_budgets": [16, 24, 32, 48],
+  "slot_budgets": [2, 3, 4],
+  "required_selectors": ["balanced_magnitude", "ridge_leverage", "sensitivity_initial_mean",
+                         "sensitivity_refined_mean", "exact_loss_greedy_mean", "near_oracle_mean"],
+  "near_oracle_beam_width": 6,
+  "near_oracle_max_loss_evals": 200000,
+  "random_seed_base": 314159,
+  "statevector_max_wrapper_dim": 4096,
+  "training_seed_ids": [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009,
+                        1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019],
+  "held_out_seed_ids": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+                        2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+  "qsvt_validation": {
+    "degree": 31,
+    "validation_slot_budget": 3,
+    "qsvt_selectors": ["global_magnitude", "ridge_leverage", "sensitivity_refined_mean"],
+    "qsvt_support_budgets": [16, 24, 32],
+    "basis_gates": ["u3", "cx"],
+    "optimization_level": 1,
+    "modeled_shots": 100000
+  }
+}

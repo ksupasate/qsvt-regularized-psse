@@ -1,0 +1,18 @@
+demo:
+  run_id: qsvt_qiskit_matrix_ieee14_full
+  output_dir: outputs/qsvt_qiskit_matrix_ieee14_full
+  alpha: 0.05
+  polynomial_degree: 5
+  grid_size: 512
+  angle_solver: iterative
+  block_encoding: embedding
+  transpile_qubit_limit: 4
+
+matrix:
+  case_name: ieee14
+  case_source: pypower
+  mode: ac_weighted_jacobian
+  matrix_scope: full_matrix
+  use_full_matrix: true
+  seed: 123
+

@@ -1,0 +1,16 @@
+{
+  "beta": 8468.782991520857,
+  "cache_hit": false,
+  "cache_key": "cdc62bf64bfb0d927e4d10f3",
+  "coefficient_count": 32,
+  "degree": 31,
+  "max_abs_on_unit_interval": 0.9523809523809315,
+  "n_phase_angles": 32,
+  "parity": "odd",
+  "phase_synthesis_angle_solver": "iterative",
+  "phase_synthesis_backend": "pennylane-0.45.0",
+  "phase_synthesis_message": "PennyLane poly_to_angles completed",
+  "phase_synthesis_method": "pennylane_poly_to_angles",
+  "phase_synthesis_success": true,
+  "study_id": "reviewer_blocking_joint_feasibility_v1"
+}

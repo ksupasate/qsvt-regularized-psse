@@ -1,0 +1,82 @@
+{
+  "study_id": "generic_sparse_qsvt_compiler_v1",
+  "declared_before_second_workload_output_evaluation": true,
+  "output_dir": "outputs/generic_sparse_qsvt_compiler",
+  "canonical": {
+    "workload_id": "ieee14_sparse_quantized_8x8_d31_selected_v1",
+    "historical_root": "outputs/sparse_chain_reconciliation/end_to_end_run",
+    "source_builder": "phase10_sparse_wrapper_8x8_complete._build_block(seed=123)",
+    "matrix_seed": 123,
+    "expected_original_matrix_hash": "b158d34b86b778f0c290519ca98985345107012e225798a4cfc7fbf9178df7f9",
+    "expected_quantized_matrix_hash": "26159050694e76abc32692332daba94e9cd5e22d958a242236b4d57509aeab21",
+    "expected_residual_hash": "7b51f68a0e1cbdb4cfecd799d3fcb6f12c090a25bbc6a04f3f09324e06fdee82",
+    "value_bits": 6,
+    "shot_counts": [10000, 100000, 1000000],
+    "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  },
+  "second_workload": {
+    "workload_id": "ieee30_sparse_quantized_8x8_d31_selected_v1",
+    "case_name": "ieee30",
+    "case_source": "pypower",
+    "matrix_seed": 123,
+    "dimension": 8,
+    "block_registry": "outputs/cross_case_larger_block_validation/cross_case/block_inventory.json",
+    "expected_block_id": "ieee30_block_8x8_seed123",
+    "expected_matrix_hash": "634f0fd7e657faf78b834dbe34f1196af4b2836c3935c38fd774ad57dec1c963",
+    "support_registry": "outputs/cross_case_larger_block_validation/cross_case/support_paths.json",
+    "support_id": "ieee30_block_8x8_seed123_sensitivity_refined_mean_k16_s3",
+    "selector": "sensitivity_refined_mean",
+    "support_budget": 16,
+    "slot_budget": 3,
+    "expected_support_hash": "b24bc7e54c4067ba4d49179190fb209c022bd7e3d875551edf44cbece5994adc",
+    "expected_exact_sparse_hash": "5b72cafca7a82cf5913b569aa99786ce9ba0c338cae05f739001c647efc7a399",
+    "value_bits": 6,
+    "expected_quantized_sparse_hash": "3784ae84bfc9693c5b727c091e3c3eb29155d445f79c04c47803354268071a6e",
+    "cross_case_config": "configs/cross_case_larger_block_validation/cross_case.json",
+    "residual_rule": "first_predeclared_held_out_seed",
+    "expected_residual_seed": 2000,
+    "expected_residual_hash": "533edba41b4238c97b929a43c31745a648c2bf62077072b22c53d2c7710997e2",
+    "functional_registry": "outputs/cross_case_larger_block_validation/cross_case/functional_inventory.json",
+    "functional_requests": [
+      "first_coordinate_by_global_state_index",
+      "first_real_branch_angle_difference_by_branch_order",
+      "connected_block_angle_area_aggregate"
+    ],
+    "qsvt_grid": "outputs/cross_case_larger_block_validation/cross_case/joint_feasibility_grid.csv",
+    "qsvt_rule": {
+      "uniform_fit_tolerance": 0.002,
+      "action_tolerance": 1e-6,
+      "require_boundedness": true,
+      "require_synthesized_phases": true,
+      "sort": ["degree_ascending", "normalized_lambda_descending", "configuration_id_ascending"]
+    },
+    "expected_selected_degree": 31,
+    "expected_selected_alpha": 218009459.97434404,
+    "expected_selected_beta": 8468.782991520857,
+    "expected_selected_normalized_lambda": 3.0397182455106946,
+    "expected_selected_C": 0.2599191171728019,
+    "phase_cache": "outputs/cross_case_larger_block_validation/cross_case/phase_cache",
+    "phase_cache_study_id": "reviewer_blocking_joint_feasibility_v1",
+    "expected_phase_cache_key": "cdc62bf64bfb0d927e4d10f3",
+    "expected_phase_file_sha256": "e3c31658084b43e532e2a0657bc351572b8caddbbc259d8ed4fe3b05c207a047",
+    "shot_counts": [10000, 100000, 1000000],
+    "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  },
+  "transpilation": {
+    "target": "qiskit_aer_statevector_default_target",
+    "basis_gates": null,
+    "optimization_level": 0,
+    "seed_transpiler": null,
+    "max_parallel_threads": 1
+  },
+  "scaling": {
+    "dimension": [4, 8, 16],
+    "slots": [2, 3, 4],
+    "value_bits": [4, 6, 8],
+    "degree": [15, 31, 63],
+    "fixed_slots": 3,
+    "fixed_value_bits": 6,
+    "fixed_degree": 31
+  },
+  "claim_boundary": "Controlled small-scale PSSE-derived simulator and transpilation evidence only. No hardware, scalable IEEE-size sparse access, fault-tolerant resource, speedup, advantage, or practical-competitiveness claim."
+}

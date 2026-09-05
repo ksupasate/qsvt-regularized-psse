@@ -1,0 +1,69 @@
+run_name: ieee14_bad_data_sweeps
+seed: 810
+
+system:
+  case_name: ieee14
+  mode: ac_power_flow_linearized
+  measurement:
+    include_voltage_magnitudes: true
+    include_p_injections: true
+    include_q_injections: true
+    include_p_branch_flows: true
+    include_q_branch_flows: true
+    voltage_std: 0.01
+    injection_p_std: 0.03
+    injection_q_std: 0.03
+    flow_p_std: 0.02
+    flow_q_std: 0.02
+    weak_area_buses: [12, 13, 14]
+    weak_area_std_multiplier: 15.0
+  linearization:
+    angle_perturbation_std: 0.01
+    voltage_perturbation_std: 0.01
+    min_voltage_magnitude: 0.5
+
+scenario:
+  name: ac_bad_data_sweeps
+  noise_std: 0.002
+  missing_ratio: 0.1
+  bad_data:
+    enabled: true
+    ratio: 0.1
+    magnitude: 10.0
+    target: weak_area
+
+sweeps:
+  - name: bad_data_ratio_sweep
+    parameter: scenario.bad_data.ratio
+    values: [0.0, 0.05, 0.1, 0.2]
+    seeds: [811, 812, 813]
+  - name: bad_data_magnitude_sweep
+    parameter: scenario.bad_data.magnitude
+    values: [2.5, 5.0, 10.0, 20.0]
+    seeds: [811, 812, 813]
+  - name: weak_area_uncertainty_sweep
+    parameter: system.measurement.weak_area_std_multiplier
+    values: [1.0, 5.0, 15.0, 30.0]
+    seeds: [811, 812, 813]
+
+estimators:
+  - name: pseudoinverse
+    rcond: 1.0e-12
+  - name: ridge
+    alpha: 1.0e-4
+  - name: truncated_svd
+    tau: 1.0e-5
+  - name: qsvt_regularized
+    alpha: 1.0e-4
+
+qsvt_resource:
+  enabled: true
+  degrees: [4, 8, 16, 32]
+  grid_size: 512
+  target_error: 1.0e-3
+
+output:
+  root: outputs
+  run_id: ieee14_bad_data_sweeps
+  save_plots: true
+  overwrite: true

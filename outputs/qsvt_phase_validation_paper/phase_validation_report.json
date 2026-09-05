@@ -1,0 +1,27 @@
+{
+  "alpha": 0.01,
+  "boundedness_check_passed": true,
+  "domain": [
+    0.2,
+    1.0
+  ],
+  "dummy_phase_check_passed": true,
+  "max_phase_implemented_error": 0.004387142573353153,
+  "max_polynomial_error": 0.004388662319629866,
+  "mean_phase_implemented_error": 0.0006907651692058014,
+  "mean_polynomial_error": 0.0006721264261303241,
+  "parity_check_passed": true,
+  "phase_count": 36,
+  "phase_max_error_target": 0.05,
+  "phase_mean_error_target": 0.01,
+  "phase_solver": "iterative",
+  "phase_synthesis_method": "pennylane_poly_to_angles",
+  "polynomial_degree": 35,
+  "polynomial_magnitude_bounded": 1.0,
+  "polynomial_max_error_target": 0.01,
+  "polynomial_mean_error_target": 0.001,
+  "scale_factor": 4.468786124953217,
+  "target_function": "P_alpha(sigma) = sigma / (sigma^2 + alpha)",
+  "target_magnitude_bounded": 0.8950976592199016,
+  "validation_passed": true
+}

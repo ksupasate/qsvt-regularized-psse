@@ -1,0 +1,15 @@
+demo:
+  run_id: qsvt_phase_synthesis_full
+  output_dir: outputs/qsvt_phase_synthesis_full
+  alpha: 0.01
+  degree: 35
+  domain_min: 0.2
+  domain_max: 1.0
+  block_encoding_normalization: 1.0
+  grid_size: 4096
+  phase_validation_grid_size: 129
+  seed: 123
+  max_nfev: 4000
+  phase_synthesis_method: pennylane_poly_to_angles
+  angle_solver: iterative
+  singular_values: [0.2, 0.35, 0.6, 0.85]

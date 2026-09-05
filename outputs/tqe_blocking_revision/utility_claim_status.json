@@ -1,0 +1,32 @@
+{
+  "application_rmse_uses_ground_truth": true,
+  "approved_term": "controlled benchmark useful-overlap criterion",
+  "held_out_evaluation_used": false,
+  "ieee30_best_row_selected_from_sweep": true,
+  "ieee57_best_row_selected_from_sweep": true,
+  "operational_selector_demonstrated_for_headline_row": false,
+  "prohibited_terms": [
+    "operationally useful",
+    "deployment-ready",
+    "control-center validated",
+    "application-optimal",
+    "application-useful (when unqualified)"
+  ],
+  "remaining_limitations": [
+    "The IEEE-14 lambda=1e-5 headline point was found with a ground-truth oracle diagnostic.",
+    "The frozen IEEE-14 reproduction reuses the same seed-123 generated benchmark matrix.",
+    "No held-out seed or held-out IEEE case is the decision basis for the headline utility claim.",
+    "Separate non-oracle selectors were evaluated on untouched seeds 1000-1029 but do not establish deployment readiness.",
+    "IEEE-30 and IEEE-57 displayed passing rows are post-sweep best rows under the execution-accuracy criterion.",
+    "Every passing IEEE-30/57 execution-accuracy row fails the benchmark-anchored context ratio."
+  ],
+  "selection_data_independent_from_evaluation": false,
+  "separate_non_oracle_held_out_side_study_exists": true,
+  "threshold": 1.25,
+  "threshold_declared_before_results": null,
+  "threshold_provenance": {
+    "generalized_ieee30_ieee57_campaign": true,
+    "ieee14_original_campaign": "not independently verifiable: the first commit already contains the frontier and final IEEE-14 result",
+    "not_redefined_after_baseline_commit": true
+  }
+}

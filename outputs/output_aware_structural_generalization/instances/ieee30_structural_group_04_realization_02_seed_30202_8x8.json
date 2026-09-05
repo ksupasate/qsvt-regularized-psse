@@ -1,0 +1,245 @@
+{
+  "candidate_id": "ieee30_angle_dominant_v03",
+  "candidate_nonzeros": 18,
+  "candidate_policy": "angle_dominant",
+  "condition_number": null,
+  "development_or_evaluation": "structural_evaluation",
+  "extraction_policy": {
+    "candidate_id": "ieee30_angle_dominant_v03",
+    "outcome_independent": true,
+    "rows_columns_fixed_within_group": true,
+    "strategy": "fixed_preselected_structural_group_rows_columns"
+  },
+  "ieee_case": "ieee30",
+  "inclusion_reasons": [],
+  "inclusion_status": "included",
+  "instance_id": "ieee30_structural_group_04_realization_02_seed_30202_8x8",
+  "lambda_ref": 0.06947163416534002,
+  "matrix": [
+    [
+      -236.05100101541433,
+      599.8612634525641,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0
+    ],
+    [
+      0.0,
+      -0.0,
+      -304.39772108733325,
+      -0.0,
+      0.0,
+      -370.7658250561254,
+      0.0,
+      -133.8288638295222
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      817.8453398602413,
+      -201.04258133805783,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -0.0,
+      -0.0,
+      -198.80452305100277,
+      528.2127569532844,
+      0.0,
+      0.0,
+      -0.0
+    ],
+    [
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      612.9479218460715,
+      -400.4083334259589
+    ],
+    [
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -401.7229365423185,
+      535.6382721770362
+    ],
+    [
+      -0.0,
+      -0.0,
+      0.6047085915194585,
+      -0.0,
+      -0.0,
+      136.93327050009225,
+      -0.0,
+      57.47464080077967
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      600.6125001389383,
+      -600.6125001389383
+    ]
+  ],
+  "matrix_fingerprint": "d3f24aa1c25f6a51fb9401ec88305a8ece6db70333cf43727fd4b44271cec92b",
+  "matrix_selection_seed": 30202,
+  "matrix_shape": [
+    8,
+    8
+  ],
+  "measurement_metadata": [
+    {
+      "full_measurement_index": 36,
+      "local_index": 0,
+      "measurement_label": "P_inj_7",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 39,
+      "local_index": 1,
+      "measurement_label": "P_inj_10",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 41,
+      "local_index": 2,
+      "measurement_label": "P_inj_12",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 44,
+      "local_index": 3,
+      "measurement_label": "P_inj_15",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 48,
+      "local_index": 4,
+      "measurement_label": "P_inj_19",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 49,
+      "local_index": 5,
+      "measurement_label": "P_inj_20",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 69,
+      "local_index": 6,
+      "measurement_label": "Q_inj_10",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 113,
+      "local_index": 7,
+      "measurement_label": "P_19_20",
+      "measurement_type": "p_branch_flow"
+    }
+  ],
+  "primary_structural_feasibility": "completed",
+  "realization_order": 2,
+  "reference_beta": 2453.536019580724,
+  "reference_mu": 817.8453398602413,
+  "regularization_alpha": 418208.05269917543,
+  "regularization_policy": "frozen_lambda_ref_times_full_candidate_reference_beta_squared",
+  "secondary_structural_feasibility": "completed",
+  "selected_columns": [
+    3,
+    5,
+    7,
+    10,
+    13,
+    15,
+    17,
+    18
+  ],
+  "selected_rows": [
+    36,
+    39,
+    41,
+    44,
+    48,
+    49,
+    69,
+    113
+  ],
+  "selector_outcomes_used_for_inclusion": false,
+  "spectral_norm": 1298.92677394904,
+  "state_metadata": [
+    {
+      "bus_id": 5,
+      "full_state_index": 3,
+      "label": "theta_5",
+      "local_index": 0,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 7,
+      "full_state_index": 5,
+      "label": "theta_7",
+      "local_index": 1,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 9,
+      "full_state_index": 7,
+      "label": "theta_9",
+      "local_index": 2,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 12,
+      "full_state_index": 10,
+      "label": "theta_12",
+      "local_index": 3,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 15,
+      "full_state_index": 13,
+      "label": "theta_15",
+      "local_index": 4,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 17,
+      "full_state_index": 15,
+      "label": "theta_17",
+      "local_index": 5,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 19,
+      "full_state_index": 17,
+      "label": "theta_19",
+      "local_index": 6,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 20,
+      "full_state_index": 18,
+      "label": "theta_20",
+      "local_index": 7,
+      "state_type": "angle"
+    }
+  ],
+  "structural_group_id": "ieee30_structural_group_04",
+  "structural_group_selection_order": 4
+}

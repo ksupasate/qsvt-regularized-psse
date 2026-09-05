@@ -1,0 +1,9 @@
+component,status,scale,source_artifact,note
+dense_block_encoding_selected_blocks,executed_statevector_validated,4x4-16x16 selected blocks,outputs/ieee_qsvt_pipeline_boundary/block_encoding_report.csv,"exact dense dilation; correctness instrument, not scalable access"
+phase2_qsvt_selected_block_circuits,executed_statevector_validated,8x8 and 16x16 selected blocks (feasible rows),outputs/phase2_qsvt_boundary/representative_rows.csv,raw IEEE-30 16x16 and controlled kappa=1e4 rows; Phase 2 evidence
+sparse_lookup_oracles_Ocol_Oval,compiled_statevector_validated,4x4 and 8x8 quantized blocks,outputs/tqe_revision_experiments/sparse_block_encoding_demo/compiled_circuit_summary.json,reversible lookup only; not a complete block encoding
+toy_sparse_block_encoding_wrapper,compiled_statevector_validated,one sparsified quantized 4x4 block,outputs/sparse_block_encoding_wrapper_demo/wrapper_demo_results.csv,Koenig-colorable pattern only; wrapper completeness at toy scale
+ieee_scale_sparse_block_encoding,modeled_only,full IEEE matrices,outputs/hardware_aware_oracle_cost_model/oracle_cost_by_case.csv,"unary-iteration QROM lookup model; T_U is modeled, not compiled"
+residual_state_loading,implemented_small_scale_else_modeled,dense init 4x4-16x16; generic/qRAM models beyond,outputs/phase3_resource_reproducibility/residual_loading_models.csv,repeats per attempt; see residual-loading model table
+isolated_finite_shot_signed_overlap,executed_with_assumed_output_state_preparation_where_stated,4x4 grid (1e3-1e6 shots); 8x8 anchors at 1e5; 16x16 not measured,outputs/tqe_revision_experiments/readout_statistics/readout_shot_scaling_summary.csv,"direct StatePreparation of classically computed postselected output; per-functional shot-noise experiment, not integrated execution"
+amplitude_estimation_variant,modeled_only_not_executed,none (model only),manuscript/main.tex,O(q/(eps sqrt(p_succ))) model; needs coherent controlled prep/QSVT/readout

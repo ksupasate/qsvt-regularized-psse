@@ -1,0 +1,41 @@
+{
+  "study_id": "sparse_error_precision_study_v1",
+  "baseline_configuration_id": "ieee14_sparse_quantized_8x8_d31_selected_v1",
+  "output_dir": "outputs/sparse_error_precision_study",
+  "declared_before_execution": true,
+  "transformation_path": [
+    "H_original",
+    "H_sparse_exact",
+    "H_sparse_quantized",
+    "qsvt_statevector",
+    "finite_shot_estimate"
+  ],
+  "value_bits": [4, 6, 8, 10, 12],
+  "include_exact_value_point": true,
+  "phase_bits": [8, 10, 12, 16, 24],
+  "include_full_phase_point": true,
+  "phase_quantization_rule": "round-to-nearest multiple of 2*pi/2^bits (numpy round-half-even), range [-pi, pi), ordering/length/parity preserved, no refitting",
+  "design_mode": "frozen_design",
+  "functionals": [
+    "coordinate_e0",
+    "signed_difference_e0_minus_e1",
+    "aggregate_e0_to_e3"
+  ],
+  "finite_shot_configurations": [
+    {"label": "baseline", "value_bits": "6", "phase_bits": "full"},
+    {"label": "low_precision", "value_bits": "4", "phase_bits": "8"},
+    {"label": "medium_precision", "value_bits": "8", "phase_bits": "12"},
+    {"label": "high_precision", "value_bits": "12", "phase_bits": "16"},
+    {"label": "value_limited", "value_bits": "4", "phase_bits": "full"},
+    {"label": "phase_limited", "value_bits": "12", "phase_bits": "8"}
+  ],
+  "shot_budgets": [10000, 100000, 1000000],
+  "seed_count": 10,
+  "base_seed": 0,
+  "sparsity_extension": {
+    "support_rule": "deterministic global largest-|value| entries of H_original, ties broken by row-major index; independent of any solved output",
+    "nonzero_budgets": [8, 12, 16, 24, 32, 64],
+    "scope": "classical Ridge references, matrix errors, wrapper block-encoding validation and resources with exact values; no per-support QSVT phase synthesis"
+  },
+  "failure_policy": "failed configurations are retained in every registry and never replaced"
+}

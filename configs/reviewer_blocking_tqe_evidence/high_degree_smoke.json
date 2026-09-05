@@ -1,0 +1,19 @@
+{
+  "protocol_id": "reviewer_blocking_tqe_evidence_v1",
+  "study": "high_degree_qsvt_feasibility_slice",
+  "declared_before_outcome_evaluation": true,
+  "structures": ["ieee14_8x8"],
+  "selectors": ["sensitivity_refined_mean", "global_magnitude"],
+  "support_budget": 16,
+  "slot_budget": 3,
+  "alpha_regimes": ["fixed_benchmark", "full_system_gcv"],
+  "degrees": [31, 63],
+  "uniform_approximation_tolerance": 0.002,
+  "bound_tolerance": 0.002,
+  "action_error_tolerance": 1e-6,
+  "target_margin": 1.05,
+  "useful_rmse_ratio_threshold": 1.5,
+  "execute_statevector": true,
+  "statevector_execution_ceiling_dim": 512,
+  "training_seed_ids": [1000, 1001, 1002]
+}

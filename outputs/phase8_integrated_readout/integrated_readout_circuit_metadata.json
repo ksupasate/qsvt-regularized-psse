@@ -1,0 +1,108 @@
+{
+  "alternating_sequence_length": 63,
+  "anchor_validation": {
+    "phase_cache_hit": 1.0,
+    "plain_chain_encoded_state_error": 0.0,
+    "plain_chain_probability_error": 0.0
+  },
+  "config": {
+    "alpha_mult": 4.0,
+    "case": "ieee14",
+    "case_source": "pypower",
+    "degree": 31,
+    "seed": 123,
+    "shots_grid": [
+      1000,
+      10000,
+      100000,
+      1000000
+    ]
+  },
+  "controlled_operation_realization": "explicit dense controlled-unitary gates (block-diagonal construction on the readout ancilla); same dense small-scale idiom as the canonical block encoding",
+  "degree": 31,
+  "integrated_readout_model": "integrated_interference_chain_residual_prep_qsvt_measured_postselection_signed_readout",
+  "output_state_used_for_preparation": false,
+  "per_observable_circuits": {
+    "area_aggregate_first_half": {
+      "acceptance_probability_validation_error": 7.771561172376096e-16,
+      "alternating_sequence_length": 63,
+      "circuit_depth": 68,
+      "circuit_qubits": 4,
+      "exact_acceptance_probability": 0.9951978574307335,
+      "exact_signed_overlap_z": -0.10994290413181773,
+      "gate_counts": {
+        "h": 2,
+        "measure": 2,
+        "unitary": 65
+      },
+      "gate_label_counts": {
+        "c0_PCPhase": 32,
+        "c0_U_A": 16,
+        "c0_U_A_dagger": 15,
+        "c0_residual_prep": 1,
+        "c1_functional_prep": 1,
+        "h": 2,
+        "measure": 2
+      },
+      "projector_phase_operations_per_attempt": 32,
+      "signal_unitary_calls_per_attempt": 31,
+      "signed_overlap_validation_error": 2.7755575615628914e-17
+    },
+    "state_correction_0": {
+      "acceptance_probability_validation_error": 4.440892098500626e-16,
+      "alternating_sequence_length": 63,
+      "circuit_depth": 68,
+      "circuit_qubits": 4,
+      "exact_acceptance_probability": 0.9951978574307339,
+      "exact_signed_overlap_z": -0.24507020775643024,
+      "gate_counts": {
+        "h": 2,
+        "measure": 2,
+        "unitary": 65
+      },
+      "gate_label_counts": {
+        "c0_PCPhase": 32,
+        "c0_U_A": 16,
+        "c0_U_A_dagger": 15,
+        "c0_residual_prep": 1,
+        "c1_functional_prep": 1,
+        "h": 2,
+        "measure": 2
+      },
+      "projector_phase_operations_per_attempt": 32,
+      "signal_unitary_calls_per_attempt": 31,
+      "signed_overlap_validation_error": 5.551115123125783e-16
+    },
+    "state_difference_0_1": {
+      "acceptance_probability_validation_error": 7.771561172376096e-16,
+      "alternating_sequence_length": 63,
+      "circuit_depth": 68,
+      "circuit_qubits": 4,
+      "exact_acceptance_probability": 0.9951978574307335,
+      "exact_signed_overlap_z": -0.23663870741091786,
+      "gate_counts": {
+        "h": 2,
+        "measure": 2,
+        "unitary": 65
+      },
+      "gate_label_counts": {
+        "c0_PCPhase": 32,
+        "c0_U_A": 16,
+        "c0_U_A_dagger": 15,
+        "c0_residual_prep": 1,
+        "c1_functional_prep": 1,
+        "h": 2,
+        "measure": 2
+      },
+      "projector_phase_operations_per_attempt": 32,
+      "signal_unitary_calls_per_attempt": 31,
+      "signed_overlap_validation_error": 8.604228440844963e-16
+    }
+  },
+  "phase_count": 32,
+  "postselection_measurement": "block-encoding flag qubit measured every shot; acceptance = flag 0; failures retained in the shot record",
+  "projector_phase_operations_per_attempt": 32,
+  "residual_state_preparation": "unitary StatePreparation of the padded normalized residual (input state)",
+  "signal_unitary_calls_per_attempt": 31,
+  "signed_readout_measurement": "readout ancilla Hadamard interference between the chain branch and the functional branch; sign from the ancilla bit on accepted shots"
+}

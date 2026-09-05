@@ -1,0 +1,111 @@
+{
+  "bootstrap_resampling_unit": "instance",
+  "development_matrix_in_primary_score": false,
+  "metric_substitution_after_results": false,
+  "primary_bootstrap_confidence_interval_95": [
+    -0.3156277947922177,
+    -0.127918925273331
+  ],
+  "primary_case_win_tie_loss": {
+    "ieee14": {
+      "loss": 0,
+      "tie": 0,
+      "win": 5
+    },
+    "ieee30": {
+      "loss": 0,
+      "tie": 0,
+      "win": 5
+    },
+    "ieee57": {
+      "loss": 2,
+      "tie": 0,
+      "win": 3
+    }
+  },
+  "primary_comparison_declaration": {
+    "baseline_selector": "balanced_magnitude",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 8675309,
+    "bootstrap_unit": "instance",
+    "candidate_selector": "sensitivity_initial_mean",
+    "k_budget": 16,
+    "metric": "instance_median_heldout_normalized_error",
+    "slot_budget": 3,
+    "tie_epsilon": 1e-15,
+    "tie_relative_tolerance": 0.01
+  },
+  "primary_functional_win_tie_loss": {
+    "aggregate_e0_to_e3": {
+      "loss": 9,
+      "tie": 0,
+      "win": 6
+    },
+    "coordinate_e0": {
+      "loss": 1,
+      "tie": 0,
+      "win": 14
+    },
+    "signed_difference_e0_minus_e1": {
+      "loss": 0,
+      "tie": 0,
+      "win": 15
+    }
+  },
+  "primary_instances": 15,
+  "primary_median_paired_difference_sensitivity_minus_magnitude": -0.2659696180787886,
+  "primary_overall_win_tie_loss": {
+    "loss": 2,
+    "tie": 0,
+    "win": 13
+  },
+  "secondary_case_win_tie_loss": {
+    "ieee14": {
+      "loss": 0,
+      "tie": 1,
+      "win": 4
+    },
+    "ieee30": {
+      "loss": 3,
+      "tie": 0,
+      "win": 2
+    },
+    "ieee57": {
+      "loss": 1,
+      "tie": 0,
+      "win": 4
+    }
+  },
+  "secondary_comparison_declaration": {
+    "baseline_selector": "balanced_magnitude",
+    "candidate_selector": "sensitivity_refined_mean",
+    "k_budget": 24,
+    "metric": "instance_median_heldout_normalized_error",
+    "slot_budget": 3
+  },
+  "secondary_functional_win_tie_loss": {
+    "aggregate_e0_to_e3": {
+      "loss": 3,
+      "tie": 0,
+      "win": 12
+    },
+    "coordinate_e0": {
+      "loss": 6,
+      "tie": 1,
+      "win": 8
+    },
+    "signed_difference_e0_minus_e1": {
+      "loss": 3,
+      "tie": 0,
+      "win": 12
+    }
+  },
+  "secondary_instances": 15,
+  "secondary_median_paired_difference_refined_minus_magnitude": -0.08484136910234069,
+  "secondary_overall_win_tie_loss": {
+    "loss": 4,
+    "tie": 1,
+    "win": 10
+  },
+  "status": "completed"
+}

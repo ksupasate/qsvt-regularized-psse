@@ -1,0 +1,154 @@
+{
+  "block_alpha_4_sigma_min_pos_sq": 616483.8341492722,
+  "block_selection_policy": "largest_row_col_norms",
+  "block_shape": [
+    8,
+    8
+  ],
+  "case_name": "ieee30",
+  "case_source": "pypower",
+  "claim_boundary": "Controlled 8x8 IEEE-14-derived numerical and classical-simulator evidence for QSVT-compatible implementation pathways of the same Ridge/Tikhonov regularized spectral filter. No quantum speedup, quantum advantage, QSVT-over-Ridge numerical superiority, field PMU/SCADA validation, IEEE-scale hardware execution, or practical-competitiveness claim is made.",
+  "columns": [
+    {
+      "bus_id": 4,
+      "global_state_index": 2,
+      "local_index": 0,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 6,
+      "global_state_index": 4,
+      "local_index": 1,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 21,
+      "global_state_index": 19,
+      "local_index": 2,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 22,
+      "global_state_index": 20,
+      "local_index": 3,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 4,
+      "global_state_index": 32,
+      "local_index": 4,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 6,
+      "global_state_index": 34,
+      "local_index": 5,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 21,
+      "global_state_index": 49,
+      "local_index": 6,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 22,
+      "global_state_index": 50,
+      "local_index": 7,
+      "state_type": "voltage"
+    }
+  ],
+  "conditioning": {
+    "cols": 8,
+    "density": 0.5,
+    "full_rank": false,
+    "min_positive_singular_value": 392.5824226036082,
+    "min_singular_value": 0.0,
+    "nonzeros": 32,
+    "rank": 6,
+    "raw_condition_number": "inf",
+    "regularization_probe_alpha": 0.069,
+    "regularized_normal_system_condition_number": 309861428.9108496,
+    "rows": 8,
+    "spectral_norm": 4623.8986081910925
+  },
+  "generated_at": "2026-07-14T05:08:23.737545+00:00",
+  "matrix_fingerprint": "634f0fd7e657faf78b834dbe34f1196af4b2836c3935c38fd774ad57dec1c963",
+  "matrix_seed": 123,
+  "measurement_rows": [
+    {
+      "label": "P_inj_6",
+      "row": 35,
+      "type": "p_injection"
+    },
+    {
+      "label": "P_inj_21",
+      "row": 50,
+      "type": "p_injection"
+    },
+    {
+      "label": "P_inj_22",
+      "row": 51,
+      "type": "p_injection"
+    },
+    {
+      "label": "Q_inj_6",
+      "row": 65,
+      "type": "q_injection"
+    },
+    {
+      "label": "Q_inj_21",
+      "row": 80,
+      "type": "q_injection"
+    },
+    {
+      "label": "Q_inj_22",
+      "row": 81,
+      "type": "q_injection"
+    },
+    {
+      "label": "P_21_22",
+      "row": 118,
+      "type": "p_branch_flow"
+    },
+    {
+      "label": "Q_21_22",
+      "row": 159,
+      "type": "q_branch_flow"
+    }
+  ],
+  "n_network_branches": 41,
+  "representable_angle_branches": [
+    [
+      4,
+      6
+    ],
+    [
+      21,
+      22
+    ]
+  ],
+  "selected_global_columns": [
+    2,
+    4,
+    19,
+    20,
+    32,
+    34,
+    49,
+    50
+  ],
+  "selected_global_rows": [
+    35,
+    50,
+    51,
+    65,
+    80,
+    81,
+    118,
+    159
+  ],
+  "slack_bus": 1,
+  "state_dimension": 59,
+  "study_id": "cross_case_validation_v1"
+}

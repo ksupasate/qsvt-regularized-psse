@@ -1,0 +1,56 @@
+{
+  "classification_precedence": [
+    "full_support_saturation",
+    "identical_selected_support",
+    "identical_effective_matrix",
+    "near_zero_reference_output",
+    "functional_insensitivity",
+    "numerically_negligible_difference",
+    "genuine_selector_tie",
+    "mixed_or_ambiguous_tie",
+    "not_a_tie"
+  ],
+  "diagnostic_category_counts_by_group": {
+    "full_support_saturation": 2,
+    "functional_insensitivity": 1,
+    "genuine_selector_tie": 1,
+    "identical_effective_matrix": 0,
+    "identical_selected_support": 1,
+    "mixed_or_ambiguous_tie": 0,
+    "near_zero_reference_output": 0,
+    "not_a_tie": 7,
+    "numerically_negligible_difference": 0
+  },
+  "diagnostic_category_counts_by_realization": {
+    "full_support_saturation": 4,
+    "functional_insensitivity": 2,
+    "genuine_selector_tie": 2,
+    "identical_effective_matrix": 0,
+    "identical_selected_support": 2,
+    "mixed_or_ambiguous_tie": 0,
+    "near_zero_reference_output": 0,
+    "not_a_tie": 14,
+    "numerically_negligible_difference": 0
+  },
+  "floating_scale_multiplier": 64.0,
+  "functional_absolute_tolerance": 1e-12,
+  "genuine_selector_ties": 1,
+  "identical_support_ties": 1,
+  "informative_pruning_groups": 10,
+  "matrix_absolute_tolerance": 1e-12,
+  "matrix_relative_tolerance": 1e-12,
+  "near_zero_threshold": 1e-06,
+  "near_zero_ties": 0,
+  "noninformative_full_support_groups": 2,
+  "original_primary_win_tie_loss": {
+    "loss": 1,
+    "tie": 5,
+    "win": 6
+  },
+  "primary_result_unchanged": true,
+  "realization_rows": 24,
+  "saturated_ties": 2,
+  "schema_version": 1,
+  "status": "pass",
+  "structural_groups": 12
+}

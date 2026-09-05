@@ -1,0 +1,22 @@
+category,item,value,note
+executed,logical_qubits,8,dilation 256 = 2*pad 128
+executed,degree,255,headline
+executed,phase_count,256,degree+1
+executed,signal_unitary_calls,255,W / W^dagger alternation
+executed,state_preparation_calls,1,residual load
+executed,shots,see WP-J,"qiskit Aer (statevector sim, not hardware)"
+executed,runtime,see WP-J,simulator wall time
+executed,memory,1.0 MB,dense dilation operator (float64 complex)
+transpiled,measurement_basis,d=7 transpiled circuit (Z + Hadamard-test ancilla),"SMALL-degree transpilation; d=255 is a degree-scaled projection, not a full transpile"
+transpiled,optimization_level,1,qiskit transpile level 1 on d=7 circuit
+transpiled,basis_set,see structured_psse / gate_level_qsvt,standard gate set
+modeled,QROM_cost,not required (dense block encoding used),"dense access, no QROM in the validated path"
+modeled,sparse_access_cost,see WP-L,structured access is MODELED/NOT_IMPLEMENTED (WP-L)
+modeled,amplitude_amplification_cost,see WP-K,postselection mitigation MODELED (WP-K); not in the validated unamplified path
+modeled,fault_tolerant_rotation_proxy,not estimated,out of scope; no fault-tolerance claim
+excluded,physical_noise,excluded,noise-free simulator
+excluded,routing,excluded,no topology
+excluded,surface_code,excluded,no fault-tolerance claim
+excluded,magic_state_factories,excluded,no fault-tolerance claim
+excluded,networking,excluded,single device
+excluded,full_vector_tomography,excluded,selected-output readout only

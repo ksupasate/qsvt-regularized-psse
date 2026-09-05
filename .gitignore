@@ -1,0 +1,152 @@
+# Python environments and packages
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+# Python bytecode, test, lint, coverage, and notebook caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
+
+# Tool and plotting caches
+.cache/
+.matplotlib_cache/
+**/phase_cache/
+**/_phase_cache/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+.tmp/
+tmp/
+
+# LaTeX/manuscript material is outside the public artifact scope
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.pdf
+*.synctex.gz
+*.tex
+*.toc
+*.xdv
+/manuscript/
+/supplementary_material/
+/submission_package_tqe_final/
+/final_manuscript_correction/
+/reviewer/
+
+# Local assistants, handoffs, and internal archives
+/.claude/
+/.claude_workflows/
+/_archive_not_for_github/
+/archive/
+/backup/
+/draft/
+/HANDOFF.md
+
+# Historical/local release and drafting files
+/_Main_QSVT_Journal.zip
+/figure1_latestversion.png
+/lastest_main.tex
+/layout_revision_report.md
+/main_final.*
+/output/
+/submission_package_tqe_final.previous_checksums.sha256
+
+# Generated scientific workspaces. Only the path-safe evidence roots below are
+# eligible for a fresh public tree. The set is exactly the evidence the public
+# test suite reads, so a bare clone can run `pytest` without downloading
+# anything; the six raw tables that remain too large for Git are distributed
+# through the external DOI archive documented in docs/data_access.md.
+/results/
+/outputs/*
+!/outputs/.gitkeep
+# --- evidence asserted by the public test suite -------------------------
+!/outputs/classical_selected_observable_baseline/
+!/outputs/cross_case_larger_block_validation/
+!/outputs/final_contribution_evidence/
+!/outputs/final_useful_overlap_validation/
+!/outputs/full_rectangular_breakthrough/
+!/outputs/generalized_rectangular_qsvt/
+!/outputs/generic_sparse_qsvt_compiler/
+!/outputs/nonlinear_closed_loop_qsvt/
+!/outputs/output_aware_generalization/
+!/outputs/output_aware_structural_generalization/
+!/outputs/phase2_qsvt_boundary/
+!/outputs/phase3_resource_reproducibility/
+!/outputs/phase8_bridge_characterization/
+!/outputs/phase8_integrated_readout/
+!/outputs/phase9_integrated_8x8_readout/
+!/outputs/phase10_sparse_wrapper_8x8_complete/
+!/outputs/rectangular_convention_fix/
+!/outputs/reproducibility_audit/
+!/outputs/sparse_chain_reconciliation/
+!/outputs/sparse_error_precision_study/
+!/outputs/sparse_integrated_chain/
+!/outputs/tqe_blocking_revision/
+!/outputs/tqe_implementation_revision/
+!/outputs/phase10_full_rectangular_selected_output_qsvt/
+!/outputs/qsvt_phase_cache/
+# QSP phase angles inside the approved roots are expensive-to-recompute
+# scientific data that the suite asserts on, not a disposable tool cache, so
+# they override the generic `**/phase_cache/` rule above.
+!/outputs/**/phase_cache/
+# --- registered benchmark outputs the reproduction validator checks ---
+!/outputs/real_ieee14_seed10/
+!/outputs/real_ieee30_seed10/
+!/outputs/real_ieee57_seed10/
+!/outputs/real_ieee118_seed10/
+!/outputs/real_ieee300_seed10/
+!/outputs/nonlinear_ac_ieee14_seed10/
+!/outputs/nonlinear_ac_ieee30_seed10/
+!/outputs/nonlinear_ac_ieee57_seed10/
+!/outputs/nonlinear_ac_ieee118_seed10/
+!/outputs/nonlinear_ac_ieee300_seed10/
+!/outputs/qsvt_phase_validation_paper/
+!/outputs/qsvt_circuit_scaling/
+!/outputs/qsvt_resource_full_ieee/
+!/outputs/qsvt_oracle_model_resources/
+!/outputs/qsvt_hardware_ieee14_2x2/
+!/outputs/qsvt_hardware_ieee14_4x4/
+
+# Public-safe reproducibility reports and machine-readable manifest
+/outputs/reproducibility_audit/*
+!/outputs/reproducibility_audit/*.md
+!/outputs/reproducibility_audit/experiment_manifest.json
+
+# Generated reviewer/researcher reruns are never canonical evidence
+!/outputs/examples/
+/outputs/examples/*
+!/outputs/examples/README.md
+# The five registered smoke-test snapshots are validator inputs. Their
+# `config_resolved.yaml` files were withheld because they recorded a
+# machine-local output root; each carries a hash-bearing omission record
+# instead (see release_audit/final_privacy_scan.md).
+!/outputs/examples/smoke_test/
+!/outputs/generated/
+/outputs/generated/*
+!/outputs/generated/README.md

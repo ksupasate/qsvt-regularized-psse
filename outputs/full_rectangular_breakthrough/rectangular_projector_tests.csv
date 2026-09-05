@@ -1,0 +1,5 @@
+configuration_sha256,evidence_label,left_projector,observed_issue,right_projector,shape
+f2911a84b20204d4b87ce646239365be1aca0d9c44ff8d7d8d6ac13f643c57e3,FAILED_CONFIGURATION,top encoded rows of padded dense dilation,pyqsp sym_qsp phases do not reproduce target under repository PCPhase sequence,same top encoded subspace with U/U_dagger alternation,2x1
+f2911a84b20204d4b87ce646239365be1aca0d9c44ff8d7d8d6ac13f643c57e3,FAILED_CONFIGURATION,top encoded rows of padded dense dilation,pyqsp sym_qsp phases do not reproduce target under repository PCPhase sequence,same top encoded subspace with U/U_dagger alternation,3x2
+f2911a84b20204d4b87ce646239365be1aca0d9c44ff8d7d8d6ac13f643c57e3,FAILED_CONFIGURATION,top encoded rows of padded dense dilation,pyqsp sym_qsp phases do not reproduce target under repository PCPhase sequence,same top encoded subspace with U/U_dagger alternation,4x2
+f2911a84b20204d4b87ce646239365be1aca0d9c44ff8d7d8d6ac13f643c57e3,FAILED_CONFIGURATION,top encoded rows of padded dense dilation,pyqsp sym_qsp phases do not reproduce target under repository PCPhase sequence,same top encoded subspace with U/U_dagger alternation,4x3

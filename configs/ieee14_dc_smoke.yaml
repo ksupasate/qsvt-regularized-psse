@@ -1,0 +1,43 @@
+run_name: ieee14_dc_smoke
+seed: 321
+
+system:
+  case_name: ieee14
+  mode: dc_power_flow_linearized
+  angle_scale: 0.05
+  measurement:
+    include_branch_flows: true
+    include_bus_injections: true
+    angle_buses: [2, 6, 9, 14]
+    flow_std: 0.02
+    injection_std: 0.03
+    angle_std: 0.005
+    weak_area_buses: [12, 13, 14]
+    weak_area_std_multiplier: 30.0
+
+scenario:
+  name: dc_weak_observability
+  noise_std: 0.01
+  missing_ratio: 0.1
+
+estimators:
+  - name: pseudoinverse
+    rcond: 1.0e-12
+  - name: ridge
+    alpha: 1.0e-3
+  - name: truncated_svd
+    tau: 1.0e-4
+  - name: qsvt_regularized
+    alpha: 1.0e-3
+
+qsvt_resource:
+  enabled: true
+  degrees: [4, 8, 16, 32]
+  grid_size: 512
+  target_error: 1.0e-3
+
+output:
+  root: outputs
+  run_id: ieee14_dc_smoke_seed321
+  save_plots: true
+  overwrite: true

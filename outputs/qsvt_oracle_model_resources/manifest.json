@@ -1,0 +1,28 @@
+{
+  "artifacts": {
+    "oracle_model_resource_assumptions": "outputs/qsvt_oracle_model_resources/oracle_model_resource_assumptions.md",
+    "oracle_model_resource_limitations": "outputs/qsvt_oracle_model_resources/oracle_model_resource_limitations.md",
+    "oracle_model_resource_summary": "outputs/qsvt_oracle_model_resources/oracle_model_resource_summary.csv"
+  },
+  "claim_boundary": "Hardware-resource rows are proxy diagnostics for a QSVT-compatible implementation pathway. They do not demonstrate quantum speedup, calibrated hardware execution, or full IEEE-scale QSVT execution.",
+  "command": "<home>/Projects/VISTEC_Paper/QSVT_paper/.venv/lib/python3.12/site-packages/pytest/__main__.py -q",
+  "generated_at": "2026-09-03T17:47:53Z",
+  "git_commit": "8895442eb2e80e4270c9ab39ca4ec54e6e7fa32b",
+  "input_config": {
+    "alpha": 0.0001,
+    "block_encoding_model": "sparse_access_oracle",
+    "case_source": "pypower",
+    "cases": [
+      "ieee14"
+    ],
+    "degree": 51,
+    "matrix_source": "weighted_jacobian",
+    "output_dir": "outputs/qsvt_oracle_model_resources",
+    "phase_count": 52,
+    "readout_shots": 10000,
+    "seed": 123,
+    "state_preparation_model": "qram_amplitude_oracle"
+  },
+  "package_version": "0.1.0",
+  "python_version": "3.12.11"
+}

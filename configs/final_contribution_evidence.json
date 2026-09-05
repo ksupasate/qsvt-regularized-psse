@@ -1,0 +1,74 @@
+{
+  "study_id": "final_contribution_evidence_v1",
+  "schema_version": 1,
+  "output_dir": "outputs/final_contribution_evidence",
+  "source_evidence_directories": [
+    "outputs/sparse_integrated_chain",
+    "outputs/sparse_error_precision_study",
+    "outputs/output_aware_sparse_selection",
+    "outputs/output_aware_generalization",
+    "outputs/output_aware_structural_generalization"
+  ],
+  "referenced_upstream_directories": [
+    "outputs/phase10_sparse_wrapper_8x8_complete",
+    "outputs/rectangular_convention_fix"
+  ],
+  "source_configuration_files": [
+    "configs/sparse_error_precision_study.json",
+    "configs/output_aware_sparse_selection.json",
+    "configs/output_aware_generalization.json",
+    "configs/output_aware_structural_generalization.json"
+  ],
+  "evidence_tiers": [
+    "classical_exact",
+    "polynomial_evaluation",
+    "exact_svt",
+    "qsvt_matrix_action",
+    "qsvt_statevector",
+    "finite_shot_simulation",
+    "transpiled_executed_circuit",
+    "modeled_resource",
+    "diagnostic_only",
+    "excluded"
+  ],
+  "primary_structural_comparison": {
+    "baseline_selector": "balanced_magnitude",
+    "candidate_selector": "sensitivity_initial_mean",
+    "k_budget": 16,
+    "slot_budget": 3,
+    "tie_relative_tolerance": 0.01,
+    "tie_epsilon": 1e-15,
+    "outcome_source": "outputs/output_aware_structural_generalization/structural_primary_matched_pairs.csv"
+  },
+  "tie_diagnostics": {
+    "near_zero_threshold_source": "outputs/output_aware_structural_generalization/study_configuration.json",
+    "matrix_absolute_tolerance": 1e-12,
+    "matrix_relative_tolerance": 1e-12,
+    "functional_absolute_tolerance": 1e-12,
+    "floating_scale_multiplier": 64.0,
+    "classification_precedence": [
+      "full_support_saturation",
+      "identical_selected_support",
+      "identical_effective_matrix",
+      "near_zero_reference_output",
+      "functional_insensitivity",
+      "numerically_negligible_difference",
+      "genuine_selector_tie",
+      "mixed_or_ambiguous_tie",
+      "not_a_tie"
+    ]
+  },
+  "conditioning": {
+    "singular_threshold_rule": "max(m,n)*float64_epsilon*sigma_max",
+    "raw_rank_deficiency_representation": "infinity",
+    "effective_rank_definition": "exp_shannon_entropy_of_squared_singular_value_weights",
+    "solve_residual_denominator_epsilon": 1e-30
+  },
+  "headline_tolerances": {
+    "absolute": 1e-12,
+    "relative": 1e-10,
+    "counts": 0.0
+  },
+  "claim_boundary": "Canonical consolidation and deterministic diagnostics of frozen simulator and resource evidence only; no new scientific campaign, field data, hardware execution, speedup, advantage, scalable IEEE circuit, or universal selector claim.",
+  "protected_snapshot": "outputs/final_contribution_evidence/protected_source_snapshot.json"
+}

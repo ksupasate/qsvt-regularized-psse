@@ -1,0 +1,51 @@
+run_name: ieee14_synthetic_sweeps
+seed: 100
+
+system:
+  case_name: ieee14
+  mode: synthetic_linearized
+  n_states: 20
+  n_measurements: 60
+  condition_number: 1000000.0
+  truth_scale: 1.0
+
+scenario:
+  name: synthetic_sweeps
+  noise_std: 0.01
+  missing_ratio: 0.1
+
+sweeps:
+  - name: noise_sweep
+    parameter: scenario.noise_std
+    values: [0.0, 0.001, 0.01, 0.05]
+    seeds: [101, 102, 103]
+  - name: missing_sweep
+    parameter: scenario.missing_ratio
+    values: [0.0, 0.1, 0.2, 0.3]
+    seeds: [101, 102, 103]
+  - name: condition_sweep
+    parameter: system.condition_number
+    values: [100.0, 10000.0, 1000000.0, 100000000.0]
+    seeds: [101, 102, 103]
+
+estimators:
+  - name: pseudoinverse
+    rcond: 1.0e-12
+  - name: ridge
+    alpha: 1.0e-3
+  - name: truncated_svd
+    tau: 1.0e-4
+  - name: qsvt_regularized
+    alpha: 1.0e-3
+
+qsvt_resource:
+  enabled: true
+  degrees: [4, 8, 16, 32]
+  grid_size: 512
+  target_error: 1.0e-3
+
+output:
+  root: outputs
+  run_id: ieee14_synthetic_sweeps
+  save_plots: true
+  overwrite: true

@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "artifact": "qsvt-regularized-psse",
+  "source_commit": "8895442eb2e80e4270c9ab39ca4ec54e6e7fa32b",
+  "archive_status": "reserved_doi_zenodo_draft_not_published",
+  "datasets": [
+    {
+      "logical_name": "output_aware_structural_generalization_heldout_results",
+      "description": "Held-out evaluation rows for output-aware structural generalization.",
+      "size_bytes": 946761562,
+      "sha256": "7d56db12a8e5029198ddea11d2feb9cd48a7d5b9677779deb9b2ea47bea7ea93",
+      "producing_experiment_or_config": "configs/output_aware_structural_generalization.json",
+      "expected_archive_filename": "output_aware_structural_generalization_heldout_results.csv",
+      "doi": "10.5281/zenodo.22326883",
+      "retrieval_location": null,
+      "required_status": "required_for_full_evidence_reproduction",
+      "doi_status": "reserved_not_yet_published"
+    },
+    {
+      "logical_name": "output_aware_generalization_heldout_results",
+      "description": "Held-out evaluation rows for output-aware generalization.",
+      "size_bytes": 582168411,
+      "sha256": "d20f3203cd9667a5758e156ddfffeb87a7bea614c607171b8fe47097f96d8d39",
+      "producing_experiment_or_config": "configs/output_aware_generalization.json",
+      "expected_archive_filename": "output_aware_generalization_heldout_results.csv",
+      "doi": "10.5281/zenodo.22326883",
+      "retrieval_location": null,
+      "required_status": "required_for_full_evidence_reproduction",
+      "doi_status": "reserved_not_yet_published"
+    },
+    {
+      "logical_name": "output_aware_structural_generalization_certificate_results",
+      "description": "Certificate rows for output-aware structural generalization.",
+      "size_bytes": 557112925,
+      "sha256": "76376a8e8ff61795e6aee25a799d7756328b5991ddb14174d87c40f2a8f1dfec",
+      "producing_experiment_or_config": "configs/output_aware_structural_generalization.json",
+      "expected_archive_filename": "output_aware_structural_generalization_certificate_results.csv",
+      "doi": "10.5281/zenodo.22326883",
+      "retrieval_location": null,
+      "required_status": "required_for_full_evidence_reproduction",
+      "doi_status": "reserved_not_yet_published"
+    },
+    {
+      "logical_name": "tqe_physical_alignment_raw_rows",
+      "description": "Raw physical-alignment and generalization audit rows.",
+      "size_bytes": 552347335,
+      "sha256": "848e1bd7c38558d44ba796582fcb78ab533f90e3877c58687e0db54607f8726a",
+      "producing_experiment_or_config": "configs/tqe_physical_alignment/campaign.json",
+      "expected_archive_filename": "tqe_physical_alignment_raw_physical_rows.csv",
+      "doi": "10.5281/zenodo.22326883",
+      "retrieval_location": null,
+      "required_status": "required_for_full_evidence_reproduction",
+      "doi_status": "reserved_not_yet_published"
+    },
+    {
+      "logical_name": "output_aware_generalization_certificate_results",
+      "description": "Certificate rows for output-aware generalization.",
+      "size_bytes": 302075046,
+      "sha256": "1d5eb4f79ae07a5d6f77aa232a373891bfa0d3a817d63242afc6d69fc993b071",
+      "producing_experiment_or_config": "configs/output_aware_generalization.json",
+      "expected_archive_filename": "output_aware_generalization_certificate_results.csv",
+      "doi": "10.5281/zenodo.22326883",
+      "retrieval_location": null,
+      "required_status": "required_for_full_evidence_reproduction",
+      "doi_status": "reserved_not_yet_published"
+    },
+    {
+      "logical_name": "tqe_measurement_row_sparsification_raw_rows",
+      "description": "Raw evaluation rows for measurement-row sparsification.",
+      "size_bytes": 273021505,
+      "sha256": "86b5ebe71c7d34e72bd3ba859845d26cafe83fcece4c3acb80e5836ccc17009b",
+      "producing_experiment_or_config": "configs/tqe_measurement_row_sparsification.yaml",
+      "expected_archive_filename": "tqe_measurement_row_sparsification_raw_evaluation_rows.csv",
+      "doi": "10.5281/zenodo.22326883",
+      "retrieval_location": null,
+      "required_status": "required_for_full_evidence_reproduction",
+      "doi_status": "reserved_not_yet_published"
+    }
+  ],
+  "reserved_doi": "10.5281/zenodo.22326883",
+  "doi_status": "Reserved Zenodo DOI for this reproducibility release; the Zenodo record is still a draft and has not been published, so no file is downloadable yet."
+}

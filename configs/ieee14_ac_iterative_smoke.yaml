@@ -1,0 +1,55 @@
+run_name: ieee14_ac_iterative_smoke
+seed: 601
+
+system:
+  case_name: ieee14
+  mode: ac_iterative_state_estimation
+  measurement:
+    include_voltage_magnitudes: true
+    include_p_injections: true
+    include_q_injections: true
+    include_p_branch_flows: true
+    include_q_branch_flows: true
+    voltage_std: 0.01
+    injection_p_std: 0.03
+    injection_q_std: 0.03
+    flow_p_std: 0.02
+    flow_q_std: 0.02
+    weak_area_buses: [12, 13, 14]
+    weak_area_std_multiplier: 10.0
+  linearization:
+    angle_perturbation_std: 0.01
+    voltage_perturbation_std: 0.01
+    min_voltage_magnitude: 0.5
+  iteration:
+    max_iterations: 10
+    update_tolerance: 1.0e-8
+    residual_tolerance: 1.0e-8
+    damping: 1.0
+
+scenario:
+  name: ac_iterative_smoke
+  noise_std: 0.0
+  missing_ratio: 0.0
+
+estimators:
+  - name: pseudoinverse
+    rcond: 1.0e-12
+  - name: ridge
+    alpha: 1.0e-6
+  - name: truncated_svd
+    tau: 1.0e-8
+  - name: qsvt_regularized
+    alpha: 1.0e-6
+
+qsvt_resource:
+  enabled: true
+  degrees: [4, 8, 16, 32]
+  grid_size: 512
+  target_error: 1.0e-3
+
+output:
+  root: outputs
+  run_id: ieee14_ac_iterative_smoke_seed601
+  save_plots: true
+  overwrite: true

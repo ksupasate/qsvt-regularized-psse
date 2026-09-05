@@ -1,0 +1,33 @@
+demo:
+  run_id: qsvt_pennylane_matrix_ieee14
+  output_dir: outputs/qsvt_pennylane_matrix_ieee14
+  alpha: 0.05
+  polynomial_degree: 5
+  grid_size: 1024
+  angle_solver: iterative
+  block_encoding: embedding
+
+matrix:
+  case_name: ieee14
+  case_source: pypower
+  mode: ac_weighted_jacobian
+  submatrix_size: 2
+  seed: 123
+  selection: largest_column_then_row_norm
+  measurement:
+    include_voltage_magnitudes: true
+    include_p_injections: true
+    include_q_injections: true
+    include_p_branch_flows: true
+    include_q_branch_flows: true
+    voltage_std: 0.01
+    injection_p_std: 0.03
+    injection_q_std: 0.03
+    flow_p_std: 0.02
+    flow_q_std: 0.02
+    weak_area_buses: [12, 13, 14]
+    weak_area_std_multiplier: 10.0
+  linearization:
+    angle_perturbation_std: 0.005
+    voltage_perturbation_std: 0.005
+    min_voltage_magnitude: 0.5

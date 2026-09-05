@@ -1,0 +1,3 @@
+C_new,boundedness_margin,configuration_role,evidence_label,failure_reason,gamma,max_abs,method,physical_reconstruction_error,postselection_probability_penalty,runtime_seconds,status
+42.81061621595387,9.999959749151799e-09,active,DIAGNOSTIC_ONLY,,1.00000399449949,0.9999999900000403,minimal_contraction,7.105427357601002e-15,1.0000079890149363,,PROMOTED
+42.81061621595387,-0.0005242883978633373,rejected,FAILED_CONFIGURATION,grid-constrained LP exceeded dense global bound or target tolerance,,1.0005242883978633,bounded_chebyshev_lp_grid_constraints,0.03429625754627352,,2.0080276660155505,FAILED_DENSE_VALIDATION

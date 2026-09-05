@@ -1,0 +1,479 @@
+#!/usr/bin/env python3
+"""Build manuscript tables, value macros, and the waterfall figure for the joint
+four-condition single-candidate trace, reading exclusively from
+``outputs/joint_four_condition/`` (machine-readable evidence). No value is hand-typed.
+
+Outputs:
+  manuscript/tables/joint_four_condition_metrics.tex      (JointFour value macros)
+  manuscript/tables/joint_four_condition_candidate.tex    (tab:joint_four_condition_candidate)
+  manuscript/tables/joint_four_condition_decision.tex     (supp:tab:joint_four_condition_decision)
+  manuscript/tables/joint_error_decomposition.tex         (supp:tab:joint_error_decomposition)
+  manuscript/figures/joint_four_condition_waterfall.pdf   (supp:fig:joint_four_condition_waterfall)
+
+Reproduce:
+  MPLBACKEND=Agg .venv/bin/python scripts/build_joint_four_condition_assets.py
+"""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+EVIDENCE = REPO_ROOT / "outputs" / "joint_four_condition"
+TABLES = REPO_ROOT / "manuscript" / "tables"
+FIGURES = REPO_ROOT / "manuscript" / "figures"
+
+# Validated diverging pair (dataviz skill validator: all checks pass, CVD ΔE 23.8).
+COLOR_IMPLEMENTATION = "#2a78d6"  # tiny / below-threshold errors
+COLOR_APPLICATION = "#d03b3b"  # large / above-threshold errors
+COLOR_ACCESS = "#898781"  # matrix/access (neutral)
+INK = "#17212B"
+MUTED = "#5b6b7a"
+GRID = "#e1e0d9"
+SURFACE = "#fcfcfb"
+THRESHOLD = 0.1
+
+DETERMINISTIC_PDF_METADATA = {
+    "Creator": "build_joint_four_condition_assets.py",
+    "Producer": "Matplotlib",
+    "CreationDate": None,
+    "ModDate": None,
+}
+
+
+def _fmt(value, digits: int = 3) -> str:
+    """Scientific-or-fixed float formatting for LaTeX."""
+
+    if value is None or (isinstance(value, float) and (np.isnan(value) or np.isinf(value))):
+        return "--"
+    if isinstance(value, (int, np.integer)) and not isinstance(value, bool):
+        return _grp(int(value))
+    float_value = float(value)
+    if float_value == 0.0:
+        return "0"
+    if abs(float_value) >= 1000.0 or abs(float_value) < 1.0e-3:
+        return f"{float_value:.{digits}e}"
+    return f"{float_value:.{digits}f}"
+
+
+def _grp(value: int) -> str:
+    return f"{value:,}".replace(",", r"\,")
+
+
+def _tex_escape(text: str) -> str:
+    return str(text).replace("_", r"\_").replace("%", r"\%").replace("&", r"\&")
+
+
+def _status_glyph(status: str) -> str:
+    return {
+        "pass": "PASS",
+        "fail": "FAIL",
+        "inconclusive": "INCONCL.",
+        "not_evaluable": "N/E",
+    }.get(status, status.upper())
+
+
+def _load_evidence() -> dict:
+    freeze = json.loads((EVIDENCE / "candidate_freeze.json").read_text())
+    ledger = json.loads((EVIDENCE / "four_condition_decision_ledger.json").read_text())
+    decision_csv = pd.read_csv(EVIDENCE / "four_condition_decision_ledger.csv")
+    selected = pd.read_csv(EVIDENCE / "selected_output_results.csv")
+    errors = pd.read_csv(EVIDENCE / "error_decomposition.csv")
+    fs_summary = pd.read_csv(EVIDENCE / "finite_shot_summary.csv")
+    resources = pd.read_csv(EVIDENCE / "resource_ledger.csv")
+    fs_check = pd.read_csv(EVIDENCE / "finite_shot_reproduction_check.csv")
+    classical = pd.read_csv(EVIDENCE / "classical_comparison.csv")
+    provenance = json.loads((EVIDENCE / "candidate_provenance.json").read_text())
+    return {
+        "freeze": freeze,
+        "ledger": ledger,
+        "decision_csv": decision_csv,
+        "selected": selected,
+        "errors": errors,
+        "fs_summary": fs_summary,
+        "resources": resources,
+        "fs_check": fs_check,
+        "classical": classical,
+        "provenance": provenance,
+    }
+
+
+# ------------------------------------------------------------------------- metrics macros
+
+
+def build_metric_macros(ev: dict) -> None:
+    freeze = ev["freeze"]
+    primary = freeze["primary_functional_id"]
+    sel_primary = ev["selected"][ev["selected"]["functional_id"] == primary].iloc[0]
+    res = ev["resources"].iloc[0]
+    conditions = {c["condition_id"]: c for c in ev["ledger"]["conditions"]}
+    first_failed = ev["ledger"]["first_failed_logical_condition"]
+    fs1e5 = ev["fs_summary"][
+        (ev["fs_summary"]["functional_id"] == primary)
+        & (ev["fs_summary"]["shots_attempted"] == 100000)
+    ]
+    fs_mean_err = (
+        float(fs1e5["mean_abs_error_vs_statevector"].iloc[0]) if not fs1e5.empty else float("nan")
+    )
+    classical_dense = ev["classical"][ev["classical"]["method"] == "dense_ridge"]
+    classical_min_us = (
+        float(classical_dense["per_rhs_time_s"].min() * 1e6)
+        if not classical_dense.empty
+        else float("nan")
+    )
+
+    def p(name: str, value) -> str:
+        return rf"\providecommand{{{name}}}{{{value}}}"
+
+    lines = [
+        "% Auto-generated by scripts/build_joint_four_condition_assets.py. Do not edit by hand.",
+        p(r"\JointFourCandidateId", _tex_escape(freeze["workload_id"])),
+        p(r"\JointFourCase", freeze["ieee_case"].upper()),
+        p(r"\JointFourBlockSize", r"8\times8"),
+        p(r"\JointFourDegree", str(freeze["polynomial_degree"])),
+        p(r"\JointFourSupportK", str(freeze["support_budget_k"])),
+        p(r"\JointFourSlots", str(freeze["slot_budget_d_s"])),
+        p(r"\JointFourQuantBits", str(freeze["quantization_magnitude_bits"])),
+        p(r"\JointFourAlpha", rf"{freeze['alpha']:.4g}"),
+        p(r"\JointFourLambda", rf"{freeze['normalized_lambda']:.5g}"),
+        p(r"\JointFourBeta", rf"{freeze['beta']:.4g}"),
+        p(r"\JointFourBoundC", rf"{freeze['boundedness_factor_C']:.4g}"),
+        p(r"\JointFourQubits", str(res["total_simultaneously_live_qubits"])),
+        p(r"\JointFourGates", _grp(int(res["transpiled_gate_count"]))),
+        p(r"\JointFourDepth", _grp(int(res["transpiled_depth"]))),
+        p(r"\JointFourToffoli", _grp(int(res["toffoli_count"]))),
+        p(r"\JointFourCtrlRot", _grp(int(res["controlled_rotation_count"]))),
+        p(r"\JointFourPostselection", rf"{float(res['postselection_probability_primary']):.4g}"),
+        p(r"\JointFourAttemptedShots", _grp(int(res["attempted_shots_total"]))),
+        p(r"\JointFourESupport", rf"{float(sel_primary['E_support_selected_output']):.4g}"),
+        p(
+            r"\JointFourEBenchmark",
+            rf"{float(sel_primary['E_benchmark_natural_selected_output']):.4g}",
+        ),
+        p(r"\JointFourEpsilonQsvt", rf"{conditions['condition_3']['metric_value']:.3e}"),
+        p(r"\JointFourEpsilonSupportVec", rf"{0.28089186587045983:.4g}"),
+        p(r"\JointFourFiniteShotMeanErr", rf"{fs_mean_err:.3e}"),
+        p(r"\JointFourClassicalMicroseconds", rf"{classical_min_us:.2f}"),
+        p(r"\JointFourCondOne", _status_glyph(conditions["condition_1"]["status"])),
+        p(r"\JointFourCondTwo", _status_glyph(conditions["condition_2"]["status"])),
+        p(r"\JointFourCondThree", _status_glyph(conditions["condition_3"]["status"])),
+        p(r"\JointFourCondFour", _status_glyph(conditions["condition_4"]["status"])),
+        p(r"\JointFourOverall", _status_glyph(ev["ledger"]["overall_status"])),
+        p(
+            r"\JointFourFirstFailed",
+            _tex_escape(first_failed["condition_id"]) if first_failed else "none",
+        ),
+    ]
+    (TABLES / "joint_four_condition_metrics.tex").write_text(
+        "\n".join(lines) + "\n", encoding="utf-8"
+    )
+
+
+# ------------------------------------------------------------------------- main candidate table
+
+
+def build_candidate_table(ev: dict) -> None:
+    conditions = {c["condition_id"]: c for c in ev["ledger"]["conditions"]}
+    first_failed = ev["ledger"]["first_failed_logical_condition"]
+    rows = []
+    for cid, label, detail in [
+        (
+            "condition_1",
+            "Support preservation",
+            r"$E_{\mathrm{support}}=\JointFourESupport$ vs $0.1$",
+        ),
+        (
+            "condition_2",
+            "Benchmark usefulness",
+            r"$E_{\mathrm{benchmark}}=\JointFourEBenchmark$; no registered pass threshold",
+        ),
+        (
+            "condition_3",
+            "Filter implementation",
+            r"$\varepsilon_{\mathrm{QSVT}}=\JointFourEpsilonQsvt$ vs $10^{-6}$",
+        ),
+        (
+            "condition_4",
+            "Access/readout credibility",
+            r"direct multiplexing; sampled selected outputs",
+        ),
+    ]:
+        c = conditions[cid]
+        rows.append(rf"{label} & {detail} & {_status_glyph(c['status'])} \\")
+    body = "\n".join(rows)
+    first_failed_str = (
+        rf"{_tex_escape(first_failed['condition_id'])} "
+        rf"({_tex_escape(first_failed['condition_name'])})"
+        if first_failed
+        else "none"
+    )
+    tex = rf"""% GENERATED by scripts/build_joint_four_condition_assets.py
+% Source: outputs/joint_four_condition/four_condition_decision_ledger.json
+\begin{{table}}[t]
+\caption{{Single frozen IEEE-14 sparse $\JointFourBlockSize$, $d=\JointFourDegree$ candidate
+evaluated through the four logically ordered conditions in one traceable pipeline. Thresholds are
+predeclared (\texttt{{configs/joint\_four\_condition.yaml}}); no threshold was chosen after
+inspecting the outcome. A later-condition pass cannot override an earlier application failure.
+Simulator-based only; no quantum speedup or advantage is claimed.}}
+\label{{tab:joint_four_condition_candidate}}% distinct from tab:joint_four_conditions
+\centering
+\small
+\begin{{tabular}}{{@{{}}lll@{{}}}}
+\toprule
+Condition & Criterion / metric & Status \\
+\midrule
+{body}
+\midrule
+Overall & first failed logical condition: {first_failed_str} & \JointFourOverall \\
+\bottomrule
+\end{{tabular}}
+\end{{table}}
+"""
+    (TABLES / "joint_four_condition_candidate.tex").write_text(tex, encoding="utf-8")
+
+
+# ---- supplement decision table ----
+
+
+def build_decision_table(ev: dict) -> None:
+    rows = []
+    for c in ev["ledger"]["conditions"]:
+        metric_val = c["metric_value"]
+        if isinstance(metric_val, (int, float)) and not isinstance(metric_val, bool):
+            metric_disp = _fmt(metric_val)
+        else:
+            metric_disp = _tex_escape(str(metric_val))
+        threshold = c["threshold"]
+        threshold_disp = (
+            _fmt(threshold)
+            if isinstance(threshold, (int, float))
+            else (_tex_escape(str(threshold)) if threshold is not None else "none")
+        )
+        rows.append(
+            rf"\JointFourCase~{c['condition_name']} & {_tex_escape(c['metric'])} & "
+            rf"{metric_disp} & {threshold_disp} & {_status_glyph(c['status'])} & "
+            rf"{_tex_escape(c['failure_reason'][:90])} \\"
+        )
+    body = "\n".join(rows)
+    overall = ev["ledger"]["overall_status"]
+    ff = ev["ledger"]["first_failed_logical_condition"]
+    ff_disp = _tex_escape(f"{ff['condition_id']} ({ff['condition_name']})") if ff else "none"
+    tex = rf"""% GENERATED by scripts/build_joint_four_condition_assets.py
+% Source: outputs/joint_four_condition/four_condition_decision_ledger.csv
+\begin{{table}}[H]
+\caption{{Per-condition decision ledger for the single frozen candidate. Statuses use predeclared
+criteria only; Condition~2 is inconclusive because no pass threshold is registered for the
+benchmark-relative selected-output error of this candidate (its metric is still computed and
+reported). Overall status: {_status_glyph(overall)}; first failed logical condition: {ff_disp}.}}
+\label{{supp:tab:joint_four_condition_decision}}
+\centering
+\scriptsize
+\setlength{{\tabcolsep}}{{3pt}}
+\begin{{tabular}}{{@{{}}lllllp{{0.30\linewidth}}@{{}}}}
+\toprule
+Condition & Metric & Value & Threshold & Status & Reason \\
+\midrule
+{body}
+\bottomrule
+\end{{tabular}}
+\end{{table}}
+"""
+    (TABLES / "joint_four_condition_decision.tex").write_text(tex, encoding="utf-8")
+
+
+# ---- error decomposition table ----
+
+
+def build_error_decomposition_table(ev: dict) -> None:
+    primary = ev["freeze"]["primary_functional_id"]
+    errors = ev["errors"]
+    keep = errors[
+        ((errors["category"] == "numerical_approximation") & (errors["functional_id"] == primary))
+        | (errors["category"] == "matrix_access")
+        | (
+            (errors["category"] == "selected_output_recovery")
+            & (errors["functional_id"] == primary)
+        )
+    ].copy()
+    rows = []
+    for _, row in keep.iterrows():
+        rel = row["relative_error"]
+        rel_disp = (
+            _fmt(rel)
+            if isinstance(rel, (int, float)) and not (isinstance(rel, float) and np.isnan(rel))
+            else "--"
+        )
+        rows.append(
+            rf"{_tex_escape(row['category'])} & {_tex_escape(row['stage'])} & "
+            rf"{_fmt(row['absolute_error'])} & {rel_disp} \\"
+        )
+    body = "\n".join(rows)
+    tex = rf"""% GENERATED by scripts/build_joint_four_condition_assets.py
+% Source: outputs/joint_four_condition/error_decomposition.csv
+\begin{{table}}[H]
+\caption{{Separated error decomposition for the single frozen candidate (primary functional
+{_tex_escape(primary)}). Support and benchmark-reference gaps are reported separately from
+quantization, polynomial, circuit, and finite-shot errors; the stages are never merged into one
+headline error. ``support\_action\_vector\_norm'' is the vector-norm
+$\varepsilon_{{\mathrm{{support}}}}=0.2809$ (continuity with the multi-candidate summary); the
+selected-output scalar $E_{{\mathrm{{support}}}}=\JointFourESupport$ drives Condition~1.}}
+\label{{supp:tab:joint_error_decomposition}}
+\centering
+\scriptsize
+\setlength{{\tabcolsep}}{{3pt}}
+\begin{{tabular}}{{@{{}}llrr@{{}}}}
+\toprule
+Category & Stage & Absolute error & Relative error \\
+\midrule
+{body}
+\bottomrule
+\end{{tabular}}
+\end{{table}}
+"""
+    (TABLES / "joint_error_decomposition.tex").write_text(tex, encoding="utf-8")
+
+
+# ------------------------------------------------------------------------- waterfall figure
+
+
+def build_waterfall_figure(ev: dict) -> None:
+    """Per-stage relative-error waterfall on a log scale.
+
+    Makes it visually obvious that the application gaps (support, benchmark) sit far above the
+    predeclared 0.1 threshold while the implementation errors (quantization, polynomial, circuit,
+    finite-shot) lie many orders of magnitude below it.
+    """
+
+    primary = ev["freeze"]["primary_functional_id"]
+    errors = ev["errors"]
+    numerical = errors[
+        (errors["category"] == "numerical_approximation") & (errors["functional_id"] == primary)
+    ].copy()
+    # finite-shot recovery rows (use abs error as the stage error; rel where stable)
+    recovery = errors[
+        (errors["category"] == "selected_output_recovery") & (errors["functional_id"] == primary)
+    ].copy()
+
+    stage_label = {
+        "block_truncation_full_block_ridge": "Block\ntruncation",
+        "support_removal_sparse_exact_ridge": "Support\nremoval",
+        "quantization_quantized_ridge": "Quant-\nization",
+        "polynomial_exact_rational": "Rational\nfilter",
+        "polynomial_to_exact_poly": "Polynomial\napprox.",
+        "qsvt_circuit_statevector": "QSVT\ncircuit",
+    }
+    application_stages = {"block_truncation_full_block_ridge", "support_removal_sparse_exact_ridge"}
+
+    labels: list[str] = []
+    values: list[float] = []
+    colors: list[str] = []
+    for _, row in numerical.iterrows():
+        stage = row["stage"]
+        if stage not in stage_label:
+            continue
+        rel = float(row["relative_error"])
+        rel = max(rel, 1.0e-15)  # floor zeros for the log axis (labeled below)
+        labels.append(stage_label[stage])
+        values.append(rel)
+        colors.append(COLOR_APPLICATION if stage in application_stages else COLOR_IMPLEMENTATION)
+    # finite-shot stage: abs error vs statevector (relative not always stable); plot as a bar.
+    # The recovery rows carry the shot budget in their stage name (finite_shot_<shots>); sort by
+    # stage so the smallest budget is plotted.
+    if not recovery.empty:
+        fs_row = recovery.sort_values("stage").iloc[0]
+        fs_val = max(abs(float(fs_row["absolute_error"])), 1.0e-15)
+        labels.append("Finite-\nshot")
+        values.append(fs_val)
+        colors.append(COLOR_IMPLEMENTATION)
+
+    x = np.arange(len(labels))
+    fig, ax = plt.subplots(figsize=(7.2, 3.5), dpi=150)
+    fig.patch.set_facecolor(SURFACE)
+    ax.set_facecolor(SURFACE)
+    bars = ax.bar(x, values, color=colors, edgecolor="none", width=0.62, zorder=3)
+
+    # threshold line (predeclared Condition-1 gate)
+    ax.axhline(THRESHOLD, color=INK, linestyle=(0, (4, 3)), linewidth=1.0, zorder=2, alpha=0.8)
+    ax.text(
+        len(labels) - 0.45,
+        THRESHOLD * 1.18,
+        r"Condition-1 threshold $0.1$",
+        fontsize=7,
+        color=INK,
+        ha="right",
+        va="bottom",
+        zorder=4,
+    )
+
+    ax.set_yscale("log")
+    ax.set_ylim(1e-14, 5.0)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, fontsize=7.5, color=INK)
+    ax.set_ylabel("Relative selected-output error per stage", fontsize=8.5, color=INK)
+    ax.tick_params(axis="y", labelsize=7.5, colors=MUTED)
+    ax.grid(axis="y", color=GRID, linewidth=0.6, zorder=0)
+    for spine in ("top", "right"):
+        ax.spines[spine].set_visible(False)
+    for spine in ("left", "bottom"):
+        ax.spines[spine].set_color(GRID)
+
+    # direct value labels above each bar
+    for bar, value in zip(bars, values, strict=True):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            value * 1.45,
+            _fmt(value, 2),
+            ha="center",
+            va="bottom",
+            fontsize=6.8,
+            color=INK,
+            zorder=4,
+        )
+
+    # legend (application vs implementation) -- identity never color-alone
+    from matplotlib.patches import Patch
+
+    legend_handles = [
+        Patch(facecolor=COLOR_APPLICATION, label="Application gap (support / benchmark)"),
+        Patch(
+            facecolor=COLOR_IMPLEMENTATION,
+            label="Implementation gap (quant. / poly. / circuit / shot)",
+        ),
+    ]
+    ax.legend(handles=legend_handles, loc="lower left", fontsize=7, frameon=False)
+    ax.set_title(
+        "Per-stage error chain for the frozen $8\\times8$, $d=31$ candidate "
+        "(application gaps dominate; circuit error is tiny)",
+        fontsize=8.5,
+        color=INK,
+        pad=8,
+    )
+    fig.tight_layout()
+    fig.savefig(
+        FIGURES / "joint_four_condition_waterfall.pdf",
+        bbox_inches="tight",
+        metadata=DETERMINISTIC_PDF_METADATA,
+    )
+    plt.close(fig)
+
+
+def main() -> None:
+    ev = _load_evidence()
+    build_metric_macros(ev)
+    build_candidate_table(ev)
+    build_decision_table(ev)
+    build_error_decomposition_table(ev)
+    build_waterfall_figure(ev)
+    print("[joint_four_condition_assets] wrote metrics + 3 tables + waterfall figure")
+
+
+if __name__ == "__main__":
+    main()

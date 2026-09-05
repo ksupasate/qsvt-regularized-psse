@@ -1,0 +1,25 @@
+demo:
+  alpha: 0.01
+  angle_solver: iterative
+  block_encoding_normalization: 1.0
+  degree: 35
+  domain_max: 1.0
+  domain_min: 0.2
+  grid_size: 4096
+  max_nfev: 4000
+  output_dir: outputs/qsvt_phase_validation_paper
+  phase_cache_dir: outputs/qsvt_phase_cache
+  phase_max_error_target: 0.05
+  phase_mean_error_target: 0.01
+  phase_synthesis_method: pennylane_poly_to_angles
+  phase_validation_grid_size: 257
+  polynomial_max_error_target: 0.01
+  polynomial_mean_error_target: 0.001
+  require_phase_validation: true
+  run_id: qsvt_phase_validation_paper
+  seed: 123
+  singular_values:
+  - 0.2
+  - 0.35
+  - 0.6
+  - 0.85

@@ -1,0 +1,17 @@
+demo:
+  run_id: qsvt_pennylane_matrix_ieee57_full_or_submatrix
+  output_dir: outputs/qsvt_pennylane_matrix_ieee57_full_or_submatrix
+  alpha: 0.05
+  polynomial_degree: 5
+  grid_size: 512
+  angle_solver: iterative
+  block_encoding: embedding
+
+matrix:
+  case_name: ieee57
+  case_source: pypower
+  mode: ac_weighted_jacobian
+  matrix_scope: full_matrix
+  use_full_matrix: true
+  seed: 123
+

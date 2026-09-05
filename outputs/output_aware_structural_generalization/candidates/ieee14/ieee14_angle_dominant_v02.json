@@ -1,0 +1,232 @@
+{
+  "candidate_id": "ieee14_angle_dominant_v02",
+  "candidate_linearization_seed": 14201,
+  "candidate_nonzeros": 33,
+  "failure_reason": "",
+  "ieee_case": "ieee14",
+  "matrix": [
+    [
+      -174.63705004286808,
+      1335.8517116760058,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -761.5198146203761,
+      -154.78808733478846,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      12.06144934966304
+    ],
+    [
+      -0.0,
+      -0.0,
+      657.5689046379408,
+      -153.98801164575548,
+      -119.25964336914657,
+      -229.5331622882503,
+      0.0,
+      239.19133435407818
+    ],
+    [
+      -0.0,
+      -0.0,
+      -116.55269535454251,
+      -0.0,
+      199.58594006832888,
+      -83.03324471378637,
+      0.0,
+      -55.89189212564503
+    ],
+    [
+      -0.0,
+      -0.0,
+      -221.14190474207228,
+      -0.0,
+      -80.72294518653263,
+      385.16705872927133,
+      -83.3022088006664,
+      -115.30963244162307
+    ],
+    [
+      -0.0,
+      -0.0,
+      -242.0926083982715,
+      69.26363304106243,
+      53.8338669486815,
+      106.16198358925962,
+      -0.0,
+      611.9830421017825
+    ],
+    [
+      -0.0,
+      -0.0,
+      59.46778096394361,
+      -0.0,
+      -148.9194872505377,
+      89.45170628659409,
+      -0.0,
+      -109.54420309812849
+    ],
+    [
+      -0.0,
+      -0.0,
+      122.68698919078061,
+      -0.0,
+      91.54197728744273,
+      -255.59924460336703,
+      41.3702781251437,
+      -207.84430298143604
+    ]
+  ],
+  "matrix_fingerprint": "8845802627eb2a9d42eeb784977904b80f4505b5c91e9a4d2d4933bbd97e8048",
+  "matrix_shape": [
+    8,
+    8
+  ],
+  "measurement_metadata": [
+    {
+      "full_measurement_index": 17,
+      "local_index": 0,
+      "measurement_label": "P_inj_4",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 18,
+      "local_index": 1,
+      "measurement_label": "P_inj_5",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 19,
+      "local_index": 2,
+      "measurement_label": "P_inj_6",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 25,
+      "local_index": 3,
+      "measurement_label": "P_inj_12",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 26,
+      "local_index": 4,
+      "measurement_label": "P_inj_13",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 33,
+      "local_index": 5,
+      "measurement_label": "Q_inj_6",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 39,
+      "local_index": 6,
+      "measurement_label": "Q_inj_12",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 40,
+      "local_index": 7,
+      "measurement_label": "Q_inj_13",
+      "measurement_type": "q_injection"
+    }
+  ],
+  "outcome_independent": true,
+  "policy": "angle_dominant",
+  "primary_structural_feasibility": "completed",
+  "reference_beta": 4007.5551350280175,
+  "reference_mu": 1335.8517116760058,
+  "regularization_alpha": 1115749.0527047438,
+  "secondary_structural_feasibility": "completed",
+  "selected_columns": [
+    1,
+    2,
+    4,
+    9,
+    10,
+    11,
+    12,
+    18
+  ],
+  "selected_rows": [
+    17,
+    18,
+    19,
+    25,
+    26,
+    33,
+    39,
+    40
+  ],
+  "selector_outcomes_used_for_inclusion": false,
+  "state_metadata": [
+    {
+      "bus_id": 3,
+      "full_state_index": 1,
+      "label": "theta_3",
+      "local_index": 0,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 4,
+      "full_state_index": 2,
+      "label": "theta_4",
+      "local_index": 1,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 6,
+      "full_state_index": 4,
+      "label": "theta_6",
+      "local_index": 2,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 11,
+      "full_state_index": 9,
+      "label": "theta_11",
+      "local_index": 3,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 12,
+      "full_state_index": 10,
+      "label": "theta_12",
+      "local_index": 4,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 13,
+      "full_state_index": 11,
+      "label": "theta_13",
+      "local_index": 5,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 14,
+      "full_state_index": 12,
+      "label": "theta_14",
+      "local_index": 6,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 6,
+      "full_state_index": 18,
+      "label": "V_6",
+      "local_index": 7,
+      "state_type": "voltage"
+    }
+  ],
+  "status": "included",
+  "variant": 2
+}

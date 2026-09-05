@@ -1,0 +1,43 @@
+{
+  "study_id": "cross_case_validation_v1",
+  "declared_before_outcome_evaluation": true,
+  "case_name": "ieee30",
+  "case_source": "pypower",
+  "matrix_seed": 123,
+  "dimension": 8,
+  "y_floor": 1e-06,
+  "failure_threshold": 0.1,
+  "support_budgets": [12, 16],
+  "slot_budgets": [3],
+  "near_oracle_beam_width": 6,
+  "near_oracle_max_loss_evals": 200000,
+  "random_seed_base": 314159,
+  "execute_statevector": true,
+  "training_seed_ids": [1000, 1001, 1002],
+  "held_out_seed_ids": [2000, 2001, 2002],
+  "joint_feasibility": {
+    "degrees": [31],
+    "useful_rmse_ratio_threshold": 1.5,
+    "sparsification_error_threshold": 0.1,
+    "uniform_approximation_tolerance": 0.002,
+    "bound_tolerance": 0.002,
+    "target_margin": 1.05,
+    "action_error_tolerance": 1e-06,
+    "alpha_grid_lo_factor": 0.001,
+    "alpha_grid_hi_factor": 10.0,
+    "alpha_grid_points": 5,
+    "joint_selectors": ["sensitivity_refined_mean", "global_magnitude"],
+    "joint_support_budgets": [16],
+    "joint_slot_budgets": [3]
+  },
+  "resource_pareto": {
+    "degree": 31,
+    "modeled_shots": 100000,
+    "basis_gates": ["u3", "cx"],
+    "optimization_level": 1,
+    "error_thresholds": [0.5, 0.75, 1.0],
+    "resource_selectors": ["global_magnitude", "sensitivity_refined_mean"],
+    "resource_support_budgets": [12, 16],
+    "resource_slot_budgets": [3]
+  }
+}

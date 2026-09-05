@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qsvt-regularized-psse"
+version = "1.0.0"
+description = "Reproducible implementation and benchmark evaluation of QSVT-compatible regularized spectral filtering for power system state estimation."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "pypower>=5.1.19",
+  "pyyaml>=6.0",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+]
+quantum = [
+  "pennylane>=0.45",
+  "qiskit>=2.0",
+  "qiskit-aer>=0.15",
+]
+phase = [
+  "mpmath>=1.3",
+  "pyqsp>=0.2",
+  "sympy>=1.14",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# These paths contain generated artifacts, regenerable outputs, or frozen
+# submission snapshots rather than maintained code.
+extend-exclude = [
+  "outputs",
+  "results",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

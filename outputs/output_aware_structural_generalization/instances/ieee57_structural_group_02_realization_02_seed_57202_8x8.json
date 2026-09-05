@@ -1,0 +1,245 @@
+{
+  "candidate_id": "ieee57_voltage_dominant_v00",
+  "candidate_nonzeros": 24,
+  "candidate_policy": "voltage_dominant",
+  "condition_number": null,
+  "development_or_evaluation": "structural_evaluation",
+  "extraction_policy": {
+    "candidate_id": "ieee57_voltage_dominant_v00",
+    "outcome_independent": true,
+    "rows_columns_fixed_within_group": true,
+    "strategy": "fixed_preselected_structural_group_rows_columns"
+  },
+  "ieee_case": "ieee57",
+  "inclusion_reasons": [],
+  "inclusion_status": "included",
+  "instance_id": "ieee57_structural_group_02_realization_02_seed_57202_8x8",
+  "lambda_ref": 0.06947163416534002,
+  "matrix": [
+    [
+      -110.71641110508246,
+      -94.17605737462038,
+      502.2998961569944,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1638.3762306635642,
+      -1019.4347024849908,
+      -527.7907825224745,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -514.6391008378432,
+      0.0,
+      1311.705690228608,
+      0.0,
+      -317.8670180694504
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -323.7889750527722,
+      -716.9300028622281,
+      1141.5110427746788
+    ],
+    [
+      -335.3420156078846,
+      -347.4267302240345,
+      2126.7490404690316,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      -0.0,
+      -0.0,
+      -0.0,
+      2560.505023733251,
+      -1545.8664472247729,
+      -795.0901317388084,
+      -0.0,
+      -0.0
+    ],
+    [
+      -0.0,
+      -0.0,
+      -0.0,
+      -806.6010009066755,
+      0.0,
+      2117.2522732349976,
+      -0.0,
+      -492.93938960014464
+    ],
+    [
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -498.31214318714825,
+      -904.3737396588559,
+      1593.6287612660713
+    ]
+  ],
+  "matrix_fingerprint": "01ea0340762b376038d65fc2897f8b2a93d5804ec6dd4ffacb0f2a26e3626612",
+  "matrix_selection_seed": 57202,
+  "matrix_shape": [
+    8,
+    8
+  ],
+  "measurement_metadata": [
+    {
+      "full_measurement_index": 71,
+      "local_index": 0,
+      "measurement_label": "P_inj_15",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 78,
+      "local_index": 1,
+      "measurement_label": "P_inj_22",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 94,
+      "local_index": 2,
+      "measurement_label": "P_inj_38",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 104,
+      "local_index": 3,
+      "measurement_label": "P_inj_48",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 128,
+      "local_index": 4,
+      "measurement_label": "Q_inj_15",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 135,
+      "local_index": 5,
+      "measurement_label": "Q_inj_22",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 151,
+      "local_index": 6,
+      "measurement_label": "Q_inj_38",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 161,
+      "local_index": 7,
+      "measurement_label": "Q_inj_48",
+      "measurement_type": "q_injection"
+    }
+  ],
+  "primary_structural_feasibility": "completed",
+  "realization_order": 2,
+  "reference_beta": 7681.515071199754,
+  "reference_mu": 2560.505023733251,
+  "regularization_alpha": 4099220.5831535915,
+  "regularization_policy": "frozen_lambda_ref_times_full_candidate_reference_beta_squared",
+  "secondary_structural_feasibility": "completed",
+  "selected_columns": [
+    56,
+    68,
+    70,
+    77,
+    78,
+    93,
+    102,
+    103
+  ],
+  "selected_rows": [
+    71,
+    78,
+    94,
+    104,
+    128,
+    135,
+    151,
+    161
+  ],
+  "selector_outcomes_used_for_inclusion": false,
+  "spectral_norm": 4113.51914770751,
+  "state_metadata": [
+    {
+      "bus_id": 1,
+      "full_state_index": 56,
+      "label": "V_1",
+      "local_index": 0,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 13,
+      "full_state_index": 68,
+      "label": "V_13",
+      "local_index": 1,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 15,
+      "full_state_index": 70,
+      "label": "V_15",
+      "local_index": 2,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 22,
+      "full_state_index": 77,
+      "label": "V_22",
+      "local_index": 3,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 23,
+      "full_state_index": 78,
+      "label": "V_23",
+      "local_index": 4,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 38,
+      "full_state_index": 93,
+      "label": "V_38",
+      "local_index": 5,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 47,
+      "full_state_index": 102,
+      "label": "V_47",
+      "local_index": 6,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 48,
+      "full_state_index": 103,
+      "label": "V_48",
+      "local_index": 7,
+      "state_type": "voltage"
+    }
+  ],
+  "structural_group_id": "ieee57_structural_group_02",
+  "structural_group_selection_order": 2
+}

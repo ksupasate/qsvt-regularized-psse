@@ -1,0 +1,204 @@
+{
+  "instance_id": "ieee14_structural_group_01_realization_01_seed_14201_8x8",
+  "selected_entries": [
+    {
+      "column": 0,
+      "row": 0,
+      "value": 99.36127030916101
+    },
+    {
+      "column": 5,
+      "row": 0,
+      "value": -99.36127030916101
+    },
+    {
+      "column": 1,
+      "row": 1,
+      "value": 232.18213100218267
+    },
+    {
+      "column": 2,
+      "row": 1,
+      "value": -232.18213100218267
+    },
+    {
+      "column": 2,
+      "row": 2,
+      "value": 230.98201746863327
+    },
+    {
+      "column": 6,
+      "row": 2,
+      "value": 110.36281185412516
+    },
+    {
+      "column": 6,
+      "row": 3,
+      "value": 86.4645495509066
+    },
+    {
+      "column": 2,
+      "row": 4,
+      "value": 344.2997434323754
+    },
+    {
+      "column": 6,
+      "row": 4,
+      "value": 180.05181415058
+    },
+    {
+      "column": 3,
+      "row": 5,
+      "value": 329.8756070131543
+    },
+    {
+      "column": 4,
+      "row": 5,
+      "value": -329.8756070131543
+    },
+    {
+      "column": 3,
+      "row": 6,
+      "value": 508.6426178596889
+    },
+    {
+      "column": 5,
+      "row": 6,
+      "value": -508.6426178596889
+    },
+    {
+      "column": 5,
+      "row": 7,
+      "value": 575.168889205989
+    },
+    {
+      "column": 7,
+      "row": 7,
+      "value": -205.7620955693502
+    }
+  ],
+  "selection_record": {
+    "actual_column_degree": 3,
+    "actual_max_column_degree": 3,
+    "actual_max_row_degree": 2,
+    "actual_nonzeros": 15,
+    "actual_row_degree": 2,
+    "failure_reason": "",
+    "fallback_used": false,
+    "ieee_case": "ieee14",
+    "instance_id": "ieee14_structural_group_01_realization_01_seed_14201_8x8",
+    "k_budget": 16,
+    "last_completed_checkpoint": "supports",
+    "random_replicate": null,
+    "random_seed": null,
+    "refinement_initial_support_id": "",
+    "refinement_iterations": 0,
+    "refinement_objective": "",
+    "selection_data_split": "matrix_only",
+    "selection_objective_value": 4073.2151736003334,
+    "selection_runtime": 0.001752499956637621,
+    "selector": "balanced_magnitude",
+    "slot_budget": 3,
+    "slot_count": 3,
+    "solver_gap": 0.0,
+    "solver_status": "optimal",
+    "solver_used": "scipy.optimize.milp_highs",
+    "sparse_matrix_fingerprint": "d71d3dbe6ee52fe6bd70de9aa640bd73978f41abb7ba0ffff6fc8e3ed79ad4c8",
+    "stage": "supports",
+    "status": "completed",
+    "support_file": "",
+    "support_fingerprint": "7ab554232db03dffde48946385bcee266051e2e4bd50386c95151a1948b7fc2e",
+    "support_id": "ieee14_structural_group_01_realization_01_seed_14201_8x8__balanced_magnitude_k16_s3_7ab554232db0",
+    "training_mean_normalized_error": null,
+    "training_median_absolute_error": null,
+    "training_objective": null,
+    "training_objective_name": "",
+    "training_worst_normalized_error": null
+  },
+  "selector": "balanced_magnitude",
+  "sparse_matrix_fingerprint": "d71d3dbe6ee52fe6bd70de9aa640bd73978f41abb7ba0ffff6fc8e3ed79ad4c8",
+  "support": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ]
+  ],
+  "support_fingerprint": "7ab554232db03dffde48946385bcee266051e2e4bd50386c95151a1948b7fc2e",
+  "support_id": "ieee14_structural_group_01_realization_01_seed_14201_8x8__balanced_magnitude_k16_s3_7ab554232db0"
+}

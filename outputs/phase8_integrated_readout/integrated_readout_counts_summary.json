@@ -1,0 +1,50 @@
+{
+  "area_aggregate_first_half": {
+    "backend": "aer_integrated_circuit_shot_sampling",
+    "bit_convention": "rightmost bit = postselection flag (0 accepts); leftmost bit = readout ancilla after the closing Hadamard (0 -> +1, 1 -> -1)",
+    "direct_chain_counts_c0": {
+      "0": 990344,
+      "1": 9656
+    },
+    "integrated_counts_c1c0": {
+      "00": 442973,
+      "01": 2400,
+      "10": 552185,
+      "11": 2442
+    },
+    "seed": 0,
+    "shots": 1000000
+  },
+  "state_correction_0": {
+    "backend": "aer_integrated_circuit_shot_sampling",
+    "bit_convention": "rightmost bit = postselection flag (0 accepts); leftmost bit = readout ancilla after the closing Hadamard (0 -> +1, 1 -> -1)",
+    "direct_chain_counts_c0": {
+      "0": 990344,
+      "1": 9656
+    },
+    "integrated_counts_c1c0": {
+      "00": 375284,
+      "01": 2389,
+      "10": 619885,
+      "11": 2442
+    },
+    "seed": 0,
+    "shots": 1000000
+  },
+  "state_difference_0_1": {
+    "backend": "aer_integrated_circuit_shot_sampling",
+    "bit_convention": "rightmost bit = postselection flag (0 accepts); leftmost bit = readout ancilla after the closing Hadamard (0 -> +1, 1 -> -1)",
+    "direct_chain_counts_c0": {
+      "0": 990344,
+      "1": 9656
+    },
+    "integrated_counts_c1c0": {
+      "00": 379477,
+      "01": 2335,
+      "10": 615746,
+      "11": 2442
+    },
+    "seed": 0,
+    "shots": 1000000
+  }
+}

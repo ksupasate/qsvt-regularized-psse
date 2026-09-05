@@ -1,0 +1,20 @@
+{
+  "artifact_name": "phase2_qsvt_boundary",
+  "claim_boundary": "Selected-submatrix implementation-boundary evidence for the matched Ridge/Tikhonov filter; no quantum speedup, numerical superiority, full IEEE-scale execution, scalable residual loading, full sparse block encoding, or nonlinear-loop QSVT.",
+  "outputs": [
+    "outputs/phase2_qsvt_boundary/all_attempts.csv",
+    "outputs/phase2_qsvt_boundary/all_attempts.json",
+    "outputs/phase2_qsvt_boundary/representative_rows.csv",
+    "outputs/phase2_qsvt_boundary/selected_block_metadata.json",
+    "outputs/phase2_qsvt_boundary/phase2_summary.json"
+  ],
+  "regeneration_command": ".venv/bin/python scripts/run_phase2_qsvt_boundary.py --config configs/qsvt_phase2_boundary.yaml",
+  "seed_provenance": {
+    "seeds": {
+      "isolated_readout_seed": 20260703,
+      "system_seed": 123
+    },
+    "status": "recorded"
+  },
+  "source_config": "configs/qsvt_phase2_boundary.yaml"
+}

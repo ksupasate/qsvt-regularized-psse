@@ -1,0 +1,10 @@
+scope,summary_type,selector,record_count,unique_task_count,unique_task_fraction,median_absolute_error,p90_absolute_error,median_normalized_error,p90_normalized_error,failure_fraction,sensitivity_wins,ties,sensitivity_losses,near_zero_threshold,original_rows_removed
+all_outputs,selector_error,balanced_magnitude,1440,1440,1.0,7.128483831316532e-05,0.0006872570926038902,0.04618772954737155,0.7523420081356362,0.39305555555555555,,,,1e-06,0
+all_outputs,selector_error,sensitivity_initial_mean,1440,1440,1.0,2.869187398629768e-05,0.0006174512358010612,0.0132869406759169,0.46198776325719343,0.2875,,,,1e-06,0
+all_outputs,paired_outcome,sensitivity_initial_mean_vs_balanced_magnitude,1440,1440,1.0,,,,,,573,524,343,1e-06,0
+near_zero_outputs,selector_error,balanced_magnitude,2,2,0.001388888888888889,7.133606239246752e-06,1.2840491230644153e-05,7.133606239246752,12.840491230644153,0.5,,,,1e-06,0
+near_zero_outputs,selector_error,sensitivity_initial_mean,2,2,0.001388888888888889,0.0,0.0,0.0,0.0,0.0,,,,1e-06,0
+near_zero_outputs,paired_outcome,sensitivity_initial_mean_vs_balanced_magnitude,2,2,0.001388888888888889,,,,,,1,1,0,1e-06,0
+non_near_zero_outputs,selector_error,balanced_magnitude,1438,1438,0.9986111111111111,7.155818876928188e-05,0.0006876509458372699,0.04618772954737155,0.7488961316672332,0.39290681502086233,,,,1e-06,0
+non_near_zero_outputs,selector_error,sensitivity_initial_mean,1438,1438,0.9986111111111111,2.8882549597543947e-05,0.0006190261551461797,0.013413878502342,0.46428450045075986,0.28789986091794156,,,,1e-06,0
+non_near_zero_outputs,paired_outcome,sensitivity_initial_mean_vs_balanced_magnitude,1438,1438,0.9986111111111111,,,,,,572,523,343,1e-06,0

@@ -1,0 +1,160 @@
+{
+  "canonical_workload_id": "ieee14_sparse_quantized_8x8_d31_selected_v1",
+  "binary_verdict": "Verdict A: Genuine single integrated sparse finite-shot circuit exists",
+  "entry_point": {
+    "file": "scripts/run_sparse_integrated_chain.py",
+    "symbol": "main",
+    "call_site": "lines 35-40"
+  },
+  "experiment_driver": {
+    "file": "src/robust_qsvt_se/qsvt/sparse_integrated_chain.py",
+    "symbol": "run_sparse_integrated_chain",
+    "call_site": "lines 1621-1845"
+  },
+  "final_circuit": {
+    "symbol": "build_integrated_sparse_selected_output_circuit",
+    "call_site": "lines 577-700",
+    "name": "sparse_integrated_qsvt_readout",
+    "qubits": 8,
+    "classical_bits": 2,
+    "same_object_compiled_and_sampled": true,
+    "output_state_used_for_preparation": false
+  },
+  "registers": {
+    "index": [0, 1, 2],
+    "slot": [3, 4],
+    "rotation_ancilla": [5],
+    "postselection_flag": [6],
+    "signed_readout": [7],
+    "total_simultaneously_live": 8
+  },
+  "components": [
+    {
+      "ordinal": 1,
+      "name": "residual-state preparation",
+      "file": "src/robust_qsvt_se/qsvt/sparse_integrated_chain.py",
+      "symbol": "build_integrated_sparse_selected_output_circuit",
+      "call_site": "lines 622-627",
+      "present_in_final_circuit": true,
+      "realization": "controlled StatePreparation of residual/||residual|| on readout=0",
+      "replacement": null
+    },
+    {
+      "ordinal": 2,
+      "name": "sparse index lookup",
+      "file": "src/robust_qsvt_se/paper/phase10_sparse_wrapper_8x8_complete.py",
+      "symbol": "build_complete_wrapper_circuit",
+      "call_site": "lines 188-233",
+      "present_in_final_circuit": true,
+      "realization": "three slot-controlled in-place matching permutations",
+      "replacement": null
+    },
+    {
+      "ordinal": 3,
+      "name": "sparse signed-value lookup",
+      "file": "src/robust_qsvt_se/paper/phase10_sparse_wrapper_8x8_complete.py",
+      "symbol": "build_complete_wrapper_circuit",
+      "call_site": "lines 188-233",
+      "present_in_final_circuit": true,
+      "realization": "24 multiplexed signed-value Ry rotations keyed by slot and index",
+      "separate_value_register": false,
+      "replacement": null
+    },
+    {
+      "ordinal": 4,
+      "name": "uncomputation",
+      "file": "src/robust_qsvt_se/paper/phase10_sparse_wrapper_8x8_complete.py",
+      "symbol": "build_complete_wrapper_circuit",
+      "present_in_final_circuit": true,
+      "realization": "inverse slot diffusion closes each wrapper; QSVT inverse calls invert the full wrapper",
+      "replacement": null
+    },
+    {
+      "ordinal": 5,
+      "name": "block-encoding wrapper",
+      "file": "src/robust_qsvt_se/qsvt/sparse_integrated_chain.py",
+      "symbol": "validate_complete_wrapper",
+      "call_site": "lines 601-607",
+      "present_in_final_circuit": true,
+      "top_left_target": "H_q^T / beta",
+      "replacement": null
+    },
+    {
+      "ordinal": 6,
+      "name": "QSVT phase sequence",
+      "file": "src/robust_qsvt_se/qsvt/sparse_integrated_chain.py",
+      "symbol": "_append_sparse_qsvt_branch",
+      "call_site": "lines 485-534 and 629-637",
+      "present_in_final_circuit": true,
+      "degree": 31,
+      "phase_count": 32,
+      "forward_wrapper_calls": 16,
+      "inverse_wrapper_calls": 15,
+      "replacement": null
+    },
+    {
+      "ordinal": 7,
+      "name": "postselection",
+      "file": "src/robust_qsvt_se/qsvt/sparse_integrated_chain.py",
+      "symbol": "_append_postselection_flag",
+      "call_site": "lines 568-575 and 645-648",
+      "present_in_final_circuit": true,
+      "event": "flag=0 iff slot=00 and rotation ancilla=0",
+      "replacement": null
+    },
+    {
+      "ordinal": 8,
+      "name": "physical rescaling",
+      "file": "src/robust_qsvt_se/qsvt/sparse_integrated_chain.py",
+      "symbol": "estimate_signed_selected_output",
+      "call_site": "lines 860-894",
+      "present_in_estimator": true,
+      "formula": "(C/beta) ||r|| ||ell|| (N_00-N_10)/N",
+      "replacement": null
+    },
+    {
+      "ordinal": 9,
+      "name": "signed selected-output readout",
+      "file": "src/robust_qsvt_se/qsvt/sparse_integrated_chain.py",
+      "symbol": "build_integrated_sparse_selected_output_circuit",
+      "call_site": "lines 639-648",
+      "present_in_final_circuit": true,
+      "realization": "functional reference branch, closing Hadamard, and joint sign/flag measurement",
+      "replacement": null
+    },
+    {
+      "ordinal": 10,
+      "name": "finite-shot measurement",
+      "file": "src/robust_qsvt_se/qsvt/sparse_integrated_chain.py",
+      "symbol": "sample_aer_counts",
+      "call_site": "lines 933-946",
+      "present_in_final_circuit": true,
+      "backend": "Qiskit Aer statevector-method shot sampling",
+      "distribution_fallback_allowed": false,
+      "replacement": null
+    }
+  ],
+  "separate_8x8_workloads": [
+    {
+      "workload_id": "selected_8x8_dense_d31_shot_v1",
+      "qubits": 5,
+      "sparse_wrapper": false,
+      "finite_shots": true,
+      "reason_separate": "dense dilation signal unitary"
+    },
+    {
+      "workload_id": "ieee14_sparse_wrapper_8x8_d31_statevector_v1",
+      "qubits": 6,
+      "sparse_wrapper": true,
+      "finite_shots": false,
+      "reason_separate": "wrapper and QSVT statevector validation without signed readout"
+    },
+    {
+      "workload_id": "nonlinear_ieee14_selected_8x8_d31_statevector_seed101_v1",
+      "qubits": 4,
+      "sparse_wrapper": false,
+      "finite_shots": false,
+      "reason_separate": "dense selected-block statevector diagnostic in nonlinear audit"
+    }
+  ]
+}

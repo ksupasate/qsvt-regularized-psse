@@ -1,0 +1,14 @@
+{
+  "average_trial_seconds": 602.2686623828777,
+  "completed_trials": 90,
+  "elapsed_seconds": 54204.17961445899,
+  "estimated_remaining_seconds": 0.0,
+  "failed_trials": 0,
+  "last_trial_id": null,
+  "message": "completed 90 checkpointed iterative AC trial records",
+  "remaining_trials": 0,
+  "skipped_trials": 0,
+  "status": "complete",
+  "total_trials": 90,
+  "updated_at": "2026-05-15T13:15:06.070167+00:00"
+}

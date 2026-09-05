@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "status": "omitted_from_public_export",
+  "reason": "contains_machine_local_output_path",
+  "source_config_path": "configs/ieee14_ac_smoke.yaml",
+  "source_commit": "8895442eb2e80e4270c9ab39ca4ec54e6e7fa32b",
+  "excluded_source_sha256": "c9ba7ce20d18d488a3e5ab7d7292ed2d3e506987fdda69e561fb6dc1aa72df32",
+  "regeneration_command": "python scripts/run_smoke_test.py --output-root outputs/examples/smoke_test",
+  "note": "The excluded snapshot differs only in run-resolved metadata, including its machine-local output root. The tracked source configuration and numerical metrics remain available."
+}

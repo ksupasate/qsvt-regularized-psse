@@ -1,0 +1,153 @@
+{
+  "configuration_sha256": "db67f79cce4b0a67c78530c0a2a185b729f9d7a2ea6baf40ab50325266a13189",
+  "decision": "FULL_USEFUL_OVERLAP_EXECUTED",
+  "evidence_label": "DIAGNOSTIC_ONLY",
+  "parent_fingerprint": "f2911a84b20204d4b87ce646239365be1aca0d9c44ff8d7d8d6ac13f643c57e3",
+  "reason": "corrected production statevector passed and backend Hadamard-test shots produced a valid confidence interval",
+  "stage_summary": {
+    "backend": {
+      "accepted": 621545,
+      "ci_contains_statevector": true,
+      "ci_high": 0.006027540740284547,
+      "ci_low": 0.004239652993208137,
+      "estimate": 0.005133596866746342,
+      "executed": true,
+      "total_shots": 1031000
+    },
+    "cubic": {
+      "passed": true,
+      "worst_error": 5.7131547191136e-13
+    },
+    "derivation": {
+      "passed": true
+    },
+    "emulator": {
+      "max_error": 3.108731717262412e-15,
+      "passed": true
+    },
+    "exact": {
+      "exact_update_summary": {
+        "dtype": "float64",
+        "l2_norm": 0.0247489563634467,
+        "sha256": "ae95c2b5c191fba55cbf869d6bc2947ef90c8254872737bd18835c0b3e39d8e2",
+        "shape": [
+          27
+        ]
+      },
+      "full_rel": 0.0008779783381708142,
+      "ridge_update_summary": {
+        "dtype": "float64",
+        "l2_norm": 0.02474753672002687,
+        "sha256": "9d89fd37ebedeea9fe75a3a5accce70a4d623c22938ff46c797ab55cc2f3c34d",
+        "shape": [
+          27
+        ]
+      },
+      "selected_rel": 0.0003052040027621006,
+      "target_quadrature_probability": 0.0028555738108420915,
+      "transformed_summary": {
+        "dtype": "float64",
+        "l2_norm": 1.190920604040715,
+        "sha256": "0266720715edc4e12d19fe5d5b2c849d4dfba9c5c971b91f1055e566ffe2292a",
+        "shape": [
+          27,
+          82
+        ]
+      }
+    },
+    "fix_report": {
+      "passed": true
+    },
+    "identity": {
+      "passed": true,
+      "worst_error": 1.3760411593608622e-13
+    },
+    "low_degree": {
+      "passed": true,
+      "worst_small_error": 6.947249699417784e-14
+    },
+    "mapping": {
+      "accepted": true,
+      "accepted_name": "global_plus_pi_over_2_signed_imag",
+      "best_scalar_error": 1.6542323066914832e-14,
+      "component": "imag"
+    },
+    "mitigation": {
+      "direct_executed": true,
+      "oaa_modeled_success_probability": 0.9995851886604971
+    },
+    "optimization": {
+      "status": "not_run_mapping_succeeded"
+    },
+    "production": {
+      "block_rel": 1.7132423485736256e-13,
+      "component_values_summary": {
+        "dtype": "float64",
+        "l2_norm": 0.05343756928268671,
+        "sha256": "c289482bb95111828fd0f01fb8b8ed796077abce5c033b24364a4a4ba76c5279",
+        "shape": [
+          128
+        ]
+      },
+      "encoded_prefix_probability": 0.6027751117148842,
+      "exact_update_summary": {
+        "dtype": "float64",
+        "l2_norm": 0.0247489563634467,
+        "sha256": "ae95c2b5c191fba55cbf869d6bc2947ef90c8254872737bd18835c0b3e39d8e2",
+        "shape": [
+          27
+        ]
+      },
+      "full_rel_ridge": 0.0008779783381876562,
+      "passed": true,
+      "qsvt_operator_summary": {
+        "dtype": "complex128",
+        "l2_norm": 16.00000000000003,
+        "sha256": "bef941844ba14410708495e1dd6b42e27205f822e68da08b49ae8d07b9e61f22",
+        "shape": [
+          256,
+          256
+        ]
+      },
+      "ridge_selected": 0.004938350292269933,
+      "ridge_update_summary": {
+        "dtype": "float64",
+        "l2_norm": 0.02474753672002687,
+        "sha256": "9d89fd37ebedeea9fe75a3a5accce70a4d623c22938ff46c797ab55cc2f3c34d",
+        "shape": [
+          27
+        ]
+      },
+      "selected_output": 0.004936843087993346,
+      "selected_rel_exact": 6.992524687667889e-14,
+      "selected_rel_ridge": 0.0003052040028320045,
+      "statevector_output_summary": {
+        "dtype": "complex128",
+        "l2_norm": 0.9999999999999809,
+        "sha256": "ac91d6519ddb46ec2f05673dabf368dae611d5b61922527ea8744f1e40a1fc56",
+        "shape": [
+          256
+        ]
+      },
+      "target_quadrature_probability": 0.002855573810841943,
+      "update_summary": {
+        "dtype": "float64",
+        "l2_norm": 0.02474895636344605,
+        "sha256": "ba6b5e4d1a48d97d0980b2720ab3115674617c9e6063e02ea160823f63bee5a8",
+        "shape": [
+          27
+        ]
+      }
+    },
+    "regression": {
+      "passed": true,
+      "rows_summary": {
+        "dtype": "int64",
+        "l2_norm": 125.0,
+        "sha256": "0c816e64be4b46e9e3d71062a3a7b6f970436d61cf7b377a65b89fa8caf34c6b",
+        "shape": []
+      },
+      "worst_error": 2.869736500500011e-06
+    }
+  }
+}

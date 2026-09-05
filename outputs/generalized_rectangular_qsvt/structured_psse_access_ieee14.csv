@@ -1,0 +1,2 @@
+case,matrix_shape,density,max_row_sparsity,max_col_sparsity,address_width_bits,row_index_bits,total_nnz,value_precision_bits,qrom_entries_modeled,reconstruction_error_executed,classical_sparse_access_status,quantum_oracle_status,overall_status,arithmetic_gates_note
+ieee14,82x27,0.17163504968383017,12,23,4,7,380,16,380,0.0,EXECUTED,MODELED,STRUCTURED_ACCESS_MODELED_ONLY,"injection/flow Jacobian entries are rational functions of admittance (g,b) and V,theta; reversible arithmetic modeled, not compiled"

@@ -1,0 +1,57 @@
+run_name: ieee14_dc_sweeps
+seed: 200
+
+system:
+  case_name: ieee14
+  mode: dc_power_flow_linearized
+  angle_scale: 0.05
+  measurement:
+    include_branch_flows: true
+    include_bus_injections: true
+    angle_buses: [2, 6, 9, 14]
+    flow_std: 0.02
+    injection_std: 0.03
+    angle_std: 0.005
+    weak_area_buses: [12, 13, 14]
+    weak_area_std_multiplier: 30.0
+
+scenario:
+  name: dc_sweeps
+  noise_std: 0.01
+  missing_ratio: 0.1
+
+sweeps:
+  - name: noise_sweep
+    parameter: scenario.noise_std
+    values: [0.0, 0.001, 0.01, 0.05]
+    seeds: [201, 202, 203]
+  - name: missing_sweep
+    parameter: scenario.missing_ratio
+    values: [0.0, 0.1, 0.2, 0.3]
+    seeds: [201, 202, 203]
+  - name: weak_area_uncertainty_sweep
+    parameter: system.measurement.weak_area_std_multiplier
+    values: [1.0, 5.0, 15.0, 30.0]
+    seeds: [201, 202, 203]
+
+estimators:
+  - name: pseudoinverse
+    rcond: 1.0e-12
+  - name: ridge
+    alpha: 1.0e-3
+  - name: truncated_svd
+    tau: 1.0e-4
+  - name: qsvt_regularized
+    alpha: 1.0e-3
+
+qsvt_resource:
+  enabled: true
+  degrees: [4, 8, 16, 32]
+  grid_size: 512
+  target_error: 1.0e-3
+
+output:
+  root: outputs
+  run_id: ieee14_dc_sweeps
+  save_plots: true
+  overwrite: true

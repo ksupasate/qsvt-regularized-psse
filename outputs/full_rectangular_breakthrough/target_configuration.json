@@ -1,0 +1,30 @@
+{
+  "alpha": 76.87225449767783,
+  "beta": 2772.5846154387755,
+  "block_encoding_checksum": "6e396872c7e5bf0c5be22856aef53579bf181cd639873175c42faf067964c1a0",
+  "case": "ieee14",
+  "contraction_C": 42.81061621595387,
+  "degree": 255,
+  "dilation_dimension": 256,
+  "evidence_label": "DIAGNOSTIC_ONLY",
+  "lambda": 1e-05,
+  "left_projector_definition": "encoded top subspace indices [0, N) in dense padded dilation",
+  "matrix_checksum": "c113dfa0ee5240182a77d2a845b0f4e950639c49884486d330a5c1351488fa5b",
+  "matrix_shape": [
+    82,
+    27
+  ],
+  "padded_matrix_checksum": "dea61e66f40d31101c766078937e92bae55ef86e0fd64f8bc06197625024b96b",
+  "padding_dimension": 128,
+  "phase_checksum": "005957fb28a0a6e4acfe0af032a326e84f98331e53026d9f3e4f11e0a24831ae",
+  "phase_convention": "Wx plus_i signal; response imag(top-left); product R(phi0) W R(phi1)...",
+  "phase_method": "pyqsp_sym_qsp",
+  "polynomial_basis": "Chebyshev low-to-high T_k coefficients",
+  "polynomial_coefficient_checksum": "10d4016a1921edf4a3e5ba2f1788fae15899536b6f3d258ef34e12568b4f91a2",
+  "polynomial_method": "stable_chebyshev_with_minimal_contraction",
+  "repair_gamma": 1.00000399449949,
+  "repair_status": "minimal_contraction_applied",
+  "residual_checksum": "086c136d37f16508be45e893fd5d25e8457e498b3d97d025f57bf203c8b606b1",
+  "right_projector_definition": "encoded top subspace indices [0, N) in dense padded dilation; repository PCPhase alternates U and U_dagger",
+  "selected_output_checksum": "535cb344048e71825eb09596703f95c7f00f4822a154171c1d882a37f98e75d4"
+}

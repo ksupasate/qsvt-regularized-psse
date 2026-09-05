@@ -1,0 +1,15 @@
+{
+  "application_criterion_passes": true,
+  "backend_status": "blocked_statevector_failed",
+  "configuration_sha256": "f2911a84b20204d4b87ce646239365be1aca0d9c44ff8d7d8d6ac13f643c57e3",
+  "decision": "SCALAR_OVERLAP_ONLY",
+  "diagonal_action": "DIAGONAL_ACTION_VALID",
+  "exact_svd_selected_relative_error": 0.0003052040027621006,
+  "localized_root_cause": "The scalar Chebyshev polynomial needed a tiny contraction and then reconstructs under pyqsp sym_qsp. The old boundedness failure is power-basis conversion blow-up. The remaining full-rectangular failure is a convention/projector mismatch: pyqsp Wx symmetric phases are not valid for the repository PCPhase U/U_dagger rectangular sequence.",
+  "phase_reconstruction": "PHASE_RECONSTRUCTION_VALID",
+  "polynomial_active_classification": "POLYNOMIAL_GLOBALLY_VALID",
+  "polynomial_original_classification": "POLYNOMIAL_GLOBALLY_INVALID",
+  "production_classification": "failed_convention_validation",
+  "production_selected_relative_error": 1.1931213570557804,
+  "small_rectangular_action": "LEFT_RIGHT_PROJECTOR_MISMATCH"
+}

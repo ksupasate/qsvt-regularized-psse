@@ -1,0 +1,65 @@
+{
+  "allowed_negative_occurrences": [
+    {
+      "context": "n,canonical_result_registry.csv,active no_quantum_speedup,no_quantum_speedup,No quantum speedup is claimed or measured.,res:conditioning:integrated_sparse_chain:matrix:quantiz",
+      "offset": 611273,
+      "path": "canonical_limitation_registry.csv",
+      "phrase": "quantum speedup"
+    },
+    {
+      "context": "lidated,canonical_result_registry.csv,active no_hardware,no_hardware,No quantum-hardware execution was performed.,res:development:heldout:balanced_magnitude:median_normalized_err",
+      "offset": 411130,
+      "path": "canonical_limitation_registry.csv",
+      "phrase": "hardware execution"
+    },
+    {
+      "context": "n simulator and resource evidence only; no new scientific campaign, field data, hardware execution, speedup, advantage, scalable IEEE circuit, or universal selector claim.\",",
+      "offset": 249,
+      "path": "study_configuration.json",
+      "phrase": "hardware execution"
+    },
+    {
+      "context": "ce, near-zero rows, certificate looseness, and skipped finite-shot evidence. No quantum speedup is claimed, and no hardware execution was performed.",
+      "offset": 454,
+      "path": "summary.md",
+      "phrase": "quantum speedup"
+    },
+    {
+      "context": "seness, and skipped finite-shot evidence. No quantum speedup is claimed, and no hardware execution was performed.",
+      "offset": 489,
+      "path": "summary.md",
+      "phrase": "hardware execution"
+    },
+    {
+      "context": "n_k16_s3_19d6c6fecc1b:13e4b29fda4f5bb0 no_quantum_speedup,no_quantum_speedup,No quantum speedup is claimed or measured.,res:conditioning:integrated_sparse_chain:matrix:quantiz",
+      "offset": 1355757,
+      "path": "tables/limitation_summary.csv",
+      "phrase": "quantum speedup"
+    },
+    {
+      "context": "ed_mean_k16_s3_19d6c6fecc1b:13e4b29fda4f5bb0 no_hardware,no_hardware,No quantum-hardware execution was performed.,res:development:heldout:balanced_magnitude:median_normalized_err",
+      "offset": 917300,
+      "path": "tables/limitation_summary.csv",
+      "phrase": "hardware execution"
+    }
+  ],
+  "files_scanned": 40,
+  "negative_statements_allowed": 7,
+  "prohibited_claims_searched": [
+    "quantum speedup",
+    "quantum advantage",
+    "hardware execution",
+    "field pmu validation",
+    "field scada validation",
+    "full ieee-scale sparse circuit",
+    "scalable qram",
+    "universal selector superiority",
+    "always outperforms",
+    "tight certificate",
+    "full nonlinear ac psse execution"
+  ],
+  "schema_version": 1,
+  "status": "pass",
+  "violation_count": 0,
+  "violations": []
+}

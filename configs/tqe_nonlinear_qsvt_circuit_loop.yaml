@@ -1,0 +1,59 @@
+# Workstream B - nonlinear AC QSVT circuit-in-the-loop.
+# Frozen before evaluation. Reuses the campaign nonlinear AC measurement/linearization/iteration
+# settings and the three declared scenarios; adds the small-block QSVT circuit-in-the-loop layer.
+study_id: tqe_nonlinear_qsvt_circuit_loop_v1
+
+# 3 scenarios x 3 seeds = 9 declared nonlinear runs (task 6.3).
+seeds: [101, 202, 303]
+finite_shot_seed: 101   # one predeclared seed per scenario runs the finite-shot subset
+
+nonlinear_settings:
+  case_name: ieee14
+  case_source: pypower
+  fixed_alpha: 1.0e-4       # matched full-Ridge alpha driving the nonlinear state advance
+  measurement:
+    include_voltage_magnitudes: true
+    include_p_injections: true
+    include_q_injections: true
+    include_p_branch_flows: true
+    include_q_branch_flows: true
+    voltage_std: 0.01
+    injection_p_std: 0.03
+    injection_q_std: 0.03
+    flow_p_std: 0.02
+    flow_q_std: 0.02
+    weak_area_buses: [12, 13, 14]
+    weak_area_std_multiplier: 10.0
+  linearization:
+    angle_perturbation_std: 0.005
+    voltage_perturbation_std: 0.005
+    min_voltage_magnitude: 0.5
+  iteration:
+    max_iterations: 8
+    update_tolerance: 1.0e-7
+    residual_tolerance: 1.0e-7
+    damping: 1.0
+    max_update_norm: 1000.0
+    residual_growth_limit: 10000.0
+
+scenarios:
+  - {scenario_id: gaussian_noise_baseline, noise_std: 0.002, missing_ratio: 0.0,
+     bad_data: {enabled: false, ratio: 0.0, magnitude: 5.0, target: weak_area}}
+  - {scenario_id: random_missing_measurement_stress, noise_std: 0.002, missing_ratio: 0.1,
+     bad_data: {enabled: false, ratio: 0.0, magnitude: 5.0, target: weak_area}}
+  - {scenario_id: sparse_signed_bad_data_stress, noise_std: 0.002, missing_ratio: 0.0,
+     bad_data: {enabled: true, ratio: 0.05, magnitude: 5.0, target: weak_area}}
+
+# Small-block QSVT layer (executable statevector every retained iteration).
+block_qsvt:
+  block_size: 4
+  keep_per_row: 2
+  lambda_target: 1.0e-1     # QSVT-feasible normalized regularization (Workstream A feasible band)
+  degree: 31
+  margin: 1.05
+  functional_index: 0        # selected-output functional (coordinate of the first block state)
+  selected_output_floor: 1.0e-6
+  phase_synthesis_timeout_seconds: 40.0
+  # Level 2 finite-shot subset (genuine Aer sampling of the postselection acceptance).
+  finite_shot_iterations: [1]
+  finite_shot_counts: [10000, 100000, 1000000]

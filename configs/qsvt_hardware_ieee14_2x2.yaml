@@ -1,0 +1,18 @@
+demo:
+  run_id: qsvt_hardware_ieee14_2x2
+  output_dir: outputs/qsvt_hardware_ieee14_2x2
+  alpha: 0.05
+  polynomial_degree: 5
+  grid_size: 512
+  angle_solver: iterative
+  phase_cache_dir: outputs/qsvt_phase_cache
+  transpile_basis_gates: [rz, sx, x, cx]
+  transpile_optimization_level: 1
+matrix:
+  case_name: ieee14
+  case_source: pypower
+  mode: ac_weighted_jacobian
+  matrix_scope: submatrix
+  submatrix_size: 2
+  selection_strategy: high_leverage
+  seed: 123

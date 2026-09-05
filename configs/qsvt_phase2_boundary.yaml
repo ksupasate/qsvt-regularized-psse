@@ -1,0 +1,25 @@
+output_dir: outputs/phase2_qsvt_boundary
+seed: 123
+target_error_tolerance: 1.0e-2
+degree_ceilings: [45, 71, 101, 201]
+phase_synthesis_max_degree: 45
+lambdas: [1.0e-1, 6.9e-2, 1.0e-2, 1.0e-3]
+finite_shot_readout:
+  enabled: true
+  block_id: ieee14_8x8_condition_controlled_k1e4
+  lambda: 6.9e-2
+  shots: 100000
+  seed: 20260703
+raw_blocks:
+  - case_name: ieee14
+    case_source: pypower
+    block_size: 8
+  - case_name: ieee30
+    case_source: pypower
+    block_size: 16
+condition_controlled_blocks:
+  base_case_name: ieee14
+  base_case_source: pypower
+  base_block_size: 8
+  target_kappas: [1.0e3, 1.0e4]
+

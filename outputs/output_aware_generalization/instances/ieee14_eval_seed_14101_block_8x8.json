@@ -1,0 +1,251 @@
+{
+  "candidate_nonzeros": 54,
+  "condition_number": 19.00966477364377,
+  "development_or_evaluation": "evaluation",
+  "extraction_policy": {
+    "case_source": "pypower",
+    "measurement_profile": "default",
+    "minimum_candidate_nonzeros": 8,
+    "mode": "ac_weighted_jacobian",
+    "outcome_independent": true,
+    "require_every_active_row_and_column": true,
+    "require_primary_and_secondary_budget_feasibility": true,
+    "strategy": "alternating_structural_density_then_norm",
+    "strategy_initialization": "top_global_row_norms",
+    "strategy_iterations": 20,
+    "strategy_update": "alternate_top_columns_and_rows_by_nonzero_count_then_restricted_norm_then_global_norm_then_index",
+    "target_shape": [
+      8,
+      8
+    ]
+  },
+  "ieee_case": "ieee14",
+  "inclusion_reasons": [],
+  "inclusion_status": "included",
+  "instance_id": "ieee14_eval_seed_14101_block_8x8",
+  "lambda_ref": 0.06947163416534002,
+  "matrix": [
+    [
+      -576.892563357665,
+      0.0,
+      0.0,
+      -157.80056002543148,
+      284.1818819116155,
+      -133.13856310167012,
+      0.0,
+      -13.163436682576261
+    ],
+    [
+      1094.9507952096546,
+      -173.04751006639248,
+      -185.9621289786086,
+      -188.76801147031753,
+      -215.70386321364018,
+      339.6103666612776,
+      -41.66421029084607,
+      -45.98373972871217
+    ],
+    [
+      -174.78249230415875,
+      -178.42622908190665,
+      1342.142784299504,
+      -746.4090819465537,
+      0.0,
+      -73.33523445450969,
+      345.4862382192397,
+      -248.55751816544137
+    ],
+    [
+      -180.07713666624497,
+      0.0,
+      -756.86682503061,
+      1238.0403794604208,
+      -56.609286064255436,
+      -70.70926368494241,
+      -217.512764149506,
+      321.6105887451982
+    ],
+    [
+      138.7142091513668,
+      -0.0,
+      -0.0,
+      13.493126953637653,
+      688.4309592266865,
+      -553.7042486084915,
+      0.0,
+      -153.94487041492218
+    ],
+    [
+      -335.20059367613186,
+      16.12852463911205,
+      42.484644461218835,
+      47.13544440744873,
+      -514.3880696550362,
+      1051.7187633052015,
+      -182.3709565222029,
+      -184.1556649710066
+    ],
+    [
+      76.40640557701627,
+      60.530797140840576,
+      -376.45064423993335,
+      254.78286778457084,
+      -0.0,
+      -167.75707422526236,
+      1311.4646153604624,
+      -728.1713663010114
+    ],
+    [
+      73.67046303663473,
+      -0.0,
+      221.79593435613523,
+      -340.5543297917759,
+      -137.7051366710197,
+      -172.83889927271153,
+      -742.2507345924876,
+      1220.4506162506823
+    ]
+  ],
+  "matrix_fingerprint": "2ed03e0837bb9bf7d82969d8f58d421f21d22fc478ac3f6892c160f5a50a04d7",
+  "matrix_selection_seed": 14101,
+  "matrix_shape": [
+    8,
+    8
+  ],
+  "measurement_metadata": [
+    {
+      "full_measurement_index": 14,
+      "local_index": 0,
+      "measurement_label": "P_inj_1",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 15,
+      "local_index": 1,
+      "measurement_label": "P_inj_2",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 17,
+      "local_index": 2,
+      "measurement_label": "P_inj_4",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 18,
+      "local_index": 3,
+      "measurement_label": "P_inj_5",
+      "measurement_type": "p_injection"
+    },
+    {
+      "full_measurement_index": 28,
+      "local_index": 4,
+      "measurement_label": "Q_inj_1",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 29,
+      "local_index": 5,
+      "measurement_label": "Q_inj_2",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 31,
+      "local_index": 6,
+      "measurement_label": "Q_inj_4",
+      "measurement_type": "q_injection"
+    },
+    {
+      "full_measurement_index": 32,
+      "local_index": 7,
+      "measurement_label": "Q_inj_5",
+      "measurement_type": "q_injection"
+    }
+  ],
+  "primary_structural_feasibility": "completed",
+  "reference_beta": 4026.428352898512,
+  "reference_mu": 1342.142784299504,
+  "regularization_alpha": 1126282.8365660307,
+  "regularization_policy": "frozen_lambda_ref_times_full_candidate_reference_beta_squared",
+  "secondary_structural_feasibility": "completed",
+  "selected_columns": [
+    0,
+    1,
+    2,
+    3,
+    13,
+    14,
+    16,
+    17
+  ],
+  "selected_rows": [
+    14,
+    15,
+    17,
+    18,
+    28,
+    29,
+    31,
+    32
+  ],
+  "selector_outcomes_used_for_inclusion": false,
+  "spectral_norm": 2138.496617061863,
+  "state_metadata": [
+    {
+      "bus_id": 2,
+      "full_state_index": 0,
+      "label": "theta_2",
+      "local_index": 0,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 3,
+      "full_state_index": 1,
+      "label": "theta_3",
+      "local_index": 1,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 4,
+      "full_state_index": 2,
+      "label": "theta_4",
+      "local_index": 2,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 5,
+      "full_state_index": 3,
+      "label": "theta_5",
+      "local_index": 3,
+      "state_type": "angle"
+    },
+    {
+      "bus_id": 1,
+      "full_state_index": 13,
+      "label": "V_1",
+      "local_index": 4,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 2,
+      "full_state_index": 14,
+      "label": "V_2",
+      "local_index": 5,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 4,
+      "full_state_index": 16,
+      "label": "V_4",
+      "local_index": 6,
+      "state_type": "voltage"
+    },
+    {
+      "bus_id": 5,
+      "full_state_index": 17,
+      "label": "V_5",
+      "local_index": 7,
+      "state_type": "voltage"
+    }
+  ]
+}

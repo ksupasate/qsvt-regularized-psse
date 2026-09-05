@@ -1,0 +1,4 @@
+setting,method,target_precision,estimated_oracle_calls,status,basis
+ieee14_modeled,direct_sampling,0.01,10000,MODELED,Var(mu) ~ 4 p0(1-p0)/N => N ~ 1/eps^2
+ieee14_modeled,MLAE/IQAE,0.01,470,MODELED,amplitude estimation ~ (pi/2eps) log(1/delta)
+ieee14_modeled,speedup_factor,0.01,21,MODELED,approx oracle-call reduction at matched precision (quadratic->linear)

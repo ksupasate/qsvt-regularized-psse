@@ -1,0 +1,121 @@
+{
+  "bootstrap_confidence_interval_95": [
+    -0.036226347372473364,
+    0.0
+  ],
+  "bootstrap_probability_median_difference_below_zero": 0.8142,
+  "bootstrap_resampling_unit": "structural_group",
+  "case_stratified_bootstrap_confidence_interval_95": [
+    -0.03190181503291841,
+    0.0
+  ],
+  "case_stratified_probability_median_difference_below_zero": 0.8399,
+  "case_win_tie_loss": {
+    "ieee14": {
+      "loss": 0,
+      "tie": 1,
+      "win": 3
+    },
+    "ieee30": {
+      "loss": 0,
+      "tie": 2,
+      "win": 2
+    },
+    "ieee57": {
+      "loss": 1,
+      "tie": 2,
+      "win": 1
+    }
+  },
+  "comparison_declaration": {
+    "baseline_selector": "balanced_magnitude",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 8675309,
+    "bootstrap_unit": "structural_group",
+    "candidate_selector": "sensitivity_initial_mean",
+    "case_stratified_bootstrap_seed": 8675310,
+    "k_budget": 16,
+    "metric": "structural_group_median_heldout_normalized_error",
+    "realization_combination": "mean_of_realization_medians",
+    "slot_budget": 3,
+    "tie_epsilon": 1e-15,
+    "tie_relative_tolerance": 0.01
+  },
+  "development_or_previous_instances_in_score": false,
+  "functional_case_win_tie_loss": {
+    "ieee14:aggregate_e0_to_e3": {
+      "loss": 1,
+      "tie": 1,
+      "win": 2
+    },
+    "ieee14:coordinate_e0": {
+      "loss": 1,
+      "tie": 2,
+      "win": 1
+    },
+    "ieee14:signed_difference_e0_minus_e1": {
+      "loss": 2,
+      "tie": 1,
+      "win": 1
+    },
+    "ieee30:aggregate_e0_to_e3": {
+      "loss": 1,
+      "tie": 0,
+      "win": 3
+    },
+    "ieee30:coordinate_e0": {
+      "loss": 0,
+      "tie": 2,
+      "win": 2
+    },
+    "ieee30:signed_difference_e0_minus_e1": {
+      "loss": 0,
+      "tie": 1,
+      "win": 3
+    },
+    "ieee57:aggregate_e0_to_e3": {
+      "loss": 2,
+      "tie": 2,
+      "win": 0
+    },
+    "ieee57:coordinate_e0": {
+      "loss": 0,
+      "tie": 2,
+      "win": 2
+    },
+    "ieee57:signed_difference_e0_minus_e1": {
+      "loss": 1,
+      "tie": 2,
+      "win": 1
+    }
+  },
+  "functional_win_tie_loss": {
+    "aggregate_e0_to_e3": {
+      "loss": 4,
+      "tie": 3,
+      "win": 5
+    },
+    "coordinate_e0": {
+      "loss": 1,
+      "tie": 6,
+      "win": 5
+    },
+    "signed_difference_e0_minus_e1": {
+      "loss": 3,
+      "tie": 4,
+      "win": 5
+    }
+  },
+  "mean_paired_difference_sensitivity_minus_magnitude": -0.06675294787403734,
+  "median_paired_difference_sensitivity_minus_magnitude": -0.0034439534025555232,
+  "metric_substitution_after_results": false,
+  "numerical_realizations": 24,
+  "numerical_realizations_treated_as_independent_structures": false,
+  "overall_win_tie_loss": {
+    "loss": 1,
+    "tie": 5,
+    "win": 6
+  },
+  "status": "completed",
+  "structural_groups": 12
+}

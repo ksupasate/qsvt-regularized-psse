@@ -1,0 +1,27 @@
+scaling:
+  alpha: 0.05
+  angle_solver: iterative
+  case_source: pypower
+  cases:
+  - ieee14
+  - ieee30
+  evaluate_infeasible_matrices: true
+  grid_size: 512
+  max_simulated_size: 8
+  output_dir: outputs/qsvt_circuit_scaling
+  phase_cache_dir: outputs/qsvt_phase_cache
+  polynomial_degree: 5
+  run_id: qsvt_circuit_scaling
+  seed: 123
+  selection_strategy: high_leverage
+  sizes:
+  - 2
+  - 4
+  - 8
+  - 16
+  transpile_basis_gates:
+  - rz
+  - sx
+  - x
+  - cx
+  transpile_optimization_level: 1

@@ -1,0 +1,18 @@
+demo:
+  run_id: qsvt_pennylane_matrix_ieee300_submatrix
+  output_dir: outputs/qsvt_pennylane_matrix_ieee300_submatrix
+  alpha: 0.05
+  polynomial_degree: 5
+  grid_size: 512
+  angle_solver: iterative
+  block_encoding: embedding
+
+matrix:
+  case_name: ieee300
+  case_source: pypower
+  mode: ac_weighted_jacobian
+  matrix_scope: submatrix
+  submatrix_size: 4
+  selection_strategy: high_leverage
+  seed: 123
+

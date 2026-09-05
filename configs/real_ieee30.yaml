@@ -1,0 +1,74 @@
+run_name: real_ieee30_seed10
+seed: 101
+
+system:
+  case_name: ieee30
+  case_source: pypower
+  mode: ac_power_flow_linearized
+  measurement:
+    include_voltage_magnitudes: true
+    include_p_injections: true
+    include_q_injections: false
+    include_p_branch_flows: true
+    include_q_branch_flows: false
+    voltage_std: 0.01
+    injection_p_std: 0.03
+    injection_q_std: 0.03
+    flow_p_std: 0.02
+    flow_q_std: 0.02
+    weak_area_buses: [26, 27, 28, 29, 30]
+    weak_area_std_multiplier: 10.0
+  linearization:
+    angle_perturbation_std: 0.005
+    voltage_perturbation_std: 0.005
+    min_voltage_magnitude: 0.5
+
+scenario:
+  name: real_ieee30_ac_linearized
+  noise_std: 0.002
+  missing_ratio: 0.1
+  bad_data:
+    enabled: true
+    ratio: 0.05
+    magnitude: 5.0
+    target: weak_area
+
+sweeps:
+  - name: real_noise_sweep
+    parameter: scenario.noise_std
+    values: [0.0, 0.002, 0.01]
+    seeds: [101, 202, 303, 404, 505, 606, 707, 808, 909, 1001]
+  - name: real_missing_sweep
+    parameter: scenario.missing_ratio
+    values: [0.0, 0.1, 0.2]
+    seeds: [101, 202, 303, 404, 505, 606, 707, 808, 909, 1001]
+  - name: real_bad_data_ratio_sweep
+    parameter: scenario.bad_data.ratio
+    values: [0.0, 0.05, 0.1]
+    seeds: [101, 202, 303, 404, 505, 606, 707, 808, 909, 1001]
+
+estimators:
+  - name: pseudoinverse
+    rcond: 1.0e-10
+  - name: ridge
+    alpha: 1.0e-4
+  - name: truncated_svd
+    tau: 1.0e-5
+  - name: qsvt_regularized
+    alpha: 1.0e-4
+  - name: huber_irls
+    delta: 1.5
+    max_iterations: 10
+    tolerance: 1.0e-7
+
+qsvt_resource:
+  enabled: true
+  degrees: [4, 8, 16, 32]
+  grid_size: 512
+  target_error: 1.0e-3
+
+output:
+  root: outputs
+  run_id: real_ieee30_seed10
+  save_plots: true
+  overwrite: true

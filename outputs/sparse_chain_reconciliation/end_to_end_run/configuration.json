@@ -1,0 +1,74 @@
+{
+  "C": 1.9918449969534795,
+  "alpha": 1134521.3658711074,
+  "beta": 4041.1277722772575,
+  "case_name": "ieee14",
+  "case_source": "pypower",
+  "configuration_id": "ieee14_sparse_quantized_8x8_d31_selected_v1",
+  "contraction_c": 1.9918449969534795,
+  "lambda": 0.06947163416534002,
+  "matrix_fingerprint": "26159050694e76abc32692332daba94e9cd5e22d958a242236b4d57509aeab21",
+  "matrix_path": "outputs/sparse_chain_reconciliation/end_to_end_run/matrix_quantized.npy",
+  "matrix_shape": [
+    8,
+    8
+  ],
+  "matrix_source": "ieee14_pypower_ac_weighted_jacobian",
+  "matrix_value_bits": 6,
+  "normalization": "A = H_q^T / beta; beta = slots * mu",
+  "normalized_lambda": 0.06947163416534002,
+  "phase_convention": "pennylane_qsvt_pcphase_u_udagger_real_top_left",
+  "phase_path": "outputs/phase10_sparse_wrapper_8x8_complete/phase_cache/38b8a10ad6ec88f509459bf3_phase_angles.csv",
+  "polynomial_degree": 31,
+  "quantization": "6 magnitude bits + 1 sign bit",
+  "residual_fingerprint": "7b51f68a0e1cbdb4cfecd799d3fcb6f12c090a25bbc6a04f3f09324e06fdee82",
+  "residual_path": "outputs/sparse_chain_reconciliation/end_to_end_run/residual.npy",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "selected_columns": [
+    0,
+    2,
+    3,
+    7,
+    13,
+    14,
+    16,
+    17
+  ],
+  "selected_output_name": "coordinate_e0",
+  "selected_output_vector": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "selected_rows": [
+    15,
+    17,
+    18,
+    29,
+    31,
+    32,
+    48,
+    68
+  ],
+  "shot_counts": [
+    10000,
+    100000,
+    1000000
+  ]
+}

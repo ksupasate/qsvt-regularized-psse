@@ -1,0 +1,16 @@
+{
+  "alpha": 0.0001,
+  "cache_hit": false,
+  "cache_key": "92c6c8395b7d7a909b8fef36",
+  "coefficient_count": 32,
+  "degree": 31,
+  "max_abs_on_unit_interval": 0.562749182507923,
+  "n_phase_angles": 32,
+  "parity": "odd",
+  "phase_synthesis_angle_solver": "iterative",
+  "phase_synthesis_backend": "pennylane-0.45.0",
+  "phase_synthesis_message": "PennyLane poly_to_angles completed",
+  "phase_synthesis_method": "pennylane_poly_to_angles",
+  "phase_synthesis_success": true,
+  "workload": "phase10_full_rectangular"
+}

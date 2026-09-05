@@ -1,0 +1,16 @@
+scaling:
+  run_id: qsvt_circuit_scaling
+  output_dir: outputs/qsvt_circuit_scaling
+  cases: [ieee14, ieee30]
+  sizes: [2, 4, 8, 16]
+  case_source: pypower
+  selection_strategy: high_leverage
+  seed: 123
+  alpha: 0.05
+  polynomial_degree: 5
+  grid_size: 512
+  angle_solver: iterative
+  phase_cache_dir: outputs/qsvt_phase_cache
+  transpile_basis_gates: [rz, sx, x, cx]
+  transpile_optimization_level: 1
+  max_simulated_size: 8

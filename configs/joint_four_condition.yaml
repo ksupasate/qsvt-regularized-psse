@@ -1,0 +1,103 @@
+# Joint four-condition single-candidate decision-rule configuration.
+#
+# Versioned, declared_before_outcome_evaluation: true. This file EXTENDS (does not invent)
+# thresholds already predeclared in configs/tqe_reviewer_blocking/joint_feasibility.json:
+#   y_floor=1e-6, sparsification_error_threshold=0.1, action_error_tolerance=1e-6,
+#   useful_rmse_ratio_threshold=1.5, bound_tolerance=0.002.
+# No threshold here is chosen after inspecting the candidate outcome. The canonical candidate is
+# frozen (candidate_freeze.json) BEFORE any four-condition metric is computed.
+#
+# NOTE: "normalized_error_failure_threshold" is deliberately NOT used; it does not exist in the
+# repository. Condition 2 has no pass threshold registered for the benchmark-relative
+# selected-output error of this candidate, so its decision is INCONCLUSIVE (the metric is still
+# computed and reported, with the predeclared descriptive gates shown as context only).
+
+study_id: joint_four_condition_v1
+config_version: 1
+declared_before_outcome_evaluation: true
+
+candidate:
+  workload_id: ieee14_sparse_quantized_8x8_d31_selected_v1
+  rebuild: ft_workload_rebuild.rebuild_canonical   # identity-verified against frozen ledger
+  ieee_case: ieee14
+  matrix_seed: 123
+  historical_root: outputs/sparse_chain_reconciliation/end_to_end_run
+
+benchmark:
+  # Full-system benchmark-reference link is ESTABLISHED HERE from frozen inputs (the 82x27
+  # weighted Jacobian at matrix_seed 123), not fabricated and not altering historical evidence.
+  # The canonical compiler artifacts never recorded this link; the only prior link
+  # (outputs/selected_block_bridge/selected_block_full_system_bridge.json) disclaims itself as a
+  # "selected-submatrix surrogate; not the selected functional of the full-system Ridge update".
+  establish_link_freshly: true
+  primary: full_system_ridge_natural_alpha      # user-selected Condition-2 primary reference
+  natural_alpha: 1.0e-4                          # established full-system reference alpha
+  matched_alpha: 1134521.3658711074             # candidate's own alpha (secondary, isolates reg.)
+  secondary:
+    - full_system_ridge_matched_alpha
+    - truth_reference                            # y_truth = ell . full.x_true[block_cols]
+
+condition_1:                                     # Support preservation (selected-output scalar)
+  name: support_preservation
+  metric: E_support
+  definition: "|y_sparse_Ridge - y_full_block_Ridge| / max(|y_full_block_Ridge|, y_floor)"
+  threshold: 0.1                                 # sparsification_error_threshold (joint_feasibility.json)
+  direction: lower_is_better
+  also_report: epsilon_support_vector_norm       # continuity with existing summary table (0.2809)
+
+condition_2:                                     # Benchmark-reference usefulness
+  name: benchmark_usefulness
+  metric: E_benchmark
+  definition: "|y_sparse_Ridge - y_benchmark| / max(|y_benchmark|, y_floor)"
+  threshold: null                                # NO pass threshold registered for this metric/candidate
+  decision: inconclusive
+  descriptive_gates_only:                         # context, never PASS/FAIL
+    sparsification_error_threshold: 0.1
+    useful_rmse_ratio_threshold: 1.5
+
+condition_3:                                     # Matched-filter QSVT implementation
+  name: filter_implementation
+  metric: epsilon_qsvt
+  qsvt_error_threshold: 1.0e-6                    # action_error_tolerance (joint_feasibility.json)
+  required_checks:
+    - block_validation
+    - polynomial_boundedness
+    - phase_synthesis
+    - qsvt_polynomial_error
+    - signed_readout_recovery
+
+condition_4:                                     # Access, readout, and resource credibility
+  name: access_readout_credibility
+  decision_type: credible_or_not_credible_with_reason   # task-schema-permitted qualitative rubric
+  not_credible_if_any:                            # predeclared; declared before evaluation
+    - direct_small_scale_multiplexing_access
+    - sampled_selected_outputs_only
+    - no_compiled_ieee_scale_reversible_qrom
+    - no_integrated_amplitude_amplification
+  required_fields:
+    - qubits
+    - gates
+    - depth
+    - controlled_rotations
+    - postselection_probability
+    - attempted_shots
+    - per_functional_query_cost
+    - classical_comparator
+
+finite_shot:
+  mode: full_fresh_reproduction                  # user-selected: all 90 rows, bit-for-bit vs frozen
+  shot_counts: [10000, 100000, 1000000]
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  reuse_frozen_generator: true                    # run_compiled_shots (generic_sparse_execution.py:540)
+  assert_bit_for_bit_vs: outputs/generic_sparse_qsvt_compiler/canonical_shot_rows_generic.csv
+
+classical_comparators:
+  methods: [dense_ridge, sparse_direct, factorization_extract, adjoint_selected_output, krylov, exact_polynomial_action, gaussian_sketch]
+  scopes: [block_8x8, full_82x27]
+  claim_quantum_speedup: false
+
+claim_boundary: >-
+  Single frozen IEEE-14 8x8 d=31 candidate evaluated through four logically ordered conditions in
+  one traceable pipeline. Simulator-based only. No quantum speedup or quantum advantage; no
+  scalability claim from one 8x8 workload; no hardware execution; no practical PSSE deployment;
+  no impossibility theorem. A later-condition pass cannot override an earlier application failure.

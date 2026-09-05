@@ -1,0 +1,31 @@
+output_dir: outputs/phase3_resource_reproducibility
+manuscript_tables_dir: manuscript/tables
+phase2_config: configs/qsvt_phase2_boundary.yaml
+phase2_output_dir: outputs/phase2_qsvt_boundary
+seed: 123
+functional_count_q: 1
+reference_shot_budget: 100000
+target_relative_error: 1.0e-2
+adjoint_timing:
+  warmup_repeats: 3
+  timing_repeats: 30
+  value_agreement_rtol: 1.0e-9
+workloads:
+  - workload_id: ieee14_4x4_primary_anchor
+    representative_run_id: anchor_4x4_benchmark_alpha_d31
+    block_id: ieee14_4x4_anchor
+    interpretation: primary correctness anchor
+  - workload_id: ieee14_8x8_lambda_matched_anchor
+    representative_run_id: 8x8_codesigned_lambda_matched_d31
+    block_id: ieee14_8x8_raw
+    interpretation: secondary anchor
+  - workload_id: ieee14_8x8_condition_controlled_k1e4
+    representative_run_id: phase2_ieee14_8x8_condition_controlled_k1e4_lambda0.069_dmax45
+    block_id: ieee14_8x8_condition_controlled_k1e4
+    interpretation: smooth-lambda stress row; measured readout-limited
+  - workload_id: ieee30_16x16_raw
+    representative_run_id: phase2_ieee30_16x16_raw_lambda0.069_dmax45
+    block_id: ieee30_16x16_raw
+    interpretation: >-
+      strongest IEEE-derived selected-block success; selected-block assumptions,
+      not IEEE-scale sparse block-encoded execution

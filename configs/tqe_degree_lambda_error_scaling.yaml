@@ -1,0 +1,67 @@
+# Workstream A - Degree / normalized-regularization / target-tolerance feasibility grid.
+# Frozen BEFORE evaluation. Grid points are never added or removed after seeing outcomes.
+# Reused by src/robust_qsvt_se/tqe_extensions/degree_lambda_scaling.py.
+study_id: tqe_degree_lambda_error_scaling_v1
+matrix_seed: 123
+
+# Normalized regularization lambda = alpha / beta^2 (task section 5.2).
+normalized_lambdas: [1.0e-5, 3.0e-5, 1.0e-4, 3.0e-4, 1.0e-3, 3.0e-3,
+                     1.0e-2, 3.0e-2, 1.0e-1, 3.0e-1, 1.0, 3.0]
+
+# Target uniform-approximation tolerances (acceptance thresholds for d_min extraction).
+target_tolerances: [1.0e-2, 1.0e-3, 1.0e-4, 1.0e-5]
+
+# Positive odd QSVT degrees. Degree 511 is retained; if its fit is infeasible the row is kept
+# with an explicit failure code, never removed.
+degrees: [7, 15, 31, 63, 127, 255, 511]
+
+# Boundedness / fitting controls.
+target_margin: 1.05            # C = margin * interval-max of s/(s^2+lambda)
+bound_tolerance: 0.002         # bounded_max_abs <= 1 + bound_tolerance
+fit_grid_size: 6000
+
+# Phase synthesis is attempted only for the low-degree, circuit-relevant scopes; each attempt is
+# wall-clock guarded so a stiff target cannot hang the campaign. Full Jacobians are exact-matrix-
+# action tier (no synthesis). Degrees above the ceiling are analytic-only by declared policy.
+attempt_phase_synthesis: true
+phase_synthesis_degree_ceiling: 31
+phase_synthesis_timeout_seconds: 40.0
+
+# Six declared matrix scopes (task section 5.5).
+scopes:
+  - scope_id: scalar_validation
+    label: "Controlled scalar validation grid (beta=1, pure approximation theory)"
+    kind: scalar
+    domain_min: 1.0e-3
+  - scope_id: ieee14_8x8_canonical_sparse
+    label: "Representative 8x8 canonical sparse workload (IEEE-14, frozen alpha)"
+    kind: sparse_block
+    structure_id: ieee14_8x8
+    support_budget: 16
+    slot_budget: 3
+    reference_seed: 1000
+  - scope_id: ieee30_8x8_transfer_sparse
+    label: "Frozen 8x8 transfer workload (IEEE-30)"
+    kind: sparse_block
+    structure_id: ieee30_8x8
+    support_budget: 16
+    slot_budget: 3
+    reference_seed: 1000
+  - scope_id: ieee14_full_jacobian
+    label: "IEEE-14 full weighted Jacobian singular spectrum"
+    kind: full_jacobian
+    case: ieee14
+  - scope_id: ieee30_full_jacobian
+    label: "IEEE-30 full weighted Jacobian singular spectrum"
+    kind: full_jacobian
+    case: ieee30
+  - scope_id: ieee57_full_jacobian
+    label: "IEEE-57 full weighted Jacobian singular spectrum"
+    kind: full_jacobian
+    case: ieee57
+
+# Declared statevector executions (executed only if phases synthesize; otherwise recorded skipped).
+statevector_executions:
+  - {scope_id: ieee14_8x8_canonical_sparse, normalized_lambda: 1.0e-1, degree: 31}
+  - {scope_id: ieee14_8x8_canonical_sparse, normalized_lambda: 3.0e-1, degree: 31}
+  - {scope_id: ieee30_8x8_transfer_sparse, normalized_lambda: 1.0e-1, degree: 31}
